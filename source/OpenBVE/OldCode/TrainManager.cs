@@ -18,6 +18,12 @@ namespace OpenBve
 		/// <param name="TimeElapsed">The time elapsed since the last call to this function</param>
 		internal static void UpdateTrains(double TimeElapsed)
 		{
+			if (PlayerTrain != null)
+			{
+				Mqtt.Mqtt.Publish((Math.Abs(PlayerTrain.CurrentSpeed) * 3.6).ToString("0.00"));
+
+			}
+
 			for (int i = 0; i < Trains.Length; i++) {
 				Trains[i].Update(TimeElapsed);
 			}

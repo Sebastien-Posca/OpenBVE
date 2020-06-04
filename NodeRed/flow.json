@@ -238,7 +238,7 @@
         "type": "mqtt in",
         "z": "9971ef58.be2f2",
         "name": "",
-        "topic": "/train/sensors/CurrentAvgAcc",
+        "topic": "/train/sensors/currentAvgAcc",
         "qos": "0",
         "datatype": "auto",
         "broker": "9c4cb57a.f4cb18",
@@ -288,7 +288,7 @@
         "type": "mqtt out",
         "z": "9971ef58.be2f2",
         "name": "",
-        "topic": "/train/actuators/PowerUp",
+        "topic": "/train/actuators/powerUp",
         "qos": "",
         "retain": "",
         "broker": "9c4cb57a.f4cb18",
@@ -321,7 +321,7 @@
         "type": "mqtt out",
         "z": "9971ef58.be2f2",
         "name": "",
-        "topic": "/train/actuators/PowerDown",
+        "topic": "/train/actuators/powerDown",
         "qos": "",
         "retain": "",
         "broker": "9c4cb57a.f4cb18",
@@ -354,7 +354,7 @@
         "type": "mqtt in",
         "z": "9971ef58.be2f2",
         "name": "",
-        "topic": "/train/sensors/Power",
+        "topic": "/train/sensors/power",
         "qos": "0",
         "datatype": "auto",
         "broker": "9c4cb57a.f4cb18",
@@ -661,7 +661,7 @@
         "type": "mqtt in",
         "z": "9971ef58.be2f2",
         "name": "",
-        "topic": "/train/sensors/DoorsLeft",
+        "topic": "/train/sensors/doorsLeft",
         "qos": "0",
         "datatype": "auto",
         "broker": "9c4cb57a.f4cb18",
@@ -678,7 +678,7 @@
         "type": "mqtt in",
         "z": "9971ef58.be2f2",
         "name": "",
-        "topic": "/train/sensors/DoorsRight",
+        "topic": "/train/sensors/doorsRight",
         "qos": "0",
         "datatype": "auto",
         "broker": "9c4cb57a.f4cb18",
@@ -785,6 +785,75 @@
         "layout": "row-spread",
         "x": 380,
         "y": 360,
+        "wires": []
+    },
+    {
+        "id": "190f1daa.389712",
+        "type": "mqtt in",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "topic": "/train/infos/distanceToNextStation",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "9c4cb57a.f4cb18",
+        "x": 860,
+        "y": 640,
+        "wires": [
+            [
+                "6b91ca52.afb264"
+            ]
+        ]
+    },
+    {
+        "id": "6b91ca52.afb264",
+        "type": "function",
+        "z": "9971ef58.be2f2",
+        "name": "split string",
+        "func": "var res = msg.payload.replace(/\\s+/g, '').split(\";\");\nmsg.payload = res\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1080,
+        "y": 640,
+        "wires": [
+            [
+                "128d91fe.d3c54e"
+            ]
+        ]
+    },
+    {
+        "id": "e98f55aa.953248",
+        "type": "inject",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "topic": "",
+        "payload": "-57,6 ; 3717,4 ; 9867,4 ; 16842,4 ; 19892,4 ; 25842,4",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 790,
+        "y": 700,
+        "wires": [
+            [
+                "6b91ca52.afb264"
+            ]
+        ]
+    },
+    {
+        "id": "128d91fe.d3c54e",
+        "type": "ui_text",
+        "z": "9971ef58.be2f2",
+        "group": "775926c7.0ac248",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Distance to stations :",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 1280,
+        "y": 640,
         "wires": []
     }
 ]

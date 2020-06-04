@@ -9,8 +9,8 @@ namespace OpenBve.Mqtt
 	public static class Mqtt
 	{
 		private static MqttClient client = new MqttClient("192.168.0.15");
-		const string powerUp = "/train/actuators/PowerUp";
-		const string powerDown = "/train/actuators/PowerDown";
+		const string powerUp = "/train/actuators/powerUp";
+		const string powerDown = "/train/actuators/powerDown";
 		const string brakeIncrease = "/train/actuators/brakeIncrease";
 		const string brakeDecrease = "/train/actuators/brakeDecrease";
 		const string reverserForward = "/train/actuators/reverserForward";

@@ -23,12 +23,13 @@ namespace OpenBve
 				double nr = PlayerTrain.CurrentRouteLimit;
 				double ns = PlayerTrain.CurrentSectionLimit;
 				double n = nr < ns ? nr : ns;
-				Mqtt.Mqtt.Publish("/train/infos/speedLimit", n.ToString());
-				Mqtt.Mqtt.Publish("/train/sensors/CurrentAvgAcc", PlayerTrain.Specs.CurrentAverageAcceleration.ToString("0.0000"));
+
+				Mqtt.Mqtt.Publish("/train/infos/speedLimit", (Math.Abs(n) * 3.6).ToString("0.0"));
+				Mqtt.Mqtt.Publish("/train/sensors/currentAvgAcc", PlayerTrain.Specs.CurrentAverageAcceleration.ToString("0.0000"));
 				Mqtt.Mqtt.Publish("/train/sensors/currentSpeed", (Math.Abs(PlayerTrain.CurrentSpeed) * 3.6).ToString("0.00"));
-				Mqtt.Mqtt.Publish("/train/sensors/Power", PlayerTrain.Handles.Power.Driver.ToString());
-				Mqtt.Mqtt.Publish("/train/sensors/DoorsLeft", GetDoorsState(PlayerTrain, true, false).ToString());
-				Mqtt.Mqtt.Publish("/train/sensors/DoorsRight", GetDoorsState(PlayerTrain, false, true).ToString());
+				Mqtt.Mqtt.Publish("/train/sensors/power", PlayerTrain.Handles.Power.Driver.ToString());
+				Mqtt.Mqtt.Publish("/train/sensors/doorsLeft", GetDoorsState(PlayerTrain, true, false).ToString());
+				Mqtt.Mqtt.Publish("/train/sensors/doorsRight", GetDoorsState(PlayerTrain, false, true).ToString());
 				Mqtt.Mqtt.Publish("/train/sensors/brake", PlayerTrain.Handles.Brake.Driver.ToString());
 			}
 

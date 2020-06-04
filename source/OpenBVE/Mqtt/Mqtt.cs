@@ -11,28 +11,33 @@ namespace OpenBve.Mqtt
 	public static class Mqtt
 	{
 		private static MqttClient client = new MqttClient("192.168.0.15");
-		private static int cpt = 0;
+		//private static int cpt = 0;
 
 		static Mqtt()
 		{
+			client.MqttMsgPublishReceived += client_recievedMessage;
 			string clientId = Guid.NewGuid().ToString();
 			client.Connect(clientId);
-		}
-		public static void Publish(String msg)
-		{
-			cpt += 1;
-			if (cpt == 60)
-			{
-				Console.WriteLine(msg);
+			client.Subscribe(new String[] { "/train/actuators/PowerUp" }, new byte[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
 
-				client.Publish("/train/currentSpeed", Encoding.UTF8.GetBytes(msg), MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE, false);
-				cpt = 0;
-				return;
-			}
-			else
+		}
+		public static void Publish(String topic, String msg)
+		{
+			client.Publish(topic, Encoding.UTF8.GetBytes(msg), MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE, false);
+
+		}
+
+		static void client_recievedMessage(object sender, MqttMsgPublishEventArgs e)
+		{
+			if (!TrainManager.PlayerTrain.Handles.SingleHandle)
 			{
-				return;
+				int p = TrainManager.PlayerTrain.Handles.Power.Driver;
+				if (p < TrainManager.PlayerTrain.Handles.Power.MaximumNotch)
+				{
+					TrainManager.PlayerTrain.ApplyNotch(1, true, 0, true);
+				}
 			}
+			TrainManager.PlayerTrain.Handles.Power.ContinuousMovement = true;
 		}
 	}
 }

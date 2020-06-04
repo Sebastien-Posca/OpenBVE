@@ -20,8 +20,8 @@ namespace OpenBve
 		{
 			if (PlayerTrain != null)
 			{
-				Mqtt.Mqtt.Publish((Math.Abs(PlayerTrain.CurrentSpeed) * 3.6).ToString("0.00"));
-
+				Mqtt.Mqtt.Publish("/train/sensors/CurrentAvgAcc", PlayerTrain.Specs.CurrentAverageAcceleration.ToString("0.0000"));
+				Mqtt.Mqtt.Publish("/train/sensors/currentSpeed", (Math.Abs(PlayerTrain.CurrentSpeed) * 3.6).ToString("0.00"));
 			}
 
 			for (int i = 0; i < Trains.Length; i++) {

@@ -18,6 +18,7 @@ namespace OpenBve
 		/// <param name="timeElapsed">The time in seconds that elapsed since the last call to this function.</param>
 		protected override void UpdateLinearModel(double timeElapsed)
 		{
+
 			/*
 			 * Set up the listener
 			 * */
@@ -266,6 +267,7 @@ namespace OpenBve
 		/// <param name="timeElapsed">The time in seconds that elapsed since the last call to this function.</param>
 		protected override void UpdateInverseModel(double timeElapsed)
 		{
+			Mqtt.Mqtt.Publish("/train/sensors/soundsPlaying", Program.Sounds.GetNumberOfPlayingSources().ToString());
 			/*
 			 * Set up the listener.
 			 * */

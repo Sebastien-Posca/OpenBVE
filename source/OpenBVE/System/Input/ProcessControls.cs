@@ -1169,6 +1169,7 @@ namespace OpenBve
 										}
 										break;
 									case Translations.Command.PowerIncrease:
+
 										// power increase
 										if (!TrainManager.PlayerTrain.Handles.SingleHandle)
 										{

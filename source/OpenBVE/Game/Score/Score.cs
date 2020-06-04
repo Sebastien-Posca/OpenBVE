@@ -102,7 +102,6 @@ namespace OpenBve
 				double nr = TrainManager.PlayerTrain.CurrentRouteLimit;
 				double ns = TrainManager.PlayerTrain.CurrentSectionLimit;
 				double n = nr < ns ? nr : ns;
-				Mqtt.Mqtt.Publish("/train/infos/speedLimit", n.ToString());
 				double a = Math.Abs(TrainManager.PlayerTrain.CurrentSpeed) - 0.277777777777778;
 				if (a > n)
 				{

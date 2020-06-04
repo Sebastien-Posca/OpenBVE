@@ -821,26 +821,6 @@
         ]
     },
     {
-        "id": "e98f55aa.953248",
-        "type": "inject",
-        "z": "9971ef58.be2f2",
-        "name": "",
-        "topic": "",
-        "payload": "-57,6 ; 3717,4 ; 9867,4 ; 16842,4 ; 19892,4 ; 25842,4",
-        "payloadType": "str",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 790,
-        "y": 700,
-        "wires": [
-            [
-                "6b91ca52.afb264"
-            ]
-        ]
-    },
-    {
         "id": "128d91fe.d3c54e",
         "type": "ui_text",
         "z": "9971ef58.be2f2",

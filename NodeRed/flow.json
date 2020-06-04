@@ -1,0 +1,790 @@
+[
+    {
+        "id": "9971ef58.be2f2",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "9c4cb57a.f4cb18",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "192.168.0.15",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "bab3fa56.286b38",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "775926c7.0ac248",
+        "type": "ui_group",
+        "z": "",
+        "name": "Infos",
+        "tab": "bab3fa56.286b38",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "5e31a918.f96b98",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "597db393.d796ac",
+        "type": "ui_group",
+        "z": "",
+        "name": "Power",
+        "tab": "bab3fa56.286b38",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "b78640e8.abb76",
+        "type": "ui_group",
+        "z": "",
+        "name": "Brake",
+        "tab": "bab3fa56.286b38",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d3d0a362.bf212",
+        "type": "ui_group",
+        "z": "",
+        "name": "Doors",
+        "tab": "bab3fa56.286b38",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "20af5de.e7878a2",
+        "type": "mqtt in",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "topic": "/train/sensors/currentSpeed",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "9c4cb57a.f4cb18",
+        "x": 160,
+        "y": 100,
+        "wires": [
+            [
+                "afef781f.5a5e38"
+            ]
+        ]
+    },
+    {
+        "id": "afef781f.5a5e38",
+        "type": "ui_gauge",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "group": "775926c7.0ac248",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Speed :",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "200",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 380,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "8bf6a989.558b28",
+        "type": "mosca in",
+        "z": "9971ef58.be2f2",
+        "mqtt_port": 1883,
+        "mqtt_ws_port": 8080,
+        "name": "",
+        "username": "",
+        "password": "",
+        "dburl": "",
+        "x": 110,
+        "y": 20,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4d056353.c50c6c",
+        "type": "mqtt in",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "topic": "/train/sensors/CurrentAvgAcc",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "9c4cb57a.f4cb18",
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "40266bd5.61a964"
+            ]
+        ]
+    },
+    {
+        "id": "40266bd5.61a964",
+        "type": "ui_text",
+        "z": "9971ef58.be2f2",
+        "group": "775926c7.0ac248",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Acceleration : ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 400,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "a9a61f21.b6245",
+        "type": "mqtt in",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "topic": "/train/sensors/soundsPlaying",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "9c4cb57a.f4cb18",
+        "x": 160,
+        "y": 220,
+        "wires": [
+            [
+                "ba63d49.954cf28"
+            ]
+        ]
+    },
+    {
+        "id": "c494d207.7aa2c",
+        "type": "mqtt out",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "topic": "/train/actuators/PowerUp",
+        "qos": "",
+        "retain": "",
+        "broker": "9c4cb57a.f4cb18",
+        "x": 970,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "e6b6c676.c39f48",
+        "type": "inject",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 690,
+        "y": 120,
+        "wires": [
+            [
+                "c494d207.7aa2c"
+            ]
+        ]
+    },
+    {
+        "id": "3c50cc8b.9c6f24",
+        "type": "mqtt out",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "topic": "/train/actuators/PowerDown",
+        "qos": "",
+        "retain": "",
+        "broker": "9c4cb57a.f4cb18",
+        "x": 980,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "4777dbf5.fc6db4",
+        "type": "inject",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 690,
+        "y": 200,
+        "wires": [
+            [
+                "3c50cc8b.9c6f24"
+            ]
+        ]
+    },
+    {
+        "id": "779955bb.c8c69c",
+        "type": "mqtt in",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "topic": "/train/sensors/Power",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "9c4cb57a.f4cb18",
+        "x": 130,
+        "y": 280,
+        "wires": [
+            [
+                "a9e073f5.b0405"
+            ]
+        ]
+    },
+    {
+        "id": "8b2bff94.cec7d",
+        "type": "ui_button",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "group": "597db393.d796ac",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Power Down",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "",
+        "x": 680,
+        "y": 260,
+        "wires": [
+            [
+                "3c50cc8b.9c6f24"
+            ]
+        ]
+    },
+    {
+        "id": "281d1876.db4398",
+        "type": "ui_button",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "group": "597db393.d796ac",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Power Up",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "",
+        "x": 690,
+        "y": 60,
+        "wires": [
+            [
+                "c494d207.7aa2c"
+            ]
+        ]
+    },
+    {
+        "id": "a9e073f5.b0405",
+        "type": "ui_gauge",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "group": "597db393.d796ac",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Power",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 310,
+        "y": 276,
+        "wires": []
+    },
+    {
+        "id": "1e0045e4.af79fa",
+        "type": "mqtt out",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "topic": "/train/actuators/brakeIncrease",
+        "qos": "",
+        "retain": "",
+        "broker": "9c4cb57a.f4cb18",
+        "x": 970,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "12a57e15.2dfd92",
+        "type": "mqtt out",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "topic": "/train/actuators/brakeDecrease",
+        "qos": "",
+        "retain": "",
+        "broker": "9c4cb57a.f4cb18",
+        "x": 970,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "3051877c.792418",
+        "type": "mqtt out",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "topic": "/train/actuators/doorsLeft",
+        "qos": "",
+        "retain": "",
+        "broker": "9c4cb57a.f4cb18",
+        "x": 390,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "2ff9a303.91447c",
+        "type": "mqtt out",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "topic": "/train/actuators/doorsRight",
+        "qos": "",
+        "retain": "",
+        "broker": "9c4cb57a.f4cb18",
+        "x": 400,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "2b4e086f.8c8598",
+        "type": "ui_button",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "group": "b78640e8.abb76",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "brake +",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "",
+        "x": 680,
+        "y": 360,
+        "wires": [
+            [
+                "1e0045e4.af79fa"
+            ]
+        ]
+    },
+    {
+        "id": "96e27b0e.8f6888",
+        "type": "ui_button",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "group": "b78640e8.abb76",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Brake -",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "",
+        "x": 680,
+        "y": 400,
+        "wires": [
+            [
+                "12a57e15.2dfd92"
+            ]
+        ]
+    },
+    {
+        "id": "685e96ec.34f428",
+        "type": "ui_button",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "group": "d3d0a362.bf212",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Doors left",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "",
+        "x": 100,
+        "y": 480,
+        "wires": [
+            [
+                "3051877c.792418"
+            ]
+        ]
+    },
+    {
+        "id": "370693be.8c017c",
+        "type": "ui_button",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "group": "d3d0a362.bf212",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Doors Right",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "",
+        "x": 110,
+        "y": 520,
+        "wires": [
+            [
+                "2ff9a303.91447c"
+            ]
+        ]
+    },
+    {
+        "id": "40a4964d.f36b48",
+        "type": "mqtt out",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "topic": "/train/actuators/reverserForward",
+        "qos": "",
+        "retain": "",
+        "broker": "9c4cb57a.f4cb18",
+        "x": 390,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "1373f7ba.1233b8",
+        "type": "ui_button",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "group": "775926c7.0ac248",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Forward",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "",
+        "x": 80,
+        "y": 420,
+        "wires": [
+            [
+                "40a4964d.f36b48"
+            ]
+        ]
+    },
+    {
+        "id": "e2c0ba1b.0bae98",
+        "type": "mqtt in",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "topic": "/train/sensors/brake",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "9c4cb57a.f4cb18",
+        "x": 730,
+        "y": 460,
+        "wires": [
+            [
+                "f46b226f.3137a"
+            ]
+        ]
+    },
+    {
+        "id": "bdced8e6.660f48",
+        "type": "mqtt in",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "topic": "/train/sensors/DoorsLeft",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "9c4cb57a.f4cb18",
+        "x": 200,
+        "y": 600,
+        "wires": [
+            [
+                "c4142299.98b62"
+            ]
+        ]
+    },
+    {
+        "id": "8accfde5.cafe5",
+        "type": "mqtt in",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "topic": "/train/sensors/DoorsRight",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "9c4cb57a.f4cb18",
+        "x": 210,
+        "y": 660,
+        "wires": [
+            [
+                "44fbf2c3.3f493c"
+            ]
+        ]
+    },
+    {
+        "id": "c4142299.98b62",
+        "type": "ui_text",
+        "z": "9971ef58.be2f2",
+        "group": "d3d0a362.bf212",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Door left :",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 380,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "44fbf2c3.3f493c",
+        "type": "ui_text",
+        "z": "9971ef58.be2f2",
+        "group": "d3d0a362.bf212",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Door Right :",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 430,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "ba63d49.954cf28",
+        "type": "ui_text",
+        "z": "9971ef58.be2f2",
+        "group": "775926c7.0ac248",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Nb of Sounds : ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 380,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "f46b226f.3137a",
+        "type": "ui_text",
+        "z": "9971ef58.be2f2",
+        "group": "b78640e8.abb76",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Brakes :",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 900,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "93fb29e.99079d8",
+        "type": "mqtt in",
+        "z": "9971ef58.be2f2",
+        "name": "",
+        "topic": "/train/infos/speedLimit",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "9c4cb57a.f4cb18",
+        "x": 140,
+        "y": 360,
+        "wires": [
+            [
+                "938569f5.2539e8"
+            ]
+        ]
+    },
+    {
+        "id": "938569f5.2539e8",
+        "type": "ui_text",
+        "z": "9971ef58.be2f2",
+        "group": "775926c7.0ac248",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Limit :",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 380,
+        "y": 360,
+        "wires": []
+    }
+]

@@ -22,6 +22,7 @@ namespace OpenBve
 			{
 				Mqtt.Mqtt.Publish("/train/sensors/CurrentAvgAcc", PlayerTrain.Specs.CurrentAverageAcceleration.ToString("0.0000"));
 				Mqtt.Mqtt.Publish("/train/sensors/currentSpeed", (Math.Abs(PlayerTrain.CurrentSpeed) * 3.6).ToString("0.00"));
+				Mqtt.Mqtt.Publish("/train/sensors/Power", PlayerTrain.Handles.Power.Driver.ToString());
 			}
 
 			for (int i = 0; i < Trains.Length; i++) {

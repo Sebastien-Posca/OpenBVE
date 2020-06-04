@@ -1,4 +1,6 @@
 using System;
+using System.Runtime.ConstrainedExecution;
+using System.Text;
 using OpenBveApi.Trains;
 
 namespace OpenBve
@@ -6,6 +8,8 @@ namespace OpenBve
 	/// <summary>The TrainManager is the root class containing functions to load and manage trains within the simulation world.</summary>
 	public static partial class TrainManager
 	{
+		private static int cpt = 0;
+
 		// trains
 		/// <summary>The list of trains available in the simulation.</summary>
 		internal static Train[] Trains = new Train[] { };
@@ -31,6 +35,35 @@ namespace OpenBve
 				Mqtt.Mqtt.Publish("/train/sensors/doorsLeft", GetDoorsState(PlayerTrain, true, false).ToString());
 				Mqtt.Mqtt.Publish("/train/sensors/doorsRight", GetDoorsState(PlayerTrain, false, true).ToString());
 				Mqtt.Mqtt.Publish("/train/sensors/brake", PlayerTrain.Handles.Brake.Driver.ToString());
+
+				cpt++;
+				if (cpt == 30)
+				{
+					int length = Program.CurrentRoute.Stations.Length;
+					double p0 = 0;
+					double p1 = 0;
+					double m = 0;
+					int k = 0;
+					StringBuilder sb = new StringBuilder("", 256);
+					for (int i = 0; i < length; i++)
+					{
+						n = Program.CurrentRoute.Stations[i].GetStopIndex(PlayerTrain.NumberOfCars);
+						p0 = PlayerTrain.FrontCarTrackPosition();
+						p1 = Program.CurrentRoute.Stations[i].Stops.Length > 0 ? Program.CurrentRoute.Stations[i].Stops[k].TrackPosition : Program.CurrentRoute.Stations[i].DefaultTrackPosition;
+						m = p1 - p0;
+						if (i != length - 1)
+						{
+							sb.Append(m.ToString("0.0") + " ; ");
+						}
+						else
+						{
+							sb.Append(m.ToString("0.0"));
+						}
+					}
+					Mqtt.Mqtt.Publish("/train/infos/distanceToNextStation", sb.ToString());
+					cpt = 0;
+				}
+				
 			}
 
 			for (int i = 0; i < Trains.Length; i++) {

@@ -17,6 +17,7 @@ namespace OpenBve.Mqtt
 		const string doorsLeft = "/train/actuators/doorsLeft";
 		const string doorsRight = "/train/actuators/doorsRight";
 
+
 		static Mqtt()
 		{
 			client.MqttMsgPublishReceived += client_recievedMessage;

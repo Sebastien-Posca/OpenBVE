@@ -53,11 +53,11 @@ namespace OpenBve
 						m = p1 - p0;
 						if (i != length - 1)
 						{
-							sb.Append(m.ToString("0.0") + " ; ");
+							sb.Append(Program.CurrentRoute.Stations[i].Name + " : " + m.ToString("0.0") + " ; ");
 						}
 						else
 						{
-							sb.Append(m.ToString("0.0"));
+							sb.Append(Program.CurrentRoute.Stations[i].Name + " : " +m.ToString("0.0"));
 						}
 					}
 					Mqtt.Mqtt.Publish("/train/infos/distanceToNextStation", sb.ToString());

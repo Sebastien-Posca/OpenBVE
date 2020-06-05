@@ -2731,7 +2731,7 @@
         "y": 1100,
         "wires": [
             [
-                "75b07f95.f4ebb"
+                "10999ca0.13ff03"
             ]
         ]
     },
@@ -2878,5 +2878,93 @@
         "x": 460,
         "y": 1000,
         "wires": []
+    },
+    {
+        "id": "10999ca0.13ff03",
+        "type": "switch",
+        "z": "eea6ab89.ab12f8",
+        "name": "Speed Control Activated",
+        "property": "speedControl",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 1160,
+        "wires": [
+            [
+                "75b07f95.f4ebb"
+            ]
+        ]
+    },
+    {
+        "id": "9fe5dba5.3c1f98",
+        "type": "inject",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 1200,
+        "wires": [
+            [
+                "e1eac711.f88db8"
+            ]
+        ]
+    },
+    {
+        "id": "447cf236.31efbc",
+        "type": "inject",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 1240,
+        "wires": [
+            [
+                "e1eac711.f88db8"
+            ]
+        ]
+    },
+    {
+        "id": "e1eac711.f88db8",
+        "type": "change",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "speedControl",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 1220,
+        "wires": [
+            []
+        ]
     }
 ]

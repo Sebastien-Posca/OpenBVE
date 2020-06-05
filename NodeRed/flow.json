@@ -477,7 +477,8 @@
                 "416a07fc.c12068"
             ],
             [
-                "9470ffd0.df46"
+                "9470ffd0.df46",
+                "bbc4544.4bf05a8"
             ],
             [
                 "aa3b53ff.331a1",
@@ -517,7 +518,8 @@
                 "221a64d3.af83dc"
             ],
             [
-                "17bed60.3d19e2a"
+                "17bed60.3d19e2a",
+                "60ad86b0.4a1b48"
             ],
             [
                 "27226cf6.76f964",
@@ -666,7 +668,8 @@
         "y": 600,
         "wires": [
             [
-                "b503373d.2c5d18"
+                "b503373d.2c5d18",
+                "a5156b9c.642658"
             ],
             [
                 "64e88378.93360c",
@@ -747,7 +750,8 @@
         "y": 600,
         "wires": [
             [
-                "37dbe15.45cc41e"
+                "37dbe15.45cc41e",
+                "8eacaa96.999df8"
             ],
             [
                 "79580ec9.f0bb5",
@@ -848,11 +852,11 @@
         "id": "5d5db255.8c2f5c",
         "type": "ui_toast",
         "z": "eea6ab89.ab12f8",
-        "position": "dialog",
+        "position": "top right",
         "displayTime": "3",
         "highlight": "",
         "sendall": true,
-        "outputs": 1,
+        "outputs": 0,
         "ok": "OK",
         "cancel": "",
         "raw": false,
@@ -860,9 +864,7 @@
         "name": "Train Started",
         "x": 1130,
         "y": 600,
-        "wires": [
-            []
-        ]
+        "wires": []
     },
     {
         "id": "8f04107b.922eb",
@@ -2345,35 +2347,60 @@
         ]
     },
     {
-        "id": "ac0f90b1.87db8",
+        "id": "22bb43c3.c1279c",
+        "type": "mqtt out",
+        "z": "f9ff65b4.ebea78",
+        "name": "",
+        "topic": "/train/actuators/brakeIncrease",
+        "qos": "",
+        "retain": "",
+        "broker": "2ec8f30e.4410fc",
+        "x": 1270,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "ecab0fab.3bf35",
+        "type": "mqtt out",
+        "z": "f9ff65b4.ebea78",
+        "name": "",
+        "topic": "/train/actuators/brakeDecrease",
+        "qos": "",
+        "retain": "",
+        "broker": "2ec8f30e.4410fc",
+        "x": 1270,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "e65a2250.adb7f",
         "type": "comment",
         "z": "f9ff65b4.ebea78",
         "name": "Speed Control",
         "info": "",
-        "x": 650,
-        "y": 240,
+        "x": 530,
+        "y": 100,
         "wires": []
     },
     {
-        "id": "df1c1915.fa7168",
+        "id": "38a5c465.7133ec",
         "type": "mqtt in",
         "z": "f9ff65b4.ebea78",
-        "d": true,
         "name": "",
         "topic": "/train/sensors/currentSpeed",
         "qos": "0",
         "datatype": "auto",
         "broker": "2ec8f30e.4410fc",
-        "x": 740,
-        "y": 300,
+        "x": 620,
+        "y": 160,
         "wires": [
             [
-                "ad49c8c9.a29df8"
+                "a4a3aded.22678"
             ]
         ]
     },
     {
-        "id": "16f246cc.acfb59",
+        "id": "6a65c569.ca328c",
         "type": "switch",
         "z": "f9ff65b4.ebea78",
         "name": "",
@@ -2394,38 +2421,38 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1090,
-        "y": 300,
+        "x": 970,
+        "y": 160,
         "wires": [
             [
-                "d1a592d4.6adcb",
-                "f9c1b30a.61ecf"
+                "d7ee0032.7831f",
+                "22bb43c3.c1279c"
             ],
             [
-                "8ace2145.c95b",
-                "3e44569b.59b68a"
+                "ecab0fab.3bf35",
+                "d1404d44.4a71c"
             ]
         ]
     },
     {
-        "id": "ad49c8c9.a29df8",
+        "id": "a4a3aded.22678",
         "type": "function",
         "z": "f9ff65b4.ebea78",
         "name": "parseInt",
         "func": "msg.payload = parseInt(msg.payload)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 940,
-        "y": 300,
+        "x": 820,
+        "y": 160,
         "wires": [
             [
-                "16f246cc.acfb59",
-                "4cd32bf1.653994"
+                "6a65c569.ca328c",
+                "5ffd407.9d344c"
             ]
         ]
     },
     {
-        "id": "d1a592d4.6adcb",
+        "id": "d7ee0032.7831f",
         "type": "delay",
         "z": "f9ff65b4.ebea78",
         "name": "",
@@ -2439,42 +2466,16 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 1090,
-        "y": 240,
+        "x": 970,
+        "y": 100,
         "wires": [
             [
-                "16f246cc.acfb59"
+                "6a65c569.ca328c"
             ]
         ]
     },
     {
-        "id": "f9c1b30a.61ecf",
-        "type": "mqtt out",
-        "z": "f9ff65b4.ebea78",
-        "name": "",
-        "topic": "/train/actuators/brakeIncrease",
-        "qos": "",
-        "retain": "",
-        "broker": "2ec8f30e.4410fc",
-        "x": 1390,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "8ace2145.c95b",
-        "type": "mqtt out",
-        "z": "f9ff65b4.ebea78",
-        "name": "",
-        "topic": "/train/actuators/brakeDecrease",
-        "qos": "",
-        "retain": "",
-        "broker": "2ec8f30e.4410fc",
-        "x": 1390,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "3e44569b.59b68a",
+        "id": "d1404d44.4a71c",
         "type": "delay",
         "z": "f9ff65b4.ebea78",
         "name": "",
@@ -2488,16 +2489,16 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 1090,
-        "y": 360,
+        "x": 970,
+        "y": 220,
         "wires": [
             [
-                "16f246cc.acfb59"
+                "6a65c569.ca328c"
             ]
         ]
     },
     {
-        "id": "4cd32bf1.653994",
+        "id": "5ffd407.9d344c",
         "type": "debug",
         "z": "f9ff65b4.ebea78",
         "name": "",
@@ -2506,8 +2507,300 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 880,
-        "y": 360,
+        "x": 760,
+        "y": 220,
         "wires": []
+    },
+    {
+        "id": "96d37a2b.bccc38",
+        "type": "ui_toast",
+        "z": "eea6ab89.ab12f8",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "Door Left Closed",
+        "x": 570,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "bbc4544.4bf05a8",
+        "type": "link out",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "links": [
+            "88c07e3e.17ca3"
+        ],
+        "x": 520,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "60ad86b0.4a1b48",
+        "type": "link out",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "links": [
+            "aff18e32.e6757"
+        ],
+        "x": 755,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "a5156b9c.642658",
+        "type": "link out",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "links": [
+            "f1728bac.955d98"
+        ],
+        "x": 435,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "8eacaa96.999df8",
+        "type": "link out",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "links": [
+            "332531d0.66ec9e"
+        ],
+        "x": 915,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "ed7306df.dedf88",
+        "type": "ui_toast",
+        "z": "eea6ab89.ab12f8",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "Door Right Closed",
+        "x": 570,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "a86ae892.984a48",
+        "type": "ui_toast",
+        "z": "eea6ab89.ab12f8",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "Brake Neutral",
+        "x": 560,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "3e7a98f7.882d98",
+        "type": "ui_toast",
+        "z": "eea6ab89.ab12f8",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "Power Set",
+        "x": 550,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "88c07e3e.17ca3",
+        "type": "link in",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "links": [
+            "bbc4544.4bf05a8"
+        ],
+        "x": 195,
+        "y": 800,
+        "wires": [
+            [
+                "a1c37778.c2e888"
+            ]
+        ]
+    },
+    {
+        "id": "aff18e32.e6757",
+        "type": "link in",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "links": [
+            "60ad86b0.4a1b48"
+        ],
+        "x": 195,
+        "y": 840,
+        "wires": [
+            [
+                "5e1cd422.adb41c"
+            ]
+        ]
+    },
+    {
+        "id": "f1728bac.955d98",
+        "type": "link in",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "links": [
+            "a5156b9c.642658"
+        ],
+        "x": 195,
+        "y": 880,
+        "wires": [
+            [
+                "6e8487bd.164a68"
+            ]
+        ]
+    },
+    {
+        "id": "332531d0.66ec9e",
+        "type": "link in",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "links": [
+            "8eacaa96.999df8"
+        ],
+        "x": 195,
+        "y": 920,
+        "wires": [
+            [
+                "d31667c.4529f98"
+            ]
+        ]
+    },
+    {
+        "id": "a1c37778.c2e888",
+        "type": "change",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Door Left Closed",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 800,
+        "wires": [
+            [
+                "96d37a2b.bccc38"
+            ]
+        ]
+    },
+    {
+        "id": "5e1cd422.adb41c",
+        "type": "change",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Door Right Closed",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 840,
+        "wires": [
+            [
+                "ed7306df.dedf88"
+            ]
+        ]
+    },
+    {
+        "id": "6e8487bd.164a68",
+        "type": "change",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Brake Neutral",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 880,
+        "wires": [
+            [
+                "a86ae892.984a48"
+            ]
+        ]
+    },
+    {
+        "id": "d31667c.4529f98",
+        "type": "change",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Power Set",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 920,
+        "wires": [
+            [
+                "3e7a98f7.882d98"
+            ]
+        ]
     }
 ]

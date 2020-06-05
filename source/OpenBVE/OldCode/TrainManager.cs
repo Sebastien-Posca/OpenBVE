@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
 using OpenBveApi.Trains;
@@ -9,6 +10,8 @@ namespace OpenBve
 	public static partial class TrainManager
 	{
 		private static int cpt = 0;
+		private static int cpt1 = 0;
+
 
 		// trains
 		/// <summary>The list of trains available in the simulation.</summary>
@@ -57,13 +60,34 @@ namespace OpenBve
 						}
 						else
 						{
-							sb.Append(Program.CurrentRoute.Stations[i].Name + " : " +m.ToString("0.0"));
+							sb.Append(Program.CurrentRoute.Stations[i].Name + " : " + m.ToString("0.0"));
 						}
 					}
 					Mqtt.Mqtt.Publish("/train/infos/distanceToNextStation", sb.ToString());
 					cpt = 0;
 				}
-				
+
+				cpt1++;
+				if (cpt1 == 30)
+				{
+					double[] trainsPositions = new double[Trains.Length - 1];
+					System.Threading.Tasks.Parallel.For(0, Trains.Length, i =>
+					{
+						if (Trains[i].State == TrainState.Available)
+						{
+							if (!Trains[i].IsPlayerTrain)
+							{
+								double a = Trains[i].RearCarTrackPosition();
+								trainsPositions[i] = a - PlayerTrain.FrontCarTrackPosition();
+							}
+						}
+					});
+					double min = trainsPositions.Min();
+					Mqtt.Mqtt.Publish("/train/infos/distanceToTrain", min.ToString("0.0"));
+					cpt1 = 0;
+
+				}
+
 			}
 
 			for (int i = 0; i < Trains.Length; i++) {

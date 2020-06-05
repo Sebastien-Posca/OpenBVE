@@ -35,7 +35,7 @@ namespace OpenBve
 				Mqtt.Mqtt.Publish("/train/sensors/doorsLeft", GetDoorsState(PlayerTrain, true, false).ToString());
 				Mqtt.Mqtt.Publish("/train/sensors/doorsRight", GetDoorsState(PlayerTrain, false, true).ToString());
 				Mqtt.Mqtt.Publish("/train/sensors/brake", PlayerTrain.Handles.Brake.Driver.ToString());
-
+				Mqtt.Mqtt.Publish("/train/sensors/reverser", PlayerTrain.Handles.Reverser.Driver.ToString());
 				cpt++;
 				if (cpt == 30)
 				{

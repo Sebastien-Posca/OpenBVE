@@ -14,6 +14,8 @@ namespace OpenBve.Mqtt
 		const string brakeIncrease = "/train/actuators/brakeIncrease";
 		const string brakeDecrease = "/train/actuators/brakeDecrease";
 		const string reverserForward = "/train/actuators/reverserForward";
+		const string reverserBackward = "/train/actuators/reverserBackward";
+
 		const string doorsLeft = "/train/actuators/doorsLeft";
 		const string doorsRight = "/train/actuators/doorsRight";
 
@@ -23,7 +25,7 @@ namespace OpenBve.Mqtt
 			client.MqttMsgPublishReceived += client_recievedMessage;
 			string clientId = Guid.NewGuid().ToString();
 			client.Connect(clientId);
-			client.Subscribe(new String[] { powerUp, powerDown, brakeIncrease, brakeDecrease, reverserForward, doorsLeft, doorsRight }, new byte[] { 0,0,0,0,0,0,0 });
+			client.Subscribe(new String[] { powerUp, powerDown, brakeIncrease, brakeDecrease, reverserForward, reverserBackward, doorsLeft, doorsRight }, new byte[] { 0,0,0,0,0,0,0,0 });
 
 		}
 		public static void Publish(String topic, String msg)
@@ -164,11 +166,14 @@ namespace OpenBve.Mqtt
 						TrainManager.PlayerTrain.ApplyReverser(1, true);
 					}
 					break;
-				case doorsLeft:
-					if (TrainManager.PlayerTrain.Cars[TrainManager.PlayerTrain.DriverCar].Doors[0].ButtonPressed)
+				case reverserBackward:
+					// reverser backward
+					if (TrainManager.PlayerTrain.Handles.Reverser.Driver > TrainManager.ReverserPosition.Reverse)
 					{
-						return;
+						TrainManager.PlayerTrain.ApplyReverser(-1, true);
 					}
+					break;
+				case doorsLeft:
 					if ((TrainManager.GetDoorsState(TrainManager.PlayerTrain, true, false) &
 						 TrainManager.TrainDoorState.Opened) == 0)
 					{
@@ -191,10 +196,6 @@ namespace OpenBve.Mqtt
 					TrainManager.PlayerTrain.Cars[TrainManager.PlayerTrain.DriverCar].Doors[0].ButtonPressed = true;
 					break;
 				case doorsRight:
-					if (TrainManager.PlayerTrain.Cars[TrainManager.PlayerTrain.DriverCar].Doors[1].ButtonPressed)
-					{
-						return;
-					}
 					if ((TrainManager.GetDoorsState(TrainManager.PlayerTrain, false, true) &
 						 TrainManager.TrainDoorState.Opened) == 0)
 					{

@@ -229,7 +229,8 @@
 		"y": 160,
 		"wires": [
 			[
-				"babdd154.2d11a"
+				"babdd154.2d11a",
+				"1ee9f614.4375b2"
 			]
 		]
 	},
@@ -256,7 +257,7 @@
 		"seg1": "",
 		"seg2": "",
 		"x": 350,
-		"y": 160,
+		"y": 140,
 		"wires": []
 	},
 	{
@@ -302,7 +303,7 @@
 		"retain": "",
 		"broker": "639a45f0.dff854",
 		"x": 350,
-		"y": 460,
+		"y": 480,
 		"wires": []
 	},
 	{
@@ -318,7 +319,7 @@
 		"once": false,
 		"onceDelay": 0.1,
 		"x": 100,
-		"y": 480,
+		"y": 500,
 		"wires": [
 			[
 				"b6ebeb7c.b4c1d8"
@@ -335,7 +336,7 @@
 		"retain": "",
 		"broker": "639a45f0.dff854",
 		"x": 360,
-		"y": 560,
+		"y": 580,
 		"wires": []
 	},
 	{
@@ -351,7 +352,7 @@
 		"once": false,
 		"onceDelay": 0.1,
 		"x": 100,
-		"y": 540,
+		"y": 560,
 		"wires": [
 			[
 				"226f680e.8e134"
@@ -377,7 +378,7 @@
 		"payloadType": "date",
 		"topic": "",
 		"x": 90,
-		"y": 580,
+		"y": 600,
 		"wires": [
 			[
 				"226f680e.8e134"
@@ -403,7 +404,7 @@
 		"payloadType": "date",
 		"topic": "",
 		"x": 100,
-		"y": 440,
+		"y": 460,
 		"wires": [
 			[
 				"b6ebeb7c.b4c1d8"
@@ -576,7 +577,7 @@
 		"retain": "",
 		"broker": "639a45f0.dff854",
 		"x": 380,
-		"y": 400,
+		"y": 420,
 		"wires": []
 	},
 	{
@@ -598,7 +599,7 @@
 		"payloadType": "date",
 		"topic": "",
 		"x": 100,
-		"y": 400,
+		"y": 420,
 		"wires": [
 			[
 				"d9f286cd.c95d2"
@@ -615,10 +616,11 @@
 		"datatype": "auto",
 		"broker": "639a45f0.dff854",
 		"x": 770,
-		"y": 520,
+		"y": 540,
 		"wires": [
 			[
-				"ef00a9be.d19d88"
+				"ef00a9be.d19d88",
+				"c3e0b921.a9ba48"
 			]
 		]
 	},
@@ -698,10 +700,11 @@
 		"datatype": "auto",
 		"broker": "639a45f0.dff854",
 		"x": 140,
-		"y": 220,
+		"y": 240,
 		"wires": [
 			[
-				"881921a.c20016"
+				"881921a.c20016",
+				"b859db10.713d5"
 			]
 		]
 	},
@@ -731,7 +734,7 @@
 		"datatype": "auto",
 		"broker": "639a45f0.dff854",
 		"x": 170,
-		"y": 780,
+		"y": 800,
 		"wires": [
 			[
 				"26b15ce1.8c0c4c"
@@ -747,7 +750,7 @@
 		"outputs": 1,
 		"noerr": 0,
 		"x": 390,
-		"y": 780,
+		"y": 800,
 		"wires": [
 			[
 				"51d3b751.a6f1a8"
@@ -805,7 +808,7 @@
 		"outputs": 0,
 		"topic": "",
 		"x": 530,
-		"y": 780,
+		"y": 800,
 		"wires": []
 	},
 	{
@@ -821,7 +824,7 @@
 		"format": "{{msg.payload}}",
 		"layout": "row-spread",
 		"x": 150,
-		"y": 740,
+		"y": 760,
 		"wires": []
 	},
 	{
@@ -834,7 +837,7 @@
 		"datatype": "auto",
 		"broker": "639a45f0.dff854",
 		"x": 160,
-		"y": 680,
+		"y": 700,
 		"wires": [
 			[
 				"b2a88135.fcfe08"
@@ -851,10 +854,11 @@
 		"datatype": "auto",
 		"broker": "639a45f0.dff854",
 		"x": 130,
-		"y": 340,
+		"y": 360,
 		"wires": [
 			[
-				"20910922.febeee"
+				"20910922.febeee",
+				"a949177b.785a78"
 			]
 		]
 	},
@@ -880,7 +884,7 @@
 		],
 		"seg1": "",
 		"seg2": "",
-		"x": 350,
+		"x": 330,
 		"y": 340,
 		"wires": []
 	},
@@ -897,7 +901,7 @@
 		"format": "{{msg.payload}}",
 		"layout": "row-left",
 		"x": 380,
-		"y": 680,
+		"y": 700,
 		"wires": []
 	},
 	{
@@ -907,7 +911,7 @@
 		"name": "Power",
 		"info": "",
 		"x": 70,
-		"y": 300,
+		"y": 320,
 		"wires": []
 	},
 	{
@@ -917,7 +921,7 @@
 		"name": "General Infos",
 		"info": "",
 		"x": 90,
-		"y": 640,
+		"y": 660,
 		"wires": []
 	},
 	{
@@ -1026,7 +1030,7 @@
 		"order": 3,
 		"width": 0,
 		"height": 0,
-		"label": "chart",
+		"label": "Behavioural Drift",
 		"chartType": "line",
 		"legend": "false",
 		"xformat": "HH:mm:ss",
@@ -1054,7 +1058,7 @@
 		],
 		"useOldStyle": false,
 		"outputs": 1,
-		"x": 380,
+		"x": 420,
 		"y": 240,
 		"wires": [
 			[]
@@ -1088,7 +1092,9 @@
 		"x": 370,
 		"y": 80,
 		"wires": [
-			[]
+			[
+				"14e0c8fb.d35297"
+			]
 		]
 	},
 	{
@@ -1109,7 +1115,273 @@
 		"x": 370,
 		"y": 140,
 		"wires": [
+			[
+				"14e0c8fb.d35297"
+			]
+		]
+	},
+	{
+		"id": "14e0c8fb.d35297",
+		"type": "ui_chart",
+		"z": "e36ddb59.9c3dc8",
+		"name": "",
+		"group": "ba91c79a.2c127",
+		"order": 1,
+		"width": 0,
+		"height": 0,
+		"label": "Speed",
+		"chartType": "line",
+		"legend": "false",
+		"xformat": "HH:mm:ss",
+		"interpolate": "linear",
+		"nodata": "",
+		"dot": false,
+		"ymin": "",
+		"ymax": "",
+		"removeOlder": 1,
+		"removeOlderPoints": "",
+		"removeOlderUnit": "3600",
+		"cutout": 0,
+		"useOneColor": false,
+		"useUTC": false,
+		"colors": [
+			"#1f77b4",
+			"#d62728",
+			"#ff7f0e",
+			"#2ca02c",
+			"#98df8a",
+			"#d62728",
+			"#ff9896",
+			"#9467bd",
+			"#c5b0d5"
+		],
+		"useOldStyle": false,
+		"outputs": 1,
+		"x": 560,
+		"y": 120,
+		"wires": [
 			[]
+		]
+	},
+	{
+		"id": "1ee9f614.4375b2",
+		"type": "delay",
+		"z": "ea8c566e.d355c",
+		"name": "",
+		"pauseType": "rate",
+		"timeout": "5",
+		"timeoutUnits": "seconds",
+		"rate": "1",
+		"nbRateUnits": "1",
+		"rateUnits": "second",
+		"randomFirst": "1",
+		"randomLast": "5",
+		"randomUnits": "seconds",
+		"drop": true,
+		"x": 370,
+		"y": 180,
+		"wires": [
+			[
+				"7ffc8965.cb37b"
+			]
+		]
+	},
+	{
+		"id": "b859db10.713d5",
+		"type": "delay",
+		"z": "ea8c566e.d355c",
+		"name": "",
+		"pauseType": "rate",
+		"timeout": "5",
+		"timeoutUnits": "seconds",
+		"rate": "1",
+		"nbRateUnits": "1",
+		"rateUnits": "second",
+		"randomFirst": "1",
+		"randomLast": "5",
+		"randomUnits": "seconds",
+		"drop": true,
+		"x": 370,
+		"y": 260,
+		"wires": [
+			[
+				"7ffc8965.cb37b"
+			]
+		]
+	},
+	{
+		"id": "7ffc8965.cb37b",
+		"type": "ui_chart",
+		"z": "ea8c566e.d355c",
+		"name": "",
+		"group": "93aed373.e892f8",
+		"order": 3,
+		"width": 0,
+		"height": 0,
+		"label": "Speed",
+		"chartType": "line",
+		"legend": "false",
+		"xformat": "HH:mm:ss",
+		"interpolate": "linear",
+		"nodata": "",
+		"dot": false,
+		"ymin": "",
+		"ymax": "",
+		"removeOlder": "15",
+		"removeOlderPoints": "",
+		"removeOlderUnit": "60",
+		"cutout": 0,
+		"useOneColor": false,
+		"useUTC": false,
+		"colors": [
+			"#1f77b4",
+			"#ea2728",
+			"#ff7f0e",
+			"#2ca02c",
+			"#98df8a",
+			"#d62728",
+			"#ff9896",
+			"#9467bd",
+			"#c5b0d5"
+		],
+		"useOldStyle": false,
+		"outputs": 1,
+		"x": 510,
+		"y": 220,
+		"wires": [
+			[]
+		]
+	},
+	{
+		"id": "aef8bcc5.90e608",
+		"type": "ui_chart",
+		"z": "ea8c566e.d355c",
+		"name": "",
+		"group": "93aed373.e892f8",
+		"order": 4,
+		"width": 0,
+		"height": 0,
+		"label": "Power",
+		"chartType": "line",
+		"legend": "false",
+		"xformat": "HH:mm:ss",
+		"interpolate": "linear",
+		"nodata": "",
+		"dot": false,
+		"ymin": "",
+		"ymax": "",
+		"removeOlder": "15",
+		"removeOlderPoints": "",
+		"removeOlderUnit": "60",
+		"cutout": 0,
+		"useOneColor": false,
+		"useUTC": false,
+		"colors": [
+			"#1f77b4",
+			"#aec7e8",
+			"#ff7f0e",
+			"#2ca02c",
+			"#98df8a",
+			"#d62728",
+			"#ff9896",
+			"#9467bd",
+			"#c5b0d5"
+		],
+		"useOldStyle": false,
+		"outputs": 1,
+		"x": 510,
+		"y": 380,
+		"wires": [
+			[]
+		]
+	},
+	{
+		"id": "cb1db42a.11fc5",
+		"type": "ui_chart",
+		"z": "ea8c566e.d355c",
+		"name": "",
+		"group": "93aed373.e892f8",
+		"order": 5,
+		"width": 0,
+		"height": 0,
+		"label": "Brakes",
+		"chartType": "line",
+		"legend": "false",
+		"xformat": "HH:mm:ss",
+		"interpolate": "linear",
+		"nodata": "",
+		"dot": false,
+		"ymin": "",
+		"ymax": "",
+		"removeOlder": "15",
+		"removeOlderPoints": "",
+		"removeOlderUnit": "60",
+		"cutout": 0,
+		"useOneColor": false,
+		"useUTC": false,
+		"colors": [
+			"#1f77b4",
+			"#aec7e8",
+			"#ff7f0e",
+			"#2ca02c",
+			"#98df8a",
+			"#d62728",
+			"#ff9896",
+			"#9467bd",
+			"#c5b0d5"
+		],
+		"useOldStyle": false,
+		"outputs": 1,
+		"x": 1100,
+		"y": 560,
+		"wires": [
+			[]
+		]
+	},
+	{
+		"id": "a949177b.785a78",
+		"type": "delay",
+		"z": "ea8c566e.d355c",
+		"name": "",
+		"pauseType": "rate",
+		"timeout": "5",
+		"timeoutUnits": "seconds",
+		"rate": "1",
+		"nbRateUnits": "1",
+		"rateUnits": "second",
+		"randomFirst": "1",
+		"randomLast": "5",
+		"randomUnits": "seconds",
+		"drop": true,
+		"x": 350,
+		"y": 380,
+		"wires": [
+			[
+				"aef8bcc5.90e608"
+			]
+		]
+	},
+	{
+		"id": "c3e0b921.a9ba48",
+		"type": "delay",
+		"z": "ea8c566e.d355c",
+		"name": "",
+		"pauseType": "rate",
+		"timeout": "5",
+		"timeoutUnits": "seconds",
+		"rate": "1",
+		"nbRateUnits": "1",
+		"rateUnits": "second",
+		"randomFirst": "1",
+		"randomLast": "5",
+		"randomUnits": "seconds",
+		"drop": true,
+		"x": 950,
+		"y": 560,
+		"wires": [
+			[
+				"cb1db42a.11fc5"
+			]
 		]
 	}
 ]

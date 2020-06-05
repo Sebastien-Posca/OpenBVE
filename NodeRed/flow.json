@@ -21,6 +21,13 @@
         "info": ""
     },
     {
+        "id": "f9ff65b4.ebea78",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": true,
+        "info": ""
+    },
+    {
         "id": "bab3fa56.286b38",
         "type": "ui_tab",
         "z": "",
@@ -346,8 +353,8 @@
         "payload": "",
         "payloadType": "str",
         "topic": "",
-        "x": 70,
-        "y": 380,
+        "x": 130,
+        "y": 340,
         "wires": [
             [
                 "422c716c.0e5f2"
@@ -463,8 +470,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 3,
-        "x": 270,
-        "y": 380,
+        "x": 330,
+        "y": 340,
         "wires": [
             [
                 "416a07fc.c12068"
@@ -473,7 +480,8 @@
                 "9470ffd0.df46"
             ],
             [
-                "aa3b53ff.331a1"
+                "aa3b53ff.331a1",
+                "9470ffd0.df46"
             ]
         ]
     },
@@ -502,8 +510,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 3,
-        "x": 520,
-        "y": 380,
+        "x": 580,
+        "y": 340,
         "wires": [
             [
                 "221a64d3.af83dc"
@@ -512,7 +520,8 @@
                 "17bed60.3d19e2a"
             ],
             [
-                "27226cf6.76f964"
+                "27226cf6.76f964",
+                "17bed60.3d19e2a"
             ]
         ]
     },
@@ -536,14 +545,15 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 750,
-        "y": 380,
+        "x": 810,
+        "y": 340,
         "wires": [
             [
-                "46509859.9a1578"
+                "a0a065f6.9c49c8"
             ],
             [
-                "298afdf8.fd1122"
+                "298afdf8.fd1122",
+                "a0a065f6.9c49c8"
             ]
         ]
     },
@@ -556,8 +566,8 @@
         "qos": "",
         "retain": "",
         "broker": "2ec8f30e.4410fc",
-        "x": 510,
-        "y": 460,
+        "x": 330,
+        "y": 400,
         "wires": []
     },
     {
@@ -575,8 +585,8 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 230,
-        "y": 480,
+        "x": 330,
+        "y": 220,
         "wires": [
             [
                 "422c716c.0e5f2"
@@ -598,8 +608,8 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 530,
-        "y": 300,
+        "x": 590,
+        "y": 260,
         "wires": [
             [
                 "416a07fc.c12068"
@@ -615,8 +625,8 @@
         "qos": "",
         "retain": "",
         "broker": "2ec8f30e.4410fc",
-        "x": 500,
-        "y": 500,
+        "x": 600,
+        "y": 400,
         "wires": []
     },
     {
@@ -628,8 +638,8 @@
         "qos": "",
         "retain": "",
         "broker": "2ec8f30e.4410fc",
-        "x": 510,
-        "y": 540,
+        "x": 890,
+        "y": 400,
         "wires": []
     },
     {
@@ -652,8 +662,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 950,
-        "y": 380,
+        "x": 270,
+        "y": 600,
         "wires": [
             [
                 "b503373d.2c5d18"
@@ -683,8 +693,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 920,
-        "y": 20,
+        "x": 940,
+        "y": 40,
         "wires": [
             []
         ]
@@ -698,8 +708,8 @@
         "qos": "0",
         "datatype": "auto",
         "broker": "2ec8f30e.4410fc",
-        "x": 730,
-        "y": 20,
+        "x": 750,
+        "y": 40,
         "wires": [
             [
                 "af8f3b55.3bf558"
@@ -733,11 +743,11 @@
         "checkall": "true",
         "repair": false,
         "outputs": 3,
-        "x": 1140,
-        "y": 380,
+        "x": 730,
+        "y": 600,
         "wires": [
             [
-                "5d5db255.8c2f5c"
+                "37dbe15.45cc41e"
             ],
             [
                 "79580ec9.f0bb5",
@@ -758,8 +768,8 @@
         "qos": "",
         "retain": "",
         "broker": "2ec8f30e.4410fc",
-        "x": 1130,
-        "y": 480,
+        "x": 1010,
+        "y": 660,
         "wires": []
     },
     {
@@ -771,8 +781,8 @@
         "qos": "",
         "retain": "",
         "broker": "2ec8f30e.4410fc",
-        "x": 1140,
-        "y": 520,
+        "x": 740,
+        "y": 660,
         "wires": []
     },
     {
@@ -784,8 +794,8 @@
         "qos": "",
         "retain": "",
         "broker": "2ec8f30e.4410fc",
-        "x": 830,
-        "y": 500,
+        "x": 290,
+        "y": 660,
         "wires": []
     },
     {
@@ -803,8 +813,8 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 830,
-        "y": 540,
+        "x": 270,
+        "y": 520,
         "wires": [
             [
                 "46509859.9a1578"
@@ -826,8 +836,8 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 1150,
-        "y": 280,
+        "x": 730,
+        "y": 520,
         "wires": [
             [
                 "b503373d.2c5d18"
@@ -848,8 +858,8 @@
         "raw": false,
         "topic": "Train started",
         "name": "Train Started",
-        "x": 1350,
-        "y": 380,
+        "x": 1130,
+        "y": 600,
         "wires": [
             []
         ]
@@ -863,8 +873,8 @@
         "qos": "0",
         "datatype": "auto",
         "broker": "2ec8f30e.4410fc",
-        "x": 710,
-        "y": 80,
+        "x": 730,
+        "y": 100,
         "wires": [
             [
                 "70f6df63.deaa5"
@@ -890,8 +900,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1040,
-        "y": 80,
+        "x": 1080,
+        "y": 100,
         "wires": [
             []
         ]
@@ -904,8 +914,8 @@
         "func": "msg.payload = parseInt(msg.payload)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 890,
-        "y": 80,
+        "x": 910,
+        "y": 100,
         "wires": [
             [
                 "2dbd6348.b5a74c"
@@ -958,11 +968,11 @@
         "id": "dc83b63d.3f39e8",
         "type": "function",
         "z": "eea6ab89.ab12f8",
-        "name": "",
+        "name": "split msg",
         "func": "var res = msg.payload.replace(/\\s+/g, '').split(\",\");\nmsg.payload = res[0]\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 310,
+        "x": 320,
         "y": 40,
         "wires": [
             [
@@ -974,11 +984,11 @@
         "id": "a6286129.91c41",
         "type": "function",
         "z": "eea6ab89.ab12f8",
-        "name": "",
+        "name": "split msg",
         "func": "var res = msg.payload.replace(/\\s+/g, '').split(\",\");\nmsg.payload = res[0]\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 350,
+        "x": 360,
         "y": 100,
         "wires": [
             [
@@ -2220,5 +2230,284 @@
                 "24696c23.fa1234"
             ]
         ]
+    },
+    {
+        "id": "a0a065f6.9c49c8",
+        "type": "link out",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "links": [
+            "3a4d468b.81538a"
+        ],
+        "x": 995,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "3a4d468b.81538a",
+        "type": "link in",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "links": [
+            "a0a065f6.9c49c8"
+        ],
+        "x": 75,
+        "y": 600,
+        "wires": [
+            [
+                "46509859.9a1578"
+            ]
+        ]
+    },
+    {
+        "id": "37dbe15.45cc41e",
+        "type": "change",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "The train is moving",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 940,
+        "y": 600,
+        "wires": [
+            [
+                "5d5db255.8c2f5c"
+            ]
+        ]
+    },
+    {
+        "id": "bc361d.0eb8b9e",
+        "type": "mqtt in",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "topic": "/train/infos/speedLimit",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "2ec8f30e.4410fc",
+        "x": 740,
+        "y": 160,
+        "wires": [
+            [
+                "d171fb94.7ef988"
+            ]
+        ]
+    },
+    {
+        "id": "c9585038.01e12",
+        "type": "change",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "speedLimit",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1130,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d171fb94.7ef988",
+        "type": "function",
+        "z": "eea6ab89.ab12f8",
+        "name": "parseInt",
+        "func": "msg.payload = parseInt(msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 160,
+        "wires": [
+            [
+                "c9585038.01e12"
+            ]
+        ]
+    },
+    {
+        "id": "ac0f90b1.87db8",
+        "type": "comment",
+        "z": "f9ff65b4.ebea78",
+        "name": "Speed Control",
+        "info": "",
+        "x": 650,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "df1c1915.fa7168",
+        "type": "mqtt in",
+        "z": "f9ff65b4.ebea78",
+        "d": true,
+        "name": "",
+        "topic": "/train/sensors/currentSpeed",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "2ec8f30e.4410fc",
+        "x": 740,
+        "y": 300,
+        "wires": [
+            [
+                "ad49c8c9.a29df8"
+            ]
+        ]
+    },
+    {
+        "id": "16f246cc.acfb59",
+        "type": "switch",
+        "z": "f9ff65b4.ebea78",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "speedLimit",
+                "vt": "flow"
+            },
+            {
+                "t": "lt",
+                "v": "speedLimit",
+                "vt": "flow"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1090,
+        "y": 300,
+        "wires": [
+            [
+                "d1a592d4.6adcb",
+                "f9c1b30a.61ecf"
+            ],
+            [
+                "8ace2145.c95b",
+                "3e44569b.59b68a"
+            ]
+        ]
+    },
+    {
+        "id": "ad49c8c9.a29df8",
+        "type": "function",
+        "z": "f9ff65b4.ebea78",
+        "name": "parseInt",
+        "func": "msg.payload = parseInt(msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 940,
+        "y": 300,
+        "wires": [
+            [
+                "16f246cc.acfb59",
+                "4cd32bf1.653994"
+            ]
+        ]
+    },
+    {
+        "id": "d1a592d4.6adcb",
+        "type": "delay",
+        "z": "f9ff65b4.ebea78",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 1090,
+        "y": 240,
+        "wires": [
+            [
+                "16f246cc.acfb59"
+            ]
+        ]
+    },
+    {
+        "id": "f9c1b30a.61ecf",
+        "type": "mqtt out",
+        "z": "f9ff65b4.ebea78",
+        "name": "",
+        "topic": "/train/actuators/brakeIncrease",
+        "qos": "",
+        "retain": "",
+        "broker": "2ec8f30e.4410fc",
+        "x": 1390,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "8ace2145.c95b",
+        "type": "mqtt out",
+        "z": "f9ff65b4.ebea78",
+        "name": "",
+        "topic": "/train/actuators/brakeDecrease",
+        "qos": "",
+        "retain": "",
+        "broker": "2ec8f30e.4410fc",
+        "x": 1390,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "3e44569b.59b68a",
+        "type": "delay",
+        "z": "f9ff65b4.ebea78",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 1090,
+        "y": 360,
+        "wires": [
+            [
+                "16f246cc.acfb59"
+            ]
+        ]
+    },
+    {
+        "id": "4cd32bf1.653994",
+        "type": "debug",
+        "z": "f9ff65b4.ebea78",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 880,
+        "y": 360,
+        "wires": []
     }
 ]

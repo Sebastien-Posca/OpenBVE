@@ -21,13 +21,6 @@
         "info": ""
     },
     {
-        "id": "f9ff65b4.ebea78",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": true,
-        "info": ""
-    },
-    {
         "id": "bab3fa56.286b38",
         "type": "ui_tab",
         "z": "",
@@ -477,12 +470,12 @@
                 "416a07fc.c12068"
             ],
             [
-                "9470ffd0.df46",
-                "bbc4544.4bf05a8"
+                "9470ffd0.df46"
             ],
             [
                 "aa3b53ff.331a1",
-                "9470ffd0.df46"
+                "9470ffd0.df46",
+                "bbc4544.4bf05a8"
             ]
         ]
     },
@@ -518,12 +511,12 @@
                 "221a64d3.af83dc"
             ],
             [
-                "17bed60.3d19e2a",
-                "60ad86b0.4a1b48"
+                "17bed60.3d19e2a"
             ],
             [
                 "27226cf6.76f964",
-                "17bed60.3d19e2a"
+                "17bed60.3d19e2a",
+                "60ad86b0.4a1b48"
             ]
         ]
     },
@@ -555,7 +548,8 @@
             ],
             [
                 "298afdf8.fd1122",
-                "a0a065f6.9c49c8"
+                "a0a065f6.9c49c8",
+                "b78dd44e.3c7a28"
             ]
         ]
     },
@@ -2241,7 +2235,7 @@
         "links": [
             "3a4d468b.81538a"
         ],
-        "x": 995,
+        "x": 1035,
         "y": 320,
         "wires": []
     },
@@ -2327,7 +2321,9 @@
         "x": 1130,
         "y": 160,
         "wires": [
-            []
+            [
+                "8875d400.b78288"
+            ]
         ]
     },
     {
@@ -2345,171 +2341,6 @@
                 "c9585038.01e12"
             ]
         ]
-    },
-    {
-        "id": "22bb43c3.c1279c",
-        "type": "mqtt out",
-        "z": "f9ff65b4.ebea78",
-        "name": "",
-        "topic": "/train/actuators/brakeIncrease",
-        "qos": "",
-        "retain": "",
-        "broker": "2ec8f30e.4410fc",
-        "x": 1270,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "ecab0fab.3bf35",
-        "type": "mqtt out",
-        "z": "f9ff65b4.ebea78",
-        "name": "",
-        "topic": "/train/actuators/brakeDecrease",
-        "qos": "",
-        "retain": "",
-        "broker": "2ec8f30e.4410fc",
-        "x": 1270,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "e65a2250.adb7f",
-        "type": "comment",
-        "z": "f9ff65b4.ebea78",
-        "name": "Speed Control",
-        "info": "",
-        "x": 530,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "38a5c465.7133ec",
-        "type": "mqtt in",
-        "z": "f9ff65b4.ebea78",
-        "name": "",
-        "topic": "/train/sensors/currentSpeed",
-        "qos": "0",
-        "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
-        "x": 620,
-        "y": 160,
-        "wires": [
-            [
-                "a4a3aded.22678"
-            ]
-        ]
-    },
-    {
-        "id": "6a65c569.ca328c",
-        "type": "switch",
-        "z": "f9ff65b4.ebea78",
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "gt",
-                "v": "speedLimit",
-                "vt": "flow"
-            },
-            {
-                "t": "lt",
-                "v": "speedLimit",
-                "vt": "flow"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 970,
-        "y": 160,
-        "wires": [
-            [
-                "d7ee0032.7831f",
-                "22bb43c3.c1279c"
-            ],
-            [
-                "ecab0fab.3bf35",
-                "d1404d44.4a71c"
-            ]
-        ]
-    },
-    {
-        "id": "a4a3aded.22678",
-        "type": "function",
-        "z": "f9ff65b4.ebea78",
-        "name": "parseInt",
-        "func": "msg.payload = parseInt(msg.payload)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 820,
-        "y": 160,
-        "wires": [
-            [
-                "6a65c569.ca328c",
-                "5ffd407.9d344c"
-            ]
-        ]
-    },
-    {
-        "id": "d7ee0032.7831f",
-        "type": "delay",
-        "z": "f9ff65b4.ebea78",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "50",
-        "timeoutUnits": "milliseconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "x": 970,
-        "y": 100,
-        "wires": [
-            [
-                "6a65c569.ca328c"
-            ]
-        ]
-    },
-    {
-        "id": "d1404d44.4a71c",
-        "type": "delay",
-        "z": "f9ff65b4.ebea78",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "50",
-        "timeoutUnits": "milliseconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "x": 970,
-        "y": 220,
-        "wires": [
-            [
-                "6a65c569.ca328c"
-            ]
-        ]
-    },
-    {
-        "id": "5ffd407.9d344c",
-        "type": "debug",
-        "z": "f9ff65b4.ebea78",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 760,
-        "y": 220,
-        "wires": []
     },
     {
         "id": "96d37a2b.bccc38",
@@ -2802,5 +2633,255 @@
                 "3e7a98f7.882d98"
             ]
         ]
+    },
+    {
+        "id": "cac835d2.18ee18",
+        "type": "mqtt out",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "topic": "/train/actuators/brakeIncrease",
+        "qos": "",
+        "retain": "",
+        "broker": "2ec8f30e.4410fc",
+        "x": 1070,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "ca5c5986.3e7808",
+        "type": "mqtt out",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "topic": "/train/actuators/brakeDecrease",
+        "qos": "",
+        "retain": "",
+        "broker": "2ec8f30e.4410fc",
+        "x": 1090,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "ea4a1dd5.d299d",
+        "type": "comment",
+        "z": "eea6ab89.ab12f8",
+        "name": "Speed Control",
+        "info": "",
+        "x": 150,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "697f9493.6a024c",
+        "type": "mqtt in",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "topic": "/train/sensors/currentSpeed",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "2ec8f30e.4410fc",
+        "x": 160,
+        "y": 1100,
+        "wires": [
+            [
+                "521a764.1f73a88"
+            ]
+        ]
+    },
+    {
+        "id": "d67afaaa.c7e9d8",
+        "type": "switch",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "speedLimit",
+                "vt": "flow"
+            },
+            {
+                "t": "lt",
+                "v": "speedLimit",
+                "vt": "flow"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 730,
+        "y": 1100,
+        "wires": [
+            [
+                "7d14f6bc.679e18"
+            ],
+            [
+                "8f75d937.bb3ef8"
+            ]
+        ]
+    },
+    {
+        "id": "75b07f95.f4ebb",
+        "type": "function",
+        "z": "eea6ab89.ab12f8",
+        "name": "parseInt",
+        "func": "msg.payload = parseInt(msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 580,
+        "y": 1100,
+        "wires": [
+            [
+                "d67afaaa.c7e9d8"
+            ]
+        ]
+    },
+    {
+        "id": "8875d400.b78288",
+        "type": "debug",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1210,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "521a764.1f73a88",
+        "type": "delay",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 410,
+        "y": 1100,
+        "wires": [
+            [
+                "75b07f95.f4ebb"
+            ]
+        ]
+    },
+    {
+        "id": "b78dd44e.3c7a28",
+        "type": "delay",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 890,
+        "y": 260,
+        "wires": [
+            [
+                "221a64d3.af83dc"
+            ]
+        ]
+    },
+    {
+        "id": "8f75d937.bb3ef8",
+        "type": "switch",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "property": "brake",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 870,
+        "y": 1120,
+        "wires": [
+            [
+                "ca5c5986.3e7808"
+            ],
+            [
+                "2ebd5f30.e01da"
+            ]
+        ]
+    },
+    {
+        "id": "14bd1658.26fbda",
+        "type": "mqtt out",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "topic": "/train/actuators/powerDown",
+        "qos": "",
+        "retain": "",
+        "broker": "2ec8f30e.4410fc",
+        "x": 1060,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "7d14f6bc.679e18",
+        "type": "switch",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "property": "brake",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "5",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 850,
+        "y": 1060,
+        "wires": [
+            [
+                "cac835d2.18ee18"
+            ],
+            [
+                "14bd1658.26fbda"
+            ]
+        ]
+    },
+    {
+        "id": "2ebd5f30.e01da",
+        "type": "mqtt out",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "topic": "/train/actuators/powerUp",
+        "qos": "",
+        "retain": "",
+        "broker": "2ec8f30e.4410fc",
+        "x": 1070,
+        "y": 1180,
+        "wires": []
     }
 ]

@@ -467,15 +467,15 @@
         "y": 340,
         "wires": [
             [
-                "416a07fc.c12068"
+                "416a07fc.c12068",
+                "bbc4544.4bf05a8"
             ],
             [
                 "9470ffd0.df46"
             ],
             [
                 "aa3b53ff.331a1",
-                "9470ffd0.df46",
-                "bbc4544.4bf05a8"
+                "9470ffd0.df46"
             ]
         ]
     },
@@ -508,15 +508,15 @@
         "y": 340,
         "wires": [
             [
-                "221a64d3.af83dc"
+                "221a64d3.af83dc",
+                "60ad86b0.4a1b48"
             ],
             [
                 "17bed60.3d19e2a"
             ],
             [
                 "27226cf6.76f964",
-                "17bed60.3d19e2a",
-                "60ad86b0.4a1b48"
+                "17bed60.3d19e2a"
             ]
         ]
     },
@@ -722,11 +722,6 @@
         "propertyType": "flow",
         "rules": [
             {
-                "t": "eq",
-                "v": "3",
-                "vt": "num"
-            },
-            {
                 "t": "lt",
                 "v": "3",
                 "vt": "num"
@@ -739,21 +734,17 @@
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 3,
-        "x": 730,
+        "outputs": 2,
+        "x": 570,
         "y": 600,
         "wires": [
-            [
-                "37dbe15.45cc41e",
-                "8eacaa96.999df8"
-            ],
             [
                 "79580ec9.f0bb5",
                 "516d6e9a.745af"
             ],
             [
-                "e849a614.352868",
-                "516d6e9a.745af"
+                "37dbe15.45cc41e",
+                "8eacaa96.999df8"
             ]
         ]
     },
@@ -767,19 +758,6 @@
         "retain": "",
         "broker": "2ec8f30e.4410fc",
         "x": 1010,
-        "y": 660,
-        "wires": []
-    },
-    {
-        "id": "e849a614.352868",
-        "type": "mqtt out",
-        "z": "eea6ab89.ab12f8",
-        "name": "",
-        "topic": "/train/actuators/powerDown",
-        "qos": "",
-        "retain": "",
-        "broker": "2ec8f30e.4410fc",
-        "x": 740,
         "y": 660,
         "wires": []
     },
@@ -811,7 +789,7 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 270,
+        "x": 290,
         "y": 520,
         "wires": [
             [
@@ -834,7 +812,7 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 730,
+        "x": 590,
         "y": 520,
         "wires": [
             [
@@ -2321,9 +2299,7 @@
         "x": 1130,
         "y": 160,
         "wires": [
-            [
-                "8875d400.b78288"
-            ]
+            []
         ]
     },
     {
@@ -2404,8 +2380,8 @@
         "links": [
             "332531d0.66ec9e"
         ],
-        "x": 915,
-        "y": 500,
+        "x": 795,
+        "y": 540,
         "wires": []
     },
     {
@@ -2737,20 +2713,6 @@
         ]
     },
     {
-        "id": "8875d400.b78288",
-        "type": "debug",
-        "z": "eea6ab89.ab12f8",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 1210,
-        "y": 240,
-        "wires": []
-    },
-    {
         "id": "521a764.1f73a88",
         "type": "delay",
         "z": "eea6ab89.ab12f8",
@@ -2769,7 +2731,7 @@
         "y": 1100,
         "wires": [
             [
-                "75b07f95.f4ebb"
+                "10999ca0.13ff03"
             ]
         ]
     },
@@ -2883,5 +2845,126 @@
         "x": 1070,
         "y": 1180,
         "wires": []
+    },
+    {
+        "id": "bfd6b263.097ab",
+        "type": "mqtt in",
+        "z": "7120d12c.ff073",
+        "name": "",
+        "topic": "/train/infos/distanceToTrain",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "2ec8f30e.4410fc",
+        "x": 170,
+        "y": 1000,
+        "wires": [
+            [
+                "3193c547.0aadba"
+            ]
+        ]
+    },
+    {
+        "id": "3193c547.0aadba",
+        "type": "ui_text",
+        "z": "7120d12c.ff073",
+        "group": "265d16e3.e8c0ea",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Distance to next train : ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 460,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "10999ca0.13ff03",
+        "type": "switch",
+        "z": "eea6ab89.ab12f8",
+        "name": "Speed Control Activated",
+        "property": "speedControl",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 1160,
+        "wires": [
+            [
+                "75b07f95.f4ebb"
+            ]
+        ]
+    },
+    {
+        "id": "9fe5dba5.3c1f98",
+        "type": "inject",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 1200,
+        "wires": [
+            [
+                "e1eac711.f88db8"
+            ]
+        ]
+    },
+    {
+        "id": "447cf236.31efbc",
+        "type": "inject",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 1240,
+        "wires": [
+            [
+                "e1eac711.f88db8"
+            ]
+        ]
+    },
+    {
+        "id": "e1eac711.f88db8",
+        "type": "change",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "speedControl",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 1220,
+        "wires": [
+            []
+        ]
     }
 ]

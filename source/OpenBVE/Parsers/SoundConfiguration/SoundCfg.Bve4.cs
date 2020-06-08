@@ -437,7 +437,7 @@ namespace OpenBve
 										case "secondary":
 											train.Cars[train.DriverCar].Horns[1].LoopSound = Program.Sounds.TryToLoad(OpenBveApi.Path.CombineFile(trainFolder, b), SoundCfgParser.largeRadius);
 											train.Cars[train.DriverCar].Horns[1].SoundPosition = front;
-											train.Cars[train.DriverCar].Horns[1].Loop = false;
+											train.Cars[train.DriverCar].Horns[1].Loop = true;
 											break;
 										//MUSIC HORN
 										case "musicstart":

@@ -19,13 +19,17 @@ namespace OpenBve.Mqtt
 		const string doorsLeft = "/train/actuators/doorsLeft";
 		const string doorsRight = "/train/actuators/doorsRight";
 
+		const string sound1 = "/train/actuators/sound1";
+		const string sound2 = "/train/actuators/sound2";
+
+
 
 		static Mqtt()
 		{
 			client.MqttMsgPublishReceived += client_recievedMessage;
 			string clientId = Guid.NewGuid().ToString();
 			client.Connect(clientId);
-			client.Subscribe(new String[] { powerUp, powerDown, brakeIncrease, brakeDecrease, reverserForward, reverserBackward, doorsLeft, doorsRight }, new byte[] { 0,0,0,0,0,0,0,0 });
+			client.Subscribe(new String[] { powerUp, powerDown, brakeIncrease, brakeDecrease, reverserForward, reverserBackward, doorsLeft, doorsRight, sound1, sound2 }, new byte[] { 0,0,0,0,0,0,0,0,0,0 });
 
 		}
 		public static void Publish(String topic, String msg)
@@ -216,6 +220,32 @@ namespace OpenBve.Mqtt
 						TrainManager.PlayerTrain.Plugin.KeyDown(VirtualKeys.RightDoors);
 					}
 					TrainManager.PlayerTrain.Cars[TrainManager.PlayerTrain.DriverCar].Doors[1].ButtonPressed = true;
+					break;
+				case sound1:
+					int d = TrainManager.PlayerTrain.DriverCar;
+					if (TrainManager.PlayerTrain.Cars[d].Horns.Length > 2)
+					{
+						TrainManager.PlayerTrain.Cars[d].Horns[2].Play();
+						if (TrainManager.PlayerTrain.Plugin != null)
+						{
+							TrainManager.PlayerTrain.Plugin.HornBlow(OpenBveApi.Runtime.HornTypes.Music);
+						}
+					}
+					int a = TrainManager.PlayerTrain.DriverCar;
+					TrainManager.PlayerTrain.Cars[a].Horns[2].Stop();
+					break;
+				case sound2:
+					int q = TrainManager.PlayerTrain.DriverCar;
+					if (TrainManager.PlayerTrain.Cars[q].Horns.Length > 1)
+					{
+						TrainManager.PlayerTrain.Cars[q].Horns[1].Play();
+						if (TrainManager.PlayerTrain.Plugin != null)
+						{
+							TrainManager.PlayerTrain.Plugin.HornBlow(OpenBveApi.Runtime.HornTypes.Music);
+						}
+					}
+					int f = TrainManager.PlayerTrain.DriverCar;
+					TrainManager.PlayerTrain.Cars[f].Horns[1].Stop();
 					break;
 				default:
 					break;

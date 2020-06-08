@@ -21,15 +21,6 @@
         "info": ""
     },
     {
-        "id": "bab3fa56.286b38",
-        "type": "ui_tab",
-        "z": "",
-        "name": "Home",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
-    },
-    {
         "id": "5e31a918.f96b98",
         "type": "ui_base",
         "theme": {
@@ -153,6 +144,7 @@
         "z": "",
         "name": "Train Dashboard",
         "icon": "dashboard",
+        "order": 1,
         "disabled": false,
         "hidden": false
     },
@@ -162,7 +154,7 @@
         "z": "",
         "name": "Infos",
         "tab": "7912411d.9e93c",
-        "order": 5,
+        "order": 1,
         "disp": true,
         "width": "6",
         "collapse": false
@@ -173,7 +165,7 @@
         "z": "",
         "name": "Power",
         "tab": "7912411d.9e93c",
-        "order": 2,
+        "order": 4,
         "disp": true,
         "width": "6",
         "collapse": false
@@ -184,7 +176,7 @@
         "z": "",
         "name": "Brake",
         "tab": "7912411d.9e93c",
-        "order": 3,
+        "order": 5,
         "disp": true,
         "width": "6",
         "collapse": false
@@ -195,7 +187,7 @@
         "z": "",
         "name": "Doors",
         "tab": "7912411d.9e93c",
-        "order": 4,
+        "order": 2,
         "disp": true,
         "width": "6",
         "collapse": false
@@ -206,7 +198,7 @@
         "z": "",
         "name": "Speed",
         "tab": "7912411d.9e93c",
-        "order": 1,
+        "order": 3,
         "disp": true,
         "width": "6",
         "collapse": false
@@ -228,105 +220,9 @@
         "z": "",
         "name": "Train Drift",
         "icon": "dashboard",
+        "order": 3,
         "disabled": false,
         "hidden": false
-    },
-    {
-        "id": "471e93b3.5d18cc",
-        "type": "ui_base",
-        "theme": {
-            "name": "theme-dark",
-            "lightTheme": {
-                "default": "#0094CE",
-                "baseColor": "#0094CE",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": true,
-                "reset": false
-            },
-            "darkTheme": {
-                "default": "#097479",
-                "baseColor": "#097479",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": true,
-                "reset": false
-            },
-            "customTheme": {
-                "name": "Untitled Theme 1",
-                "default": "#4B7930",
-                "baseColor": "#4B7930",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
-            },
-            "themeState": {
-                "base-color": {
-                    "default": "#097479",
-                    "value": "#097479",
-                    "edited": false
-                },
-                "page-titlebar-backgroundColor": {
-                    "value": "#097479",
-                    "edited": false
-                },
-                "page-backgroundColor": {
-                    "value": "#111111",
-                    "edited": false
-                },
-                "page-sidebar-backgroundColor": {
-                    "value": "#000000",
-                    "edited": false
-                },
-                "group-textColor": {
-                    "value": "#0eb8c0",
-                    "edited": false
-                },
-                "group-borderColor": {
-                    "value": "#555555",
-                    "edited": false
-                },
-                "group-backgroundColor": {
-                    "value": "#333333",
-                    "edited": false
-                },
-                "widget-textColor": {
-                    "value": "#eeeeee",
-                    "edited": false
-                },
-                "widget-backgroundColor": {
-                    "value": "#097479",
-                    "edited": false
-                },
-                "widget-borderColor": {
-                    "value": "#333333",
-                    "edited": false
-                },
-                "base-font": {
-                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
-                }
-            },
-            "angularTheme": {
-                "primary": "indigo",
-                "accents": "blue",
-                "warn": "red",
-                "background": "grey"
-            }
-        },
-        "site": {
-            "name": "Node-RED Dashboard",
-            "hideToolbar": "false",
-            "allowSwipe": "false",
-            "lockMenu": "false",
-            "allowTempTheme": "true",
-            "dateFormat": "DD/MM/YYYY",
-            "sizes": {
-                "sx": 48,
-                "sy": 48,
-                "gx": 6,
-                "gy": 6,
-                "cx": 6,
-                "cy": 6,
-                "px": 0,
-                "py": 0
-            }
-        }
     },
     {
         "id": "1fa7c096.e0d99f",
@@ -457,7 +353,9 @@
                 "vt": "str"
             },
             {
-                "t": "else"
+                "t": "eq",
+                "v": "Opened",
+                "vt": "str"
             }
         ],
         "checkall": "true",
@@ -498,7 +396,9 @@
                 "vt": "str"
             },
             {
-                "t": "else"
+                "t": "eq",
+                "v": "Opened",
+                "vt": "str"
             }
         ],
         "checkall": "true",
@@ -2903,46 +2803,6 @@
         ]
     },
     {
-        "id": "9fe5dba5.3c1f98",
-        "type": "inject",
-        "z": "eea6ab89.ab12f8",
-        "name": "",
-        "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 130,
-        "y": 1200,
-        "wires": [
-            [
-                "e1eac711.f88db8"
-            ]
-        ]
-    },
-    {
-        "id": "447cf236.31efbc",
-        "type": "inject",
-        "z": "eea6ab89.ab12f8",
-        "name": "",
-        "topic": "",
-        "payload": "false",
-        "payloadType": "bool",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 130,
-        "y": 1240,
-        "wires": [
-            [
-                "e1eac711.f88db8"
-            ]
-        ]
-    },
-    {
         "id": "e1eac711.f88db8",
         "type": "change",
         "z": "eea6ab89.ab12f8",
@@ -2961,10 +2821,119 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 320,
+        "x": 380,
         "y": 1220,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "260e08dc.d64978",
+        "type": "ui_switch",
+        "z": "eea6ab89.ab12f8",
+        "name": "",
+        "label": "Speed Control",
+        "tooltip": "",
+        "group": "265d16e3.e8c0ea",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 160,
+        "y": 1220,
+        "wires": [
+            [
+                "e1eac711.f88db8"
+            ]
+        ]
+    },
+    {
+        "id": "498d6638.0086f8",
+        "type": "mqtt out",
+        "z": "7120d12c.ff073",
+        "name": "",
+        "topic": "/train/actuators/sound1",
+        "qos": "",
+        "retain": "",
+        "broker": "2ec8f30e.4410fc",
+        "x": 400,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "306e33c8.a27afc",
+        "type": "mqtt out",
+        "z": "7120d12c.ff073",
+        "name": "",
+        "topic": "/train/actuators/sound2",
+        "qos": "",
+        "retain": "",
+        "broker": "2ec8f30e.4410fc",
+        "x": 400,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "164e2ffa.f3e4f",
+        "type": "ui_button",
+        "z": "7120d12c.ff073",
+        "name": "",
+        "group": "265d16e3.e8c0ea",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "sound 1",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 150,
+        "y": 1180,
+        "wires": [
+            [
+                "498d6638.0086f8"
+            ]
+        ]
+    },
+    {
+        "id": "1dcd8a95.710f85",
+        "type": "ui_button",
+        "z": "7120d12c.ff073",
+        "name": "",
+        "group": "265d16e3.e8c0ea",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "sound 2",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 160,
+        "y": 1220,
+        "wires": [
+            [
+                "306e33c8.a27afc"
+            ]
         ]
     }
 ]

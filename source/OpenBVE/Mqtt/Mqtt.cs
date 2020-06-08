@@ -1,6 +1,7 @@
 ﻿using OpenBveApi.Runtime;
 using System;
 using System.Text;
+using System.Threading;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
 
@@ -9,6 +10,9 @@ namespace OpenBve.Mqtt
 	public static class Mqtt
 	{
 		private static MqttClient client = new MqttClient("192.168.0.15");
+		private static Boolean isSound1Playing = false;
+		private static Boolean isSound2Playing = false;
+
 		const string powerUp = "/train/actuators/powerUp";
 		const string powerDown = "/train/actuators/powerDown";
 		const string brakeIncrease = "/train/actuators/brakeIncrease";
@@ -222,6 +226,16 @@ namespace OpenBve.Mqtt
 					TrainManager.PlayerTrain.Cars[TrainManager.PlayerTrain.DriverCar].Doors[1].ButtonPressed = true;
 					break;
 				case sound1:
+					if (isSound1Playing)
+					{
+						isSound1Playing = false;
+					}
+					else
+					{
+						isSound1Playing = true;
+
+					}
+					Publish("/train/infos/sound1", isSound1Playing.ToString());
 					int d = TrainManager.PlayerTrain.DriverCar;
 					if (TrainManager.PlayerTrain.Cars[d].Horns.Length > 2)
 					{
@@ -235,6 +249,16 @@ namespace OpenBve.Mqtt
 					TrainManager.PlayerTrain.Cars[a].Horns[2].Stop();
 					break;
 				case sound2:
+					if (isSound2Playing)
+					{
+						isSound2Playing = false;
+					}
+					else
+					{
+						isSound2Playing = true;
+
+					}
+					Publish("/train/infos/sound2", isSound2Playing.ToString());
 					int q = TrainManager.PlayerTrain.DriverCar;
 					if (TrainManager.PlayerTrain.Cars[q].Horns.Length > 1)
 					{

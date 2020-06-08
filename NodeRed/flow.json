@@ -24,7 +24,7 @@
         "id": "5e31a918.f96b98",
         "type": "ui_base",
         "theme": {
-            "name": "theme-light",
+            "name": "theme-dark",
             "lightTheme": {
                 "default": "#0094CE",
                 "baseColor": "#0094CE",
@@ -36,7 +36,8 @@
                 "default": "#097479",
                 "baseColor": "#097479",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "edited": true,
+                "reset": false
             },
             "customTheme": {
                 "name": "Untitled Theme 1",
@@ -46,44 +47,44 @@
             },
             "themeState": {
                 "base-color": {
-                    "default": "#0094CE",
-                    "value": "#0094CE",
+                    "default": "#097479",
+                    "value": "#097479",
                     "edited": false
                 },
                 "page-titlebar-backgroundColor": {
-                    "value": "#0094CE",
+                    "value": "#097479",
                     "edited": false
                 },
                 "page-backgroundColor": {
-                    "value": "#fafafa",
-                    "edited": false
-                },
-                "page-sidebar-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-textColor": {
-                    "value": "#1bbfff",
-                    "edited": false
-                },
-                "group-borderColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "widget-textColor": {
                     "value": "#111111",
                     "edited": false
                 },
+                "page-sidebar-backgroundColor": {
+                    "value": "#000000",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
                 "widget-backgroundColor": {
-                    "value": "#0094ce",
+                    "value": "#097479",
                     "edited": false
                 },
                 "widget-borderColor": {
-                    "value": "#ffffff",
+                    "value": "#333333",
                     "edited": false
                 },
                 "base-font": {
@@ -165,7 +166,7 @@
         "z": "",
         "name": "Power",
         "tab": "7912411d.9e93c",
-        "order": 4,
+        "order": 5,
         "disp": true,
         "width": "6",
         "collapse": false
@@ -176,7 +177,7 @@
         "z": "",
         "name": "Brake",
         "tab": "7912411d.9e93c",
-        "order": 5,
+        "order": 6,
         "disp": true,
         "width": "6",
         "collapse": false
@@ -187,7 +188,7 @@
         "z": "",
         "name": "Doors",
         "tab": "7912411d.9e93c",
-        "order": 2,
+        "order": 3,
         "disp": true,
         "width": "6",
         "collapse": false
@@ -198,7 +199,7 @@
         "z": "",
         "name": "Speed",
         "tab": "7912411d.9e93c",
-        "order": 3,
+        "order": 4,
         "disp": true,
         "width": "6",
         "collapse": false
@@ -225,12 +226,23 @@
         "hidden": false
     },
     {
+        "id": "19df5cf.3063aa3",
+        "type": "ui_group",
+        "z": "",
+        "name": "Stations",
+        "tab": "7912411d.9e93c",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
         "id": "1fa7c096.e0d99f",
         "type": "ui_button",
         "z": "eea6ab89.ab12f8",
         "name": "",
         "group": "265d16e3.e8c0ea",
-        "order": 6,
+        "order": 7,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -1020,8 +1032,8 @@
         "name": "",
         "group": "1c3c9287.cb990d",
         "order": 2,
-        "width": "3",
-        "height": "1",
+        "width": 3,
+        "height": 1,
         "passthru": false,
         "label": "Power Down",
         "tooltip": "",
@@ -1046,8 +1058,8 @@
         "name": "",
         "group": "1c3c9287.cb990d",
         "order": 3,
-        "width": "3",
-        "height": "1",
+        "width": 3,
+        "height": 1,
         "passthru": false,
         "label": "Power Up",
         "tooltip": "",
@@ -1124,8 +1136,8 @@
         "name": "",
         "group": "1529ba5f.7b1c56",
         "order": 3,
-        "width": "3",
-        "height": "1",
+        "width": 3,
+        "height": 1,
         "passthru": false,
         "label": "Brake +",
         "tooltip": "",
@@ -1150,8 +1162,8 @@
         "name": "",
         "group": "1529ba5f.7b1c56",
         "order": 2,
-        "width": "3",
-        "height": "1",
+        "width": 3,
+        "height": 1,
         "passthru": false,
         "label": "Brake -",
         "tooltip": "",
@@ -1175,9 +1187,9 @@
         "z": "7120d12c.ff073",
         "name": "",
         "group": "9f64872d.43f268",
-        "order": 2,
-        "width": "3",
-        "height": "1",
+        "order": 1,
+        "width": 3,
+        "height": 1,
         "passthru": false,
         "label": "Doors left",
         "tooltip": "",
@@ -1202,8 +1214,8 @@
         "name": "",
         "group": "9f64872d.43f268",
         "order": 2,
-        "width": "3",
-        "height": "1",
+        "width": 3,
+        "height": 1,
         "passthru": false,
         "label": "Doors Right",
         "tooltip": "",
@@ -1241,8 +1253,8 @@
         "name": "",
         "group": "1c3c9287.cb990d",
         "order": 4,
-        "width": "3",
-        "height": "1",
+        "width": 3,
+        "height": 1,
         "passthru": false,
         "label": "Forward",
         "tooltip": "",
@@ -1317,7 +1329,7 @@
         "type": "ui_text",
         "z": "7120d12c.ff073",
         "group": "9f64872d.43f268",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "name": "",
@@ -1333,7 +1345,7 @@
         "type": "ui_text",
         "z": "7120d12c.ff073",
         "group": "9f64872d.43f268",
-        "order": 2,
+        "order": 4,
         "width": 0,
         "height": 0,
         "name": "",
@@ -1451,14 +1463,14 @@
         "id": "f1897b73.d6cb58",
         "type": "ui_list",
         "z": "7120d12c.ff073",
-        "group": "265d16e3.e8c0ea",
+        "group": "19df5cf.3063aa3",
         "name": "",
-        "order": 3,
-        "width": 0,
-        "height": 0,
+        "order": 2,
+        "width": "0",
+        "height": "0",
         "lineType": "two",
         "actionType": "none",
-        "allowHTML": false,
+        "allowHTML": true,
         "outputs": 0,
         "topic": "",
         "x": 550,
@@ -1469,8 +1481,8 @@
         "id": "269f65af.d198da",
         "type": "ui_text",
         "z": "7120d12c.ff073",
-        "group": "265d16e3.e8c0ea",
-        "order": 2,
+        "group": "19df5cf.3063aa3",
+        "order": 1,
         "width": 0,
         "height": 0,
         "name": "",
@@ -1867,7 +1879,7 @@
         "z": "7120d12c.ff073",
         "name": "",
         "group": "9830bc25.6357e",
-        "order": 3,
+        "order": 4,
         "width": 0,
         "height": 0,
         "label": "Speed",
@@ -1909,7 +1921,7 @@
         "z": "7120d12c.ff073",
         "name": "",
         "group": "9830bc25.6357e",
-        "order": 4,
+        "order": 5,
         "width": 0,
         "height": 0,
         "label": "Power",
@@ -1951,7 +1963,7 @@
         "z": "7120d12c.ff073",
         "name": "",
         "group": "9830bc25.6357e",
-        "order": 5,
+        "order": 6,
         "width": 0,
         "height": 0,
         "label": "Brakes",
@@ -2055,7 +2067,7 @@
         "type": "ui_text",
         "z": "7120d12c.ff073",
         "group": "1c3c9287.cb990d",
-        "order": 4,
+        "order": 6,
         "width": 0,
         "height": 0,
         "name": "",
@@ -2085,9 +2097,9 @@
         "z": "7120d12c.ff073",
         "name": "",
         "group": "1c3c9287.cb990d",
-        "order": 4,
-        "width": "3",
-        "height": "1",
+        "order": 5,
+        "width": 3,
+        "height": 1,
         "passthru": false,
         "label": "Backward",
         "tooltip": "",
@@ -2768,7 +2780,7 @@
         "type": "ui_text",
         "z": "7120d12c.ff073",
         "group": "265d16e3.e8c0ea",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 0,
         "name": "",
@@ -2835,7 +2847,7 @@
         "label": "Speed Control",
         "tooltip": "",
         "group": "265d16e3.e8c0ea",
-        "order": 5,
+        "order": 6,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -2867,8 +2879,8 @@
         "qos": "",
         "retain": "",
         "broker": "2ec8f30e.4410fc",
-        "x": 400,
-        "y": 1160,
+        "x": 460,
+        "y": 1060,
         "wires": []
     },
     {
@@ -2880,8 +2892,8 @@
         "qos": "",
         "retain": "",
         "broker": "2ec8f30e.4410fc",
-        "x": 400,
-        "y": 1200,
+        "x": 460,
+        "y": 1100,
         "wires": []
     },
     {
@@ -2890,11 +2902,11 @@
         "z": "7120d12c.ff073",
         "name": "",
         "group": "265d16e3.e8c0ea",
-        "order": 6,
+        "order": 8,
         "width": 0,
         "height": 0,
         "passthru": false,
-        "label": "sound 1",
+        "label": "Play sound 1",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -2903,7 +2915,7 @@
         "payloadType": "str",
         "topic": "",
         "x": 150,
-        "y": 1180,
+        "y": 1060,
         "wires": [
             [
                 "498d6638.0086f8"
@@ -2916,11 +2928,11 @@
         "z": "7120d12c.ff073",
         "name": "",
         "group": "265d16e3.e8c0ea",
-        "order": 7,
+        "order": 9,
         "width": 0,
         "height": 0,
         "passthru": false,
-        "label": "sound 2",
+        "label": "Play Sound 2",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -2928,12 +2940,78 @@
         "payload": "",
         "payloadType": "str",
         "topic": "",
-        "x": 160,
-        "y": 1220,
+        "x": 150,
+        "y": 1100,
         "wires": [
             [
                 "306e33c8.a27afc"
             ]
         ]
+    },
+    {
+        "id": "58d472a2.7547ac",
+        "type": "mqtt in",
+        "z": "7120d12c.ff073",
+        "name": "",
+        "topic": "/train/infos/sound1",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "2ec8f30e.4410fc",
+        "x": 170,
+        "y": 1160,
+        "wires": [
+            [
+                "ea18dc55.9bebb"
+            ]
+        ]
+    },
+    {
+        "id": "ea18dc55.9bebb",
+        "type": "ui_text",
+        "z": "7120d12c.ff073",
+        "group": "265d16e3.e8c0ea",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "sound 1 is playing :",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 450,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "98700a55.e18be8",
+        "type": "mqtt in",
+        "z": "7120d12c.ff073",
+        "name": "",
+        "topic": "/train/infos/sound2",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "2ec8f30e.4410fc",
+        "x": 170,
+        "y": 1220,
+        "wires": [
+            [
+                "d6d8d549.899bd8"
+            ]
+        ]
+    },
+    {
+        "id": "d6d8d549.899bd8",
+        "type": "ui_text",
+        "z": "7120d12c.ff073",
+        "group": "265d16e3.e8c0ea",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "sound 2 is playing :",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 450,
+        "y": 1220,
+        "wires": []
     }
 ]

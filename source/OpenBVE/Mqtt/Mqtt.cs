@@ -226,50 +226,88 @@ namespace OpenBve.Mqtt
 					TrainManager.PlayerTrain.Cars[TrainManager.PlayerTrain.DriverCar].Doors[1].ButtonPressed = true;
 					break;
 				case sound1:
+					Console.WriteLine(Encoding.UTF8.GetString(e.Message));
 					if (isSound1Playing)
 					{
-						isSound1Playing = false;
+						if (Encoding.UTF8.GetString(e.Message) == "i")
+						{
+							isSound1Playing = false;
+							Publish("/train/infos/sound1", isSound1Playing.ToString());
+							int d = TrainManager.PlayerTrain.DriverCar;
+							if (TrainManager.PlayerTrain.Cars[d].Horns.Length > 2)
+							{
+								TrainManager.PlayerTrain.Cars[d].Horns[2].Play();
+								if (TrainManager.PlayerTrain.Plugin != null)
+								{
+									TrainManager.PlayerTrain.Plugin.HornBlow(OpenBveApi.Runtime.HornTypes.Music);
+								}
+							}
+							int a = TrainManager.PlayerTrain.DriverCar;
+							TrainManager.PlayerTrain.Cars[a].Horns[2].Stop();
+						}
 					}
 					else
 					{
-						isSound1Playing = true;
-
-					}
-					Publish("/train/infos/sound1", isSound1Playing.ToString());
-					int d = TrainManager.PlayerTrain.DriverCar;
-					if (TrainManager.PlayerTrain.Cars[d].Horns.Length > 2)
-					{
-						TrainManager.PlayerTrain.Cars[d].Horns[2].Play();
-						if (TrainManager.PlayerTrain.Plugin != null)
+						if (Encoding.UTF8.GetString(e.Message) == "m")
 						{
-							TrainManager.PlayerTrain.Plugin.HornBlow(OpenBveApi.Runtime.HornTypes.Music);
+							isSound1Playing = true;
+							Publish("/train/infos/sound1", isSound1Playing.ToString());
+							int d = TrainManager.PlayerTrain.DriverCar;
+							if (TrainManager.PlayerTrain.Cars[d].Horns.Length > 2)
+							{
+								TrainManager.PlayerTrain.Cars[d].Horns[2].Play();
+								if (TrainManager.PlayerTrain.Plugin != null)
+								{
+									TrainManager.PlayerTrain.Plugin.HornBlow(OpenBveApi.Runtime.HornTypes.Music);
+								}
+							}
+							int a = TrainManager.PlayerTrain.DriverCar;
+							TrainManager.PlayerTrain.Cars[a].Horns[2].Stop();
 						}
 					}
-					int a = TrainManager.PlayerTrain.DriverCar;
-					TrainManager.PlayerTrain.Cars[a].Horns[2].Stop();
+					
 					break;
 				case sound2:
 					if (isSound2Playing)
 					{
-						isSound2Playing = false;
+						if (Encoding.UTF8.GetString(e.Message) == "i")
+						{
+							isSound2Playing = false;
+							Publish("/train/infos/sound2", isSound2Playing.ToString());
+							int q = TrainManager.PlayerTrain.DriverCar;
+							if (TrainManager.PlayerTrain.Cars[q].Horns.Length > 1)
+							{
+								TrainManager.PlayerTrain.Cars[q].Horns[1].Play();
+								if (TrainManager.PlayerTrain.Plugin != null)
+								{
+									TrainManager.PlayerTrain.Plugin.HornBlow(OpenBveApi.Runtime.HornTypes.Music);
+								}
+							}
+							int f = TrainManager.PlayerTrain.DriverCar;
+							TrainManager.PlayerTrain.Cars[f].Horns[1].Stop();
+						}
+							
 					}
 					else
 					{
-						isSound2Playing = true;
-
-					}
-					Publish("/train/infos/sound2", isSound2Playing.ToString());
-					int q = TrainManager.PlayerTrain.DriverCar;
-					if (TrainManager.PlayerTrain.Cars[q].Horns.Length > 1)
-					{
-						TrainManager.PlayerTrain.Cars[q].Horns[1].Play();
-						if (TrainManager.PlayerTrain.Plugin != null)
+						if (Encoding.UTF8.GetString(e.Message) == "m")
 						{
-							TrainManager.PlayerTrain.Plugin.HornBlow(OpenBveApi.Runtime.HornTypes.Music);
+							isSound2Playing = true;
+							Publish("/train/infos/sound2", isSound2Playing.ToString());
+							int q = TrainManager.PlayerTrain.DriverCar;
+							if (TrainManager.PlayerTrain.Cars[q].Horns.Length > 1)
+							{
+								TrainManager.PlayerTrain.Cars[q].Horns[1].Play();
+								if (TrainManager.PlayerTrain.Plugin != null)
+								{
+									TrainManager.PlayerTrain.Plugin.HornBlow(OpenBveApi.Runtime.HornTypes.Music);
+								}
+							}
+							int f = TrainManager.PlayerTrain.DriverCar;
+							TrainManager.PlayerTrain.Cars[f].Horns[1].Stop();
 						}
 					}
-					int f = TrainManager.PlayerTrain.DriverCar;
-					TrainManager.PlayerTrain.Cars[f].Horns[1].Stop();
+					
 					break;
 				default:
 					break;

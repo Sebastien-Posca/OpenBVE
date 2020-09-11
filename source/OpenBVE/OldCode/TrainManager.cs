@@ -30,15 +30,25 @@ namespace OpenBve
 				double nr = PlayerTrain.CurrentRouteLimit;
 				double ns = PlayerTrain.CurrentSectionLimit;
 				double n = nr < ns ? nr : ns;
+				double mass = 0;
+				Mqtt.Mqtt.Publish("train/infos/speedLimit", (Math.Abs(n) * 3.6).ToString("0.0"));
+				Mqtt.Mqtt.Publish("train/sensors/currentAvgAcc", PlayerTrain.Specs.CurrentAverageAcceleration.ToString("0.0000"));
+				Mqtt.Mqtt.Publish("train/sensors/airPressure", PlayerTrain.Specs.CurrentAirPressure.ToString("0.0000"));
+				Mqtt.Mqtt.Publish("train/sensors/currentSpeed", (Math.Abs(PlayerTrain.CurrentSpeed) * 3.6).ToString("0.00"));
+				Mqtt.Mqtt.Publish("train/sensors/power", PlayerTrain.Handles.Power.Driver.ToString());
+				Mqtt.Mqtt.Publish("train/sensors/doorsLeft", GetDoorsState(PlayerTrain, true, false).ToString());
+				Mqtt.Mqtt.Publish("train/sensors/doorsRight", GetDoorsState(PlayerTrain, false, true).ToString());
+				Mqtt.Mqtt.Publish("train/sensors/brake", PlayerTrain.Handles.Brake.Driver.ToString());
+				Mqtt.Mqtt.Publish("train/sensors/reverser", PlayerTrain.Handles.Reverser.Driver.ToString());
+				for (int i = 0; i < TrainManager.PlayerTrain.Cars.Length; i++)
+				{
+					mass += TrainManager.PlayerTrain.Cars[i].CurrentMass;
+				}
+				Mqtt.Mqtt.Publish("train/sensors/positionX", (TrainManager.PlayerTrain.Cars[0].FrontAxle.Follower.WorldPosition.X).ToString());
+				Mqtt.Mqtt.Publish("train/sensors/positionY", (TrainManager.PlayerTrain.Cars[0].FrontAxle.Follower.WorldPosition.Y).ToString());
+				Mqtt.Mqtt.Publish("train/sensors/positionZ", (TrainManager.PlayerTrain.Cars[0].FrontAxle.Follower.WorldPosition.Z).ToString());
 
-				Mqtt.Mqtt.Publish("/train/infos/speedLimit", (Math.Abs(n) * 3.6).ToString("0.0"));
-				Mqtt.Mqtt.Publish("/train/sensors/currentAvgAcc", PlayerTrain.Specs.CurrentAverageAcceleration.ToString("0.0000"));
-				Mqtt.Mqtt.Publish("/train/sensors/currentSpeed", (Math.Abs(PlayerTrain.CurrentSpeed) * 3.6).ToString("0.00"));
-				Mqtt.Mqtt.Publish("/train/sensors/power", PlayerTrain.Handles.Power.Driver.ToString());
-				Mqtt.Mqtt.Publish("/train/sensors/doorsLeft", GetDoorsState(PlayerTrain, true, false).ToString());
-				Mqtt.Mqtt.Publish("/train/sensors/doorsRight", GetDoorsState(PlayerTrain, false, true).ToString());
-				Mqtt.Mqtt.Publish("/train/sensors/brake", PlayerTrain.Handles.Brake.Driver.ToString());
-				Mqtt.Mqtt.Publish("/train/sensors/reverser", PlayerTrain.Handles.Reverser.Driver.ToString());
+				Mqtt.Mqtt.Publish("train/sensors/load", mass.ToString());
 				cpt++;
 				if (cpt == 30)
 				{
@@ -63,7 +73,7 @@ namespace OpenBve
 							sb.Append(Program.CurrentRoute.Stations[i].Name + " : " + m.ToString("0.0"));
 						}
 					}
-					Mqtt.Mqtt.Publish("/train/infos/distanceToNextStation", sb.ToString());
+					Mqtt.Mqtt.Publish("train/infos/distanceToNextStation", sb.ToString());
 					cpt = 0;
 				}
 
@@ -83,7 +93,7 @@ namespace OpenBve
 						}
 					});
 					double min = trainsPositions.Min();
-					Mqtt.Mqtt.Publish("/train/infos/distanceToTrain", min.ToString("0.0"));
+					Mqtt.Mqtt.Publish("train/infos/distanceToTrain", min.ToString("0.0"));
 					cpt1 = 0;
 
 				}

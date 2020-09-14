@@ -1,27 +1,34 @@
 [
     {
-        "id": "7120d12c.ff073",
+        "id": "764f6e45.e7adc",
         "type": "tab",
         "label": "Dashboard",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "d9511ad1.637d88",
+        "id": "f6936c83.b4d89",
         "type": "tab",
         "label": "Drift",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "eea6ab89.ab12f8",
+        "id": "e0bb42c0.ed456",
         "type": "tab",
         "label": "Automated Train",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "5e31a918.f96b98",
+        "id": "5dea54b.a72c0ac",
+        "type": "tab",
+        "label": "MQTT Topics",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "4ec1e0b2.84c9d",
         "type": "ui_base",
         "theme": {
             "name": "theme-dark",
@@ -118,7 +125,7 @@
         }
     },
     {
-        "id": "2ec8f30e.4410fc",
+        "id": "35fc1b37.d7e0b4",
         "type": "mqtt-broker",
         "z": "",
         "name": "",
@@ -140,7 +147,7 @@
         "willPayload": ""
     },
     {
-        "id": "7912411d.9e93c",
+        "id": "b18f6b95.b3cb98",
         "type": "ui_tab",
         "z": "",
         "name": "Train Dashboard",
@@ -150,73 +157,73 @@
         "hidden": false
     },
     {
-        "id": "265d16e3.e8c0ea",
+        "id": "60d271c9.e1b48",
         "type": "ui_group",
         "z": "",
         "name": "Infos",
-        "tab": "7912411d.9e93c",
+        "tab": "b18f6b95.b3cb98",
         "order": 1,
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "1c3c9287.cb990d",
+        "id": "92a12888.6613a8",
         "type": "ui_group",
         "z": "",
         "name": "Power",
-        "tab": "7912411d.9e93c",
+        "tab": "b18f6b95.b3cb98",
         "order": 5,
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "1529ba5f.7b1c56",
+        "id": "aa4688b0.c10b38",
         "type": "ui_group",
         "z": "",
         "name": "Brake",
-        "tab": "7912411d.9e93c",
+        "tab": "b18f6b95.b3cb98",
         "order": 6,
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "9f64872d.43f268",
+        "id": "185cc442.5e938c",
         "type": "ui_group",
         "z": "",
         "name": "Doors",
-        "tab": "7912411d.9e93c",
+        "tab": "b18f6b95.b3cb98",
         "order": 3,
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "9830bc25.6357e",
+        "id": "2d21233f.494c5c",
         "type": "ui_group",
         "z": "",
         "name": "Speed",
-        "tab": "7912411d.9e93c",
+        "tab": "b18f6b95.b3cb98",
         "order": 4,
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "905b212e.8dd83",
+        "id": "c0e9e5eb.674658",
         "type": "ui_group",
         "z": "",
         "name": "Drift",
-        "tab": "e17e60d.eae63a",
+        "tab": "e694a216.d18f8",
         "order": 6,
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "e17e60d.eae63a",
+        "id": "e694a216.d18f8",
         "type": "ui_tab",
         "z": "",
         "name": "Train Drift",
@@ -226,22 +233,22 @@
         "hidden": false
     },
     {
-        "id": "19df5cf.3063aa3",
+        "id": "32bc742a.4f852c",
         "type": "ui_group",
         "z": "",
         "name": "Stations",
-        "tab": "7912411d.9e93c",
+        "tab": "b18f6b95.b3cb98",
         "order": 2,
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "1fa7c096.e0d99f",
+        "id": "1e74c995.9a7696",
         "type": "ui_button",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
-        "group": "265d16e3.e8c0ea",
+        "group": "60d271c9.e1b48",
         "order": 8,
         "width": 0,
         "height": 0,
@@ -258,48 +265,48 @@
         "y": 340,
         "wires": [
             [
-                "422c716c.0e5f2"
+                "667c8ae3.4f8fc4"
             ]
         ]
     },
     {
-        "id": "1f965606.6f351a",
+        "id": "34839031.61f44",
         "type": "mqtt in",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
-        "topic": "/train/sensors/doorsLeft",
+        "topic": "train/sensors/doorsLeft",
         "qos": "0",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 140,
         "y": 40,
         "wires": [
             [
-                "dc83b63d.3f39e8"
+                "da319058.1e625"
             ]
         ]
     },
     {
-        "id": "13f987e9.a0fc08",
+        "id": "3b23c424.6dee1c",
         "type": "mqtt in",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
-        "topic": "/train/sensors/doorsRight",
+        "topic": "train/sensors/doorsRight",
         "qos": "0",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 150,
         "y": 100,
         "wires": [
             [
-                "a6286129.91c41"
+                "eadc0567.dca508"
             ]
         ]
     },
     {
-        "id": "e3d944b7.8a66d8",
+        "id": "9f096b21.b36868",
         "type": "change",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "rules": [
             {
@@ -322,9 +329,9 @@
         ]
     },
     {
-        "id": "fd91b96a.412b98",
+        "id": "882eec58.7ff3e",
         "type": "change",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "rules": [
             {
@@ -347,9 +354,9 @@
         ]
     },
     {
-        "id": "422c716c.0e5f2",
+        "id": "667c8ae3.4f8fc4",
         "type": "switch",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "door left check",
         "property": "doorsLeft",
         "propertyType": "flow",
@@ -377,22 +384,22 @@
         "y": 340,
         "wires": [
             [
-                "416a07fc.c12068",
-                "bbc4544.4bf05a8"
+                "6163b51f.01e56c",
+                "f0ca52d8.30ec6"
             ],
             [
-                "9470ffd0.df46"
+                "5b0c803b.7ce76"
             ],
             [
-                "aa3b53ff.331a1",
-                "9470ffd0.df46"
+                "1851a84e.f18f08",
+                "5b0c803b.7ce76"
             ]
         ]
     },
     {
-        "id": "416a07fc.c12068",
+        "id": "6163b51f.01e56c",
         "type": "switch",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "door right check",
         "property": "doorsRight",
         "propertyType": "flow",
@@ -420,22 +427,22 @@
         "y": 340,
         "wires": [
             [
-                "221a64d3.af83dc",
-                "60ad86b0.4a1b48"
+                "5e36f2b2.f566bc",
+                "2771c156.0d43be"
             ],
             [
-                "17bed60.3d19e2a"
+                "e398e341.a83c3"
             ],
             [
-                "27226cf6.76f964",
-                "17bed60.3d19e2a"
+                "83f6b277.41244",
+                "e398e341.a83c3"
             ]
         ]
     },
     {
-        "id": "221a64d3.af83dc",
+        "id": "5e36f2b2.f566bc",
         "type": "switch",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "check reverser",
         "property": "reverser",
         "propertyType": "flow",
@@ -456,32 +463,32 @@
         "y": 340,
         "wires": [
             [
-                "a0a065f6.9c49c8"
+                "9ade527a.4b9de"
             ],
             [
-                "298afdf8.fd1122",
-                "a0a065f6.9c49c8",
-                "b78dd44e.3c7a28"
+                "3e04d8bd.976e58",
+                "9ade527a.4b9de",
+                "b5dfe1f8.ec306"
             ]
         ]
     },
     {
-        "id": "aa3b53ff.331a1",
+        "id": "1851a84e.f18f08",
         "type": "mqtt out",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
-        "topic": "/train/actuators/doorsLeft",
+        "topic": "train/actuators/doorsLeft",
         "qos": "",
         "retain": "",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 330,
         "y": 400,
         "wires": []
     },
     {
-        "id": "9470ffd0.df46",
+        "id": "5b0c803b.7ce76",
         "type": "delay",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "pauseType": "delay",
         "timeout": "50",
@@ -497,14 +504,14 @@
         "y": 220,
         "wires": [
             [
-                "422c716c.0e5f2"
+                "667c8ae3.4f8fc4"
             ]
         ]
     },
     {
-        "id": "17bed60.3d19e2a",
+        "id": "e398e341.a83c3",
         "type": "delay",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "pauseType": "delay",
         "timeout": "50",
@@ -520,40 +527,40 @@
         "y": 260,
         "wires": [
             [
-                "416a07fc.c12068"
+                "6163b51f.01e56c"
             ]
         ]
     },
     {
-        "id": "27226cf6.76f964",
+        "id": "83f6b277.41244",
         "type": "mqtt out",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
-        "topic": "/train/actuators/doorsRight",
+        "topic": "train/actuators/doorsRight",
         "qos": "",
         "retain": "",
-        "broker": "2ec8f30e.4410fc",
-        "x": 600,
+        "broker": "35fc1b37.d7e0b4",
+        "x": 590,
         "y": 400,
         "wires": []
     },
     {
-        "id": "298afdf8.fd1122",
+        "id": "3e04d8bd.976e58",
         "type": "mqtt out",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
-        "topic": "/train/actuators/reverserForward",
+        "topic": "train/actuators/reverserForward",
         "qos": "",
         "retain": "",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 890,
         "y": 400,
         "wires": []
     },
     {
-        "id": "46509859.9a1578",
+        "id": "c889d4eb.2f37c8",
         "type": "switch",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "check brake",
         "property": "brake",
         "propertyType": "flow",
@@ -574,19 +581,19 @@
         "y": 600,
         "wires": [
             [
-                "b503373d.2c5d18",
-                "a5156b9c.642658"
+                "d9aad3be.840f4",
+                "6f057a3.906f984"
             ],
             [
-                "64e88378.93360c",
-                "499a24c.52813dc"
+                "662ca20b.ab81bc",
+                "98c6d08a.30511"
             ]
         ]
     },
     {
-        "id": "af8f3b55.3bf558",
+        "id": "db005c5b.3f569",
         "type": "change",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "rules": [
             {
@@ -609,26 +616,26 @@
         ]
     },
     {
-        "id": "d1e6d7b2.bb71c8",
+        "id": "dd84519c.3e1d6",
         "type": "mqtt in",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
-        "topic": "/train/sensors/brake",
+        "topic": "train/sensors/brake",
         "qos": "0",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 750,
         "y": 40,
         "wires": [
             [
-                "af8f3b55.3bf558"
+                "db005c5b.3f569"
             ]
         ]
     },
     {
-        "id": "b503373d.2c5d18",
+        "id": "d9aad3be.840f4",
         "type": "switch",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "check power",
         "property": "power",
         "propertyType": "flow",
@@ -651,45 +658,45 @@
         "y": 600,
         "wires": [
             [
-                "79580ec9.f0bb5",
-                "516d6e9a.745af"
+                "ba0e977c.862058",
+                "42b87f79.622cd"
             ],
             [
-                "37dbe15.45cc41e",
-                "8eacaa96.999df8"
+                "df0f409.168c6c",
+                "4b1b44b.5bb33bc"
             ]
         ]
     },
     {
-        "id": "79580ec9.f0bb5",
+        "id": "ba0e977c.862058",
         "type": "mqtt out",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
-        "topic": "/train/actuators/powerUp",
+        "topic": "train/actuators/powerUp",
         "qos": "",
         "retain": "",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 1010,
         "y": 660,
         "wires": []
     },
     {
-        "id": "64e88378.93360c",
+        "id": "662ca20b.ab81bc",
         "type": "mqtt out",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
-        "topic": "/train/actuators/brakeDecrease",
+        "topic": "train/actuators/brakeDecrease",
         "qos": "",
         "retain": "",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 290,
         "y": 660,
         "wires": []
     },
     {
-        "id": "499a24c.52813dc",
+        "id": "98c6d08a.30511",
         "type": "delay",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "pauseType": "delay",
         "timeout": "50",
@@ -705,14 +712,14 @@
         "y": 520,
         "wires": [
             [
-                "46509859.9a1578"
+                "c889d4eb.2f37c8"
             ]
         ]
     },
     {
-        "id": "516d6e9a.745af",
+        "id": "42b87f79.622cd",
         "type": "delay",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "pauseType": "delay",
         "timeout": "50",
@@ -728,14 +735,14 @@
         "y": 520,
         "wires": [
             [
-                "b503373d.2c5d18"
+                "d9aad3be.840f4"
             ]
         ]
     },
     {
-        "id": "5d5db255.8c2f5c",
+        "id": "394f03c7.2a332c",
         "type": "ui_toast",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "position": "top right",
         "displayTime": "3",
         "highlight": "",
@@ -751,26 +758,26 @@
         "wires": []
     },
     {
-        "id": "8f04107b.922eb",
+        "id": "5c4e0050.1634",
         "type": "mqtt in",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
-        "topic": "/train/sensors/power",
+        "topic": "train/sensors/power",
         "qos": "0",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 730,
         "y": 100,
         "wires": [
             [
-                "70f6df63.deaa5"
+                "79c9242d.02814c"
             ]
         ]
     },
     {
-        "id": "2dbd6348.b5a74c",
+        "id": "33b936ae.3c562a",
         "type": "change",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "rules": [
             {
@@ -793,9 +800,9 @@
         ]
     },
     {
-        "id": "70f6df63.deaa5",
+        "id": "79c9242d.02814c",
         "type": "function",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "parseInt",
         "func": "msg.payload = parseInt(msg.payload)\nreturn msg;",
         "outputs": 1,
@@ -804,31 +811,31 @@
         "y": 100,
         "wires": [
             [
-                "2dbd6348.b5a74c"
+                "33b936ae.3c562a"
             ]
         ]
     },
     {
-        "id": "ea241277.c7483",
+        "id": "72c3d871.f51bc8",
         "type": "mqtt in",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
-        "topic": "/train/sensors/reverser",
+        "topic": "train/sensors/reverser",
         "qos": "2",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 140,
         "y": 160,
         "wires": [
             [
-                "78684755.efd0c8"
+                "830e7910.85f328"
             ]
         ]
     },
     {
-        "id": "78684755.efd0c8",
+        "id": "830e7910.85f328",
         "type": "change",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "rules": [
             {
@@ -851,9 +858,9 @@
         ]
     },
     {
-        "id": "dc83b63d.3f39e8",
+        "id": "da319058.1e625",
         "type": "function",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "split msg",
         "func": "var res = msg.payload.replace(/\\s+/g, '').split(\",\");\nmsg.payload = res[0]\nreturn msg;",
         "outputs": 1,
@@ -862,14 +869,14 @@
         "y": 40,
         "wires": [
             [
-                "e3d944b7.8a66d8"
+                "9f096b21.b36868"
             ]
         ]
     },
     {
-        "id": "a6286129.91c41",
+        "id": "eadc0567.dca508",
         "type": "function",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "split msg",
         "func": "var res = msg.payload.replace(/\\s+/g, '').split(\",\");\nmsg.payload = res[0]\nreturn msg;",
         "outputs": 1,
@@ -878,34 +885,34 @@
         "y": 100,
         "wires": [
             [
-                "fd91b96a.412b98"
+                "882eec58.7ff3e"
             ]
         ]
     },
     {
-        "id": "d0e7ed34.0c904",
+        "id": "ed93dbbb.0f19a8",
         "type": "mqtt in",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/sensors/currentSpeed",
+        "topic": "train/sensors/currentSpeed",
         "qos": "0",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
-        "x": 160,
+        "broker": "35fc1b37.d7e0b4",
+        "x": 150,
         "y": 160,
         "wires": [
             [
-                "ddd3d35.3a33b3",
-                "de2452eb.c54bf"
+                "de2a016.4d18",
+                "9410caf4.d73b98"
             ]
         ]
     },
     {
-        "id": "ddd3d35.3a33b3",
+        "id": "de2a016.4d18",
         "type": "ui_gauge",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "group": "9830bc25.6357e",
+        "group": "2d21233f.494c5c",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -927,27 +934,27 @@
         "wires": []
     },
     {
-        "id": "47b38b35.cab7c4",
+        "id": "bb67b497.fe7a88",
         "type": "mqtt in",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/sensors/currentAvgAcc",
+        "topic": "train/sensors/currentAvgAcc",
         "qos": "0",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 160,
         "y": 100,
         "wires": [
             [
-                "7dbfd670.24cab8"
+                "c495bcd6.36c0a"
             ]
         ]
     },
     {
-        "id": "7dbfd670.24cab8",
+        "id": "c495bcd6.36c0a",
         "type": "ui_text",
-        "z": "7120d12c.ff073",
-        "group": "9830bc25.6357e",
+        "z": "764f6e45.e7adc",
+        "group": "2d21233f.494c5c",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -960,22 +967,22 @@
         "wires": []
     },
     {
-        "id": "70961a95.c41f84",
+        "id": "322a789c.7e73a8",
         "type": "mqtt out",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/actuators/powerUp",
+        "topic": "train/actuators/powerUp",
         "qos": "",
         "retain": "",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 350,
         "y": 480,
         "wires": []
     },
     {
-        "id": "18caca2c.ad35e6",
+        "id": "4027936d.f0314c",
         "type": "inject",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
         "topic": "",
         "payload": "",
@@ -988,27 +995,27 @@
         "y": 500,
         "wires": [
             [
-                "70961a95.c41f84"
+                "322a789c.7e73a8"
             ]
         ]
     },
     {
-        "id": "105d82f0.f26f3d",
+        "id": "8815bbf4.a8bc68",
         "type": "mqtt out",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/actuators/powerDown",
+        "topic": "train/actuators/powerDown",
         "qos": "",
         "retain": "",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 360,
         "y": 580,
         "wires": []
     },
     {
-        "id": "fc817fe8.2fe57",
+        "id": "d0291630.668c08",
         "type": "inject",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
         "topic": "",
         "payload": "",
@@ -1021,16 +1028,16 @@
         "y": 560,
         "wires": [
             [
-                "105d82f0.f26f3d"
+                "8815bbf4.a8bc68"
             ]
         ]
     },
     {
-        "id": "12e563fd.60ebfc",
+        "id": "c6a1eb3d.7433b8",
         "type": "ui_button",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "group": "1c3c9287.cb990d",
+        "group": "92a12888.6613a8",
         "order": 2,
         "width": 3,
         "height": 1,
@@ -1047,16 +1054,16 @@
         "y": 600,
         "wires": [
             [
-                "105d82f0.f26f3d"
+                "8815bbf4.a8bc68"
             ]
         ]
     },
     {
-        "id": "fe159420.e5e868",
+        "id": "a261a56a.304478",
         "type": "ui_button",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "group": "1c3c9287.cb990d",
+        "group": "92a12888.6613a8",
         "order": 3,
         "width": 3,
         "height": 1,
@@ -1073,68 +1080,68 @@
         "y": 460,
         "wires": [
             [
-                "70961a95.c41f84"
+                "322a789c.7e73a8"
             ]
         ]
     },
     {
-        "id": "d260827d.4da74",
+        "id": "54853661.360fb8",
         "type": "mqtt out",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/actuators/brakeIncrease",
+        "topic": "train/actuators/brakeIncrease",
         "qos": "",
         "retain": "",
-        "broker": "2ec8f30e.4410fc",
-        "x": 1010,
+        "broker": "35fc1b37.d7e0b4",
+        "x": 1000,
         "y": 400,
         "wires": []
     },
     {
-        "id": "2b16780f.9bda38",
+        "id": "d0a74c4c.b6a0f",
         "type": "mqtt out",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/actuators/brakeDecrease",
+        "topic": "train/actuators/brakeDecrease",
         "qos": "",
         "retain": "",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 1010,
         "y": 460,
         "wires": []
     },
     {
-        "id": "2973c98.41dfb36",
+        "id": "4c507d91.983ab4",
         "type": "mqtt out",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/actuators/doorsLeft",
+        "topic": "train/actuators/doorsLeft",
         "qos": "",
         "retain": "",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 990,
-        "y": 220,
+        "y": 200,
         "wires": []
     },
     {
-        "id": "670eed0d.f4ad64",
+        "id": "db36bc8f.a84fb",
         "type": "mqtt out",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/actuators/doorsRight",
+        "topic": "train/actuators/doorsRight",
         "qos": "",
         "retain": "",
-        "broker": "2ec8f30e.4410fc",
-        "x": 1000,
+        "broker": "35fc1b37.d7e0b4",
+        "x": 990,
         "y": 280,
         "wires": []
     },
     {
-        "id": "5dc28871.5913e8",
+        "id": "1e5f3d13.550fd3",
         "type": "ui_button",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "group": "1529ba5f.7b1c56",
+        "group": "aa4688b0.c10b38",
         "order": 3,
         "width": 3,
         "height": 1,
@@ -1151,16 +1158,16 @@
         "y": 400,
         "wires": [
             [
-                "d260827d.4da74"
+                "54853661.360fb8"
             ]
         ]
     },
     {
-        "id": "a4325f3e.581c",
+        "id": "8383b9b.9b79248",
         "type": "ui_button",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "group": "1529ba5f.7b1c56",
+        "group": "aa4688b0.c10b38",
         "order": 2,
         "width": 3,
         "height": 1,
@@ -1177,16 +1184,16 @@
         "y": 460,
         "wires": [
             [
-                "2b16780f.9bda38"
+                "d0a74c4c.b6a0f"
             ]
         ]
     },
     {
-        "id": "413dcb72.598404",
+        "id": "c6344ba0.e057e8",
         "type": "ui_button",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "group": "9f64872d.43f268",
+        "group": "185cc442.5e938c",
         "order": 1,
         "width": 3,
         "height": 1,
@@ -1203,16 +1210,16 @@
         "y": 220,
         "wires": [
             [
-                "2973c98.41dfb36"
+                "4c507d91.983ab4"
             ]
         ]
     },
     {
-        "id": "aac36e9f.ee4d1",
+        "id": "145743b5.a2522c",
         "type": "ui_button",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "group": "9f64872d.43f268",
+        "group": "185cc442.5e938c",
         "order": 2,
         "width": 3,
         "height": 1,
@@ -1229,29 +1236,29 @@
         "y": 280,
         "wires": [
             [
-                "670eed0d.f4ad64"
+                "db36bc8f.a84fb"
             ]
         ]
     },
     {
-        "id": "306d5bb7.f6a9b4",
+        "id": "3fbbd3dc.71aa1c",
         "type": "mqtt out",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/actuators/reverserForward",
+        "topic": "train/actuators/reverserForward",
         "qos": "",
         "retain": "",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 380,
         "y": 420,
         "wires": []
     },
     {
-        "id": "8f624c2c.09066",
+        "id": "2964bc05.e70e64",
         "type": "ui_button",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "group": "1c3c9287.cb990d",
+        "group": "92a12888.6613a8",
         "order": 4,
         "width": 3,
         "height": 1,
@@ -1268,67 +1275,67 @@
         "y": 420,
         "wires": [
             [
-                "306d5bb7.f6a9b4"
+                "3fbbd3dc.71aa1c"
             ]
         ]
     },
     {
-        "id": "93d7b05a.1e191",
+        "id": "56381682.78ac58",
         "type": "mqtt in",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/sensors/brake",
+        "topic": "train/sensors/brake",
         "qos": "0",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 770,
         "y": 540,
         "wires": [
             [
-                "6a7a38.620c75c8",
-                "69047caa.d2c7a4"
+                "1093a270.07ef8e",
+                "ebd015c0.1aa458"
             ]
         ]
     },
     {
-        "id": "872b8b37.b5c6e8",
+        "id": "bf135380.e07a2",
         "type": "mqtt in",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/sensors/doorsLeft",
+        "topic": "train/sensors/doorsLeft",
         "qos": "0",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 780,
         "y": 100,
         "wires": [
             [
-                "aec24720.77f9c8"
+                "93aca606.db4be8"
             ]
         ]
     },
     {
-        "id": "b9fa8d5a.537e4",
+        "id": "2f88c18e.18579e",
         "type": "mqtt in",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/sensors/doorsRight",
+        "topic": "train/sensors/doorsRight",
         "qos": "0",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 790,
         "y": 160,
         "wires": [
             [
-                "cea9838.97c958"
+                "8489ce71.d765c"
             ]
         ]
     },
     {
-        "id": "aec24720.77f9c8",
+        "id": "93aca606.db4be8",
         "type": "ui_text",
-        "z": "7120d12c.ff073",
-        "group": "9f64872d.43f268",
+        "z": "764f6e45.e7adc",
+        "group": "185cc442.5e938c",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -1341,10 +1348,10 @@
         "wires": []
     },
     {
-        "id": "cea9838.97c958",
+        "id": "8489ce71.d765c",
         "type": "ui_text",
-        "z": "7120d12c.ff073",
-        "group": "9f64872d.43f268",
+        "z": "764f6e45.e7adc",
+        "group": "185cc442.5e938c",
         "order": 4,
         "width": 0,
         "height": 0,
@@ -1357,28 +1364,28 @@
         "wires": []
     },
     {
-        "id": "c6051ac8.952478",
+        "id": "462d20a2.ca59a",
         "type": "mqtt in",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/infos/speedLimit",
+        "topic": "train/infos/speedLimit",
         "qos": "0",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 140,
         "y": 240,
         "wires": [
             [
-                "127127b2.2b0ee8",
-                "ed898936.a01538"
+                "4522fb0f.c7c634",
+                "2db87c6a.58ff94"
             ]
         ]
     },
     {
-        "id": "127127b2.2b0ee8",
+        "id": "4522fb0f.c7c634",
         "type": "ui_text",
-        "z": "7120d12c.ff073",
-        "group": "9830bc25.6357e",
+        "z": "764f6e45.e7adc",
+        "group": "2d21233f.494c5c",
         "order": 2,
         "width": 0,
         "height": 0,
@@ -1391,26 +1398,26 @@
         "wires": []
     },
     {
-        "id": "96ad7686.1b9608",
+        "id": "2584fc4d.f0c7e4",
         "type": "mqtt in",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/infos/distanceToNextStation",
+        "topic": "train/infos/distanceToNextStation",
         "qos": "2",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 190,
         "y": 940,
         "wires": [
             [
-                "53dc43ae.acc55c"
+                "50d7fc61.92bef4"
             ]
         ]
     },
     {
-        "id": "53dc43ae.acc55c",
+        "id": "50d7fc61.92bef4",
         "type": "function",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "split string",
         "func": "var res = msg.payload.replace(/\\s+/g, '').split(\";\");\nmsg.payload = res\nreturn msg;",
         "outputs": 1,
@@ -1419,14 +1426,14 @@
         "y": 940,
         "wires": [
             [
-                "f1897b73.d6cb58"
+                "5e066e73.5de0f"
             ]
         ]
     },
     {
-        "id": "48070f1b.a4aa2",
+        "id": "77c80c05.bea514",
         "type": "comment",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "Speed",
         "info": "",
         "x": 70,
@@ -1434,11 +1441,11 @@
         "wires": []
     },
     {
-        "id": "6a7a38.620c75c8",
+        "id": "1093a270.07ef8e",
         "type": "ui_gauge",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "group": "1529ba5f.7b1c56",
+        "group": "aa4688b0.c10b38",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -1460,10 +1467,10 @@
         "wires": []
     },
     {
-        "id": "f1897b73.d6cb58",
+        "id": "5e066e73.5de0f",
         "type": "ui_list",
-        "z": "7120d12c.ff073",
-        "group": "19df5cf.3063aa3",
+        "z": "764f6e45.e7adc",
+        "group": "32bc742a.4f852c",
         "name": "",
         "order": 2,
         "width": "0",
@@ -1478,10 +1485,10 @@
         "wires": []
     },
     {
-        "id": "269f65af.d198da",
+        "id": "7e6c493.de78db8",
         "type": "ui_text",
-        "z": "7120d12c.ff073",
-        "group": "19df5cf.3063aa3",
+        "z": "764f6e45.e7adc",
+        "group": "32bc742a.4f852c",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -1494,46 +1501,46 @@
         "wires": []
     },
     {
-        "id": "f030384e.5c69e8",
+        "id": "157a469a.2006c9",
         "type": "mqtt in",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/sensors/soundsPlaying",
+        "topic": "train/sensors/soundsPlaying",
         "qos": "0",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 180,
         "y": 840,
         "wires": [
             [
-                "3a23e657.3be6ca"
+                "b5786363.521f5"
             ]
         ]
     },
     {
-        "id": "e891827c.94d86",
+        "id": "6f07bcfb.c767b4",
         "type": "mqtt in",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/sensors/power",
+        "topic": "train/sensors/power",
         "qos": "0",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 130,
         "y": 360,
         "wires": [
             [
-                "f98969c2.5835c8",
-                "5d771414.4a6f6c"
+                "6bfc1623.97a6a8",
+                "14d643f3.4d907c"
             ]
         ]
     },
     {
-        "id": "f98969c2.5835c8",
+        "id": "6bfc1623.97a6a8",
         "type": "ui_gauge",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "group": "1c3c9287.cb990d",
+        "group": "92a12888.6613a8",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -1555,10 +1562,10 @@
         "wires": []
     },
     {
-        "id": "3a23e657.3be6ca",
+        "id": "b5786363.521f5",
         "type": "ui_text",
-        "z": "7120d12c.ff073",
-        "group": "265d16e3.e8c0ea",
+        "z": "764f6e45.e7adc",
+        "group": "60d271c9.e1b48",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -1571,9 +1578,9 @@
         "wires": []
     },
     {
-        "id": "1a47dbb4.c02414",
+        "id": "49e5072f.7854f8",
         "type": "comment",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "Power",
         "info": "",
         "x": 70,
@@ -1581,9 +1588,9 @@
         "wires": []
     },
     {
-        "id": "586524c.bf78ddc",
+        "id": "ce136865.4ed178",
         "type": "comment",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "General Infos",
         "info": "",
         "x": 110,
@@ -1591,9 +1598,9 @@
         "wires": []
     },
     {
-        "id": "33548059.f6b8",
+        "id": "93554e29.b37",
         "type": "comment",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "Doors",
         "info": "",
         "x": 710,
@@ -1601,9 +1608,9 @@
         "wires": []
     },
     {
-        "id": "8e3e3d72.4ba9c",
+        "id": "c466c332.7d313",
         "type": "comment",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "Brakes",
         "info": "",
         "x": 710,
@@ -1611,76 +1618,76 @@
         "wires": []
     },
     {
-        "id": "57cf79d5.f36558",
+        "id": "eda63b75.3d9548",
         "type": "mosca in",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "mqtt_port": 1883,
         "mqtt_ws_port": 8080,
         "name": "",
         "username": "",
         "password": "",
         "dburl": "",
-        "x": 150,
+        "x": 190,
         "y": 20,
         "wires": [
             []
         ]
     },
     {
-        "id": "681bfb64.6d8a54",
+        "id": "41935ad1.65d934",
         "type": "mqtt in",
-        "z": "d9511ad1.637d88",
+        "z": "f6936c83.b4d89",
         "name": "",
-        "topic": "/train/sensors/currentSpeed",
+        "topic": "train/sensors/currentSpeed",
         "qos": "0",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
-        "x": 160,
+        "broker": "35fc1b37.d7e0b4",
+        "x": 150,
         "y": 80,
         "wires": [
             [
-                "5edb3896.e35da8"
+                "ea22e504.a5a068"
             ]
         ]
     },
     {
-        "id": "50e87adf.28e6b4",
+        "id": "fdf65ca3.88dfb",
         "type": "mqtt in",
-        "z": "d9511ad1.637d88",
+        "z": "f6936c83.b4d89",
         "name": "",
-        "topic": "/train/infos/speedLimit",
+        "topic": "train/infos/speedLimit",
         "qos": "0",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 140,
         "y": 140,
         "wires": [
             [
-                "31e90f4.8e6f4f"
+                "634efdfb.90d1d4"
             ]
         ]
     },
     {
-        "id": "2f6c5230.10339e",
+        "id": "37349117.6c5e3e",
         "type": "mqtt in",
-        "z": "d9511ad1.637d88",
+        "z": "f6936c83.b4d89",
         "name": "",
-        "topic": "/train/sensors/behaviouralDrift",
+        "topic": "train/sensors/behaviouralDrift",
         "qos": "2",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 160,
         "y": 240,
         "wires": [
             [
-                "31f77dfd.ffef42"
+                "1c737734.aaa0e9"
             ]
         ]
     },
     {
-        "id": "e003bb3f.2f5448",
+        "id": "b2a42ef1.1a682",
         "type": "comment",
-        "z": "d9511ad1.637d88",
+        "z": "f6936c83.b4d89",
         "name": "Drift",
         "info": "",
         "x": 70,
@@ -1688,11 +1695,11 @@
         "wires": []
     },
     {
-        "id": "31f77dfd.ffef42",
+        "id": "1c737734.aaa0e9",
         "type": "ui_chart",
-        "z": "d9511ad1.637d88",
+        "z": "f6936c83.b4d89",
         "name": "",
-        "group": "905b212e.8dd83",
+        "group": "c0e9e5eb.674658",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -1730,9 +1737,9 @@
         ]
     },
     {
-        "id": "240d53ec.cfee5c",
+        "id": "741647b6.0e7be8",
         "type": "comment",
-        "z": "d9511ad1.637d88",
+        "z": "f6936c83.b4d89",
         "name": "Speed",
         "info": "",
         "x": 70,
@@ -1740,9 +1747,9 @@
         "wires": []
     },
     {
-        "id": "5edb3896.e35da8",
+        "id": "ea22e504.a5a068",
         "type": "delay",
-        "z": "d9511ad1.637d88",
+        "z": "f6936c83.b4d89",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -1758,14 +1765,14 @@
         "y": 80,
         "wires": [
             [
-                "a8eb2fea.b467a"
+                "8d6be608.8208c8"
             ]
         ]
     },
     {
-        "id": "31e90f4.8e6f4f",
+        "id": "634efdfb.90d1d4",
         "type": "delay",
-        "z": "d9511ad1.637d88",
+        "z": "f6936c83.b4d89",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -1781,16 +1788,16 @@
         "y": 140,
         "wires": [
             [
-                "a8eb2fea.b467a"
+                "8d6be608.8208c8"
             ]
         ]
     },
     {
-        "id": "a8eb2fea.b467a",
+        "id": "8d6be608.8208c8",
         "type": "ui_chart",
-        "z": "d9511ad1.637d88",
+        "z": "f6936c83.b4d89",
         "name": "",
-        "group": "905b212e.8dd83",
+        "group": "c0e9e5eb.674658",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -1808,6 +1815,7 @@
         "removeOlderUnit": "3600",
         "cutout": 0,
         "useOneColor": false,
+        "useUTC": false,
         "colors": [
             "#1f77b4",
             "#d62728",
@@ -1828,9 +1836,9 @@
         ]
     },
     {
-        "id": "de2452eb.c54bf",
+        "id": "9410caf4.d73b98",
         "type": "delay",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -1846,14 +1854,14 @@
         "y": 180,
         "wires": [
             [
-                "fdd8879.d0b7078"
+                "1d978f49.613281"
             ]
         ]
     },
     {
-        "id": "ed898936.a01538",
+        "id": "2db87c6a.58ff94",
         "type": "delay",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -1869,16 +1877,16 @@
         "y": 260,
         "wires": [
             [
-                "fdd8879.d0b7078"
+                "1d978f49.613281"
             ]
         ]
     },
     {
-        "id": "fdd8879.d0b7078",
+        "id": "1d978f49.613281",
         "type": "ui_chart",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "group": "9830bc25.6357e",
+        "group": "2d21233f.494c5c",
         "order": 4,
         "width": 0,
         "height": 0,
@@ -1916,11 +1924,11 @@
         ]
     },
     {
-        "id": "35ca5db0.069132",
+        "id": "f2e26f85.a826f",
         "type": "ui_chart",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "group": "9830bc25.6357e",
+        "group": "2d21233f.494c5c",
         "order": 5,
         "width": 0,
         "height": 0,
@@ -1958,11 +1966,11 @@
         ]
     },
     {
-        "id": "616e90b7.91423",
+        "id": "1f0569e1.c2f7e6",
         "type": "ui_chart",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "group": "9830bc25.6357e",
+        "group": "2d21233f.494c5c",
         "order": 6,
         "width": 0,
         "height": 0,
@@ -2000,9 +2008,9 @@
         ]
     },
     {
-        "id": "5d771414.4a6f6c",
+        "id": "14d643f3.4d907c",
         "type": "delay",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -2018,14 +2026,14 @@
         "y": 380,
         "wires": [
             [
-                "35ca5db0.069132"
+                "f2e26f85.a826f"
             ]
         ]
     },
     {
-        "id": "69047caa.d2c7a4",
+        "id": "ebd015c0.1aa458",
         "type": "delay",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -2041,32 +2049,32 @@
         "y": 560,
         "wires": [
             [
-                "616e90b7.91423"
+                "1f0569e1.c2f7e6"
             ]
         ]
     },
     {
-        "id": "37f12800.a86628",
+        "id": "b8fd4090.3dd4c",
         "type": "mqtt in",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/sensors/reverser",
+        "topic": "train/sensors/reverser",
         "qos": "2",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 140,
         "y": 660,
         "wires": [
             [
-                "6bb3c147.2d277"
+                "5371ba01.661c24"
             ]
         ]
     },
     {
-        "id": "6bb3c147.2d277",
+        "id": "5371ba01.661c24",
         "type": "ui_text",
-        "z": "7120d12c.ff073",
-        "group": "1c3c9287.cb990d",
+        "z": "764f6e45.e7adc",
+        "group": "92a12888.6613a8",
         "order": 6,
         "width": 0,
         "height": 0,
@@ -2079,24 +2087,24 @@
         "wires": []
     },
     {
-        "id": "24696c23.fa1234",
+        "id": "a623809b.b7fc",
         "type": "mqtt out",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/actuators/reverserBackward",
+        "topic": "train/actuators/reverserBackward",
         "qos": "",
         "retain": "",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 400,
         "y": 720,
         "wires": []
     },
     {
-        "id": "caecdf05.a1416",
+        "id": "ebfeb.b9f120158",
         "type": "ui_button",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "group": "1c3c9287.cb990d",
+        "group": "92a12888.6613a8",
         "order": 5,
         "width": 3,
         "height": 1,
@@ -2113,42 +2121,42 @@
         "y": 720,
         "wires": [
             [
-                "24696c23.fa1234"
+                "a623809b.b7fc"
             ]
         ]
     },
     {
-        "id": "a0a065f6.9c49c8",
+        "id": "9ade527a.4b9de",
         "type": "link out",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "links": [
-            "3a4d468b.81538a"
+            "933c9c14.453cf"
         ],
         "x": 1035,
         "y": 320,
         "wires": []
     },
     {
-        "id": "3a4d468b.81538a",
+        "id": "933c9c14.453cf",
         "type": "link in",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "links": [
-            "a0a065f6.9c49c8"
+            "9ade527a.4b9de"
         ],
         "x": 75,
         "y": 600,
         "wires": [
             [
-                "46509859.9a1578"
+                "c889d4eb.2f37c8"
             ]
         ]
     },
     {
-        "id": "37dbe15.45cc41e",
+        "id": "df0f409.168c6c",
         "type": "change",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "rules": [
             {
@@ -2168,31 +2176,31 @@
         "y": 600,
         "wires": [
             [
-                "5d5db255.8c2f5c"
+                "394f03c7.2a332c"
             ]
         ]
     },
     {
-        "id": "bc361d.0eb8b9e",
+        "id": "8f9f6423.16e748",
         "type": "mqtt in",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
-        "topic": "/train/infos/speedLimit",
+        "topic": "train/infos/speedLimit",
         "qos": "0",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 740,
         "y": 160,
         "wires": [
             [
-                "d171fb94.7ef988"
+                "e1fb4872.b24f28"
             ]
         ]
     },
     {
-        "id": "c9585038.01e12",
+        "id": "5c9536eb.033758",
         "type": "change",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "rules": [
             {
@@ -2215,9 +2223,9 @@
         ]
     },
     {
-        "id": "d171fb94.7ef988",
+        "id": "e1fb4872.b24f28",
         "type": "function",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "parseInt",
         "func": "msg.payload = parseInt(msg.payload)\nreturn msg;",
         "outputs": 1,
@@ -2226,14 +2234,14 @@
         "y": 160,
         "wires": [
             [
-                "c9585038.01e12"
+                "5c9536eb.033758"
             ]
         ]
     },
     {
-        "id": "96d37a2b.bccc38",
+        "id": "7d218f81.223d9",
         "type": "ui_toast",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "position": "top right",
         "displayTime": "3",
         "highlight": "",
@@ -2249,57 +2257,57 @@
         "wires": []
     },
     {
-        "id": "bbc4544.4bf05a8",
+        "id": "f0ca52d8.30ec6",
         "type": "link out",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "links": [
-            "88c07e3e.17ca3"
+            "ae0358d7.3d82c8"
         ],
         "x": 520,
         "y": 220,
         "wires": []
     },
     {
-        "id": "60ad86b0.4a1b48",
+        "id": "2771c156.0d43be",
         "type": "link out",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "links": [
-            "aff18e32.e6757"
+            "e6b059ca.d44d28"
         ],
         "x": 755,
         "y": 240,
         "wires": []
     },
     {
-        "id": "a5156b9c.642658",
+        "id": "6f057a3.906f984",
         "type": "link out",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "links": [
-            "f1728bac.955d98"
+            "c884c89.6a4b938"
         ],
         "x": 435,
         "y": 520,
         "wires": []
     },
     {
-        "id": "8eacaa96.999df8",
+        "id": "4b1b44b.5bb33bc",
         "type": "link out",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "links": [
-            "332531d0.66ec9e"
+            "2cf2a98e.68a0f6"
         ],
         "x": 795,
         "y": 540,
         "wires": []
     },
     {
-        "id": "ed7306df.dedf88",
+        "id": "c4bbfb8e.2f7688",
         "type": "ui_toast",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "position": "top right",
         "displayTime": "3",
         "highlight": "",
@@ -2315,9 +2323,9 @@
         "wires": []
     },
     {
-        "id": "a86ae892.984a48",
+        "id": "68988751.bcb8b8",
         "type": "ui_toast",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "position": "top right",
         "displayTime": "3",
         "highlight": "",
@@ -2333,9 +2341,9 @@
         "wires": []
     },
     {
-        "id": "3e7a98f7.882d98",
+        "id": "adee7e03.ecbb2",
         "type": "ui_toast",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "position": "top right",
         "displayTime": "3",
         "highlight": "",
@@ -2351,73 +2359,73 @@
         "wires": []
     },
     {
-        "id": "88c07e3e.17ca3",
+        "id": "ae0358d7.3d82c8",
         "type": "link in",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "links": [
-            "bbc4544.4bf05a8"
+            "f0ca52d8.30ec6"
         ],
         "x": 195,
         "y": 800,
         "wires": [
             [
-                "a1c37778.c2e888"
+                "47f60ccf.d1fde4"
             ]
         ]
     },
     {
-        "id": "aff18e32.e6757",
+        "id": "e6b059ca.d44d28",
         "type": "link in",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "links": [
-            "60ad86b0.4a1b48"
+            "2771c156.0d43be"
         ],
         "x": 195,
         "y": 840,
         "wires": [
             [
-                "5e1cd422.adb41c"
+                "fe23152a.50e8d8"
             ]
         ]
     },
     {
-        "id": "f1728bac.955d98",
+        "id": "c884c89.6a4b938",
         "type": "link in",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "links": [
-            "a5156b9c.642658"
+            "6f057a3.906f984"
         ],
         "x": 195,
         "y": 880,
         "wires": [
             [
-                "6e8487bd.164a68"
+                "7f3e578e.56e718"
             ]
         ]
     },
     {
-        "id": "332531d0.66ec9e",
+        "id": "2cf2a98e.68a0f6",
         "type": "link in",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "links": [
-            "8eacaa96.999df8"
+            "4b1b44b.5bb33bc"
         ],
         "x": 195,
         "y": 920,
         "wires": [
             [
-                "d31667c.4529f98"
+                "9b319234.bdee7"
             ]
         ]
     },
     {
-        "id": "a1c37778.c2e888",
+        "id": "47f60ccf.d1fde4",
         "type": "change",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "rules": [
             {
@@ -2437,14 +2445,14 @@
         "y": 800,
         "wires": [
             [
-                "96d37a2b.bccc38"
+                "7d218f81.223d9"
             ]
         ]
     },
     {
-        "id": "5e1cd422.adb41c",
+        "id": "fe23152a.50e8d8",
         "type": "change",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "rules": [
             {
@@ -2464,14 +2472,14 @@
         "y": 840,
         "wires": [
             [
-                "ed7306df.dedf88"
+                "c4bbfb8e.2f7688"
             ]
         ]
     },
     {
-        "id": "6e8487bd.164a68",
+        "id": "7f3e578e.56e718",
         "type": "change",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "rules": [
             {
@@ -2491,14 +2499,14 @@
         "y": 880,
         "wires": [
             [
-                "a86ae892.984a48"
+                "68988751.bcb8b8"
             ]
         ]
     },
     {
-        "id": "d31667c.4529f98",
+        "id": "9b319234.bdee7",
         "type": "change",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "rules": [
             {
@@ -2518,40 +2526,40 @@
         "y": 920,
         "wires": [
             [
-                "3e7a98f7.882d98"
+                "adee7e03.ecbb2"
             ]
         ]
     },
     {
-        "id": "cac835d2.18ee18",
+        "id": "4781e147.d52bd",
         "type": "mqtt out",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
-        "topic": "/train/actuators/brakeIncrease",
+        "topic": "train/actuators/brakeIncrease",
         "qos": "",
         "retain": "",
-        "broker": "2ec8f30e.4410fc",
-        "x": 1070,
+        "broker": "35fc1b37.d7e0b4",
+        "x": 1060,
         "y": 1020,
         "wires": []
     },
     {
-        "id": "ca5c5986.3e7808",
+        "id": "6e7c2966.29ec88",
         "type": "mqtt out",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
-        "topic": "/train/actuators/brakeDecrease",
+        "topic": "train/actuators/brakeDecrease",
         "qos": "",
         "retain": "",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 1090,
         "y": 1120,
         "wires": []
     },
     {
-        "id": "ea4a1dd5.d299d",
+        "id": "62b08a97.37fc14",
         "type": "comment",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "Speed Control",
         "info": "",
         "x": 150,
@@ -2559,26 +2567,26 @@
         "wires": []
     },
     {
-        "id": "697f9493.6a024c",
+        "id": "dbf135ae.9f2f08",
         "type": "mqtt in",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
-        "topic": "/train/sensors/currentSpeed",
+        "topic": "train/sensors/currentSpeed",
         "qos": "0",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
-        "x": 160,
+        "broker": "35fc1b37.d7e0b4",
+        "x": 150,
         "y": 1100,
         "wires": [
             [
-                "521a764.1f73a88"
+                "5f16f333.f0f60c"
             ]
         ]
     },
     {
-        "id": "d67afaaa.c7e9d8",
+        "id": "d026a8d2.fe7048",
         "type": "switch",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -2601,17 +2609,17 @@
         "y": 1100,
         "wires": [
             [
-                "7d14f6bc.679e18"
+                "f3b1399d.0722b8"
             ],
             [
-                "8f75d937.bb3ef8"
+                "229c7591.8787aa"
             ]
         ]
     },
     {
-        "id": "75b07f95.f4ebb",
+        "id": "16983e3b.88b4f2",
         "type": "function",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "parseInt",
         "func": "msg.payload = parseInt(msg.payload)\nreturn msg;",
         "outputs": 1,
@@ -2620,14 +2628,14 @@
         "y": 1100,
         "wires": [
             [
-                "d67afaaa.c7e9d8"
+                "d026a8d2.fe7048"
             ]
         ]
     },
     {
-        "id": "521a764.1f73a88",
+        "id": "5f16f333.f0f60c",
         "type": "delay",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -2643,14 +2651,14 @@
         "y": 1100,
         "wires": [
             [
-                "10999ca0.13ff03"
+                "39eeaf1a.a73a2"
             ]
         ]
     },
     {
-        "id": "b78dd44e.3c7a28",
+        "id": "b5dfe1f8.ec306",
         "type": "delay",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "pauseType": "delay",
         "timeout": "50",
@@ -2666,14 +2674,14 @@
         "y": 260,
         "wires": [
             [
-                "221a64d3.af83dc"
+                "5e36f2b2.f566bc"
             ]
         ]
     },
     {
-        "id": "8f75d937.bb3ef8",
+        "id": "229c7591.8787aa",
         "type": "switch",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "property": "brake",
         "propertyType": "flow",
@@ -2694,30 +2702,30 @@
         "y": 1120,
         "wires": [
             [
-                "ca5c5986.3e7808"
+                "6e7c2966.29ec88"
             ],
             [
-                "2ebd5f30.e01da"
+                "927beefd.a2b88"
             ]
         ]
     },
     {
-        "id": "14bd1658.26fbda",
+        "id": "1f503b11.087965",
         "type": "mqtt out",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
-        "topic": "/train/actuators/powerDown",
+        "topic": "train/actuators/powerDown",
         "qos": "",
         "retain": "",
-        "broker": "2ec8f30e.4410fc",
-        "x": 1060,
+        "broker": "35fc1b37.d7e0b4",
+        "x": 1040,
         "y": 1080,
         "wires": []
     },
     {
-        "id": "7d14f6bc.679e18",
+        "id": "f3b1399d.0722b8",
         "type": "switch",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "property": "brake",
         "propertyType": "flow",
@@ -2738,48 +2746,48 @@
         "y": 1060,
         "wires": [
             [
-                "cac835d2.18ee18"
+                "4781e147.d52bd"
             ],
             [
-                "14bd1658.26fbda"
+                "1f503b11.087965"
             ]
         ]
     },
     {
-        "id": "2ebd5f30.e01da",
+        "id": "927beefd.a2b88",
         "type": "mqtt out",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
-        "topic": "/train/actuators/powerUp",
+        "topic": "train/actuators/powerUp",
         "qos": "",
         "retain": "",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 1070,
         "y": 1180,
         "wires": []
     },
     {
-        "id": "bfd6b263.097ab",
+        "id": "ba4bc1b7.48006",
         "type": "mqtt in",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/infos/distanceToTrain",
+        "topic": "train/infos/distanceToTrain",
         "qos": "0",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 170,
         "y": 1000,
         "wires": [
             [
-                "3193c547.0aadba"
+                "f55a04f.bbe0bf8"
             ]
         ]
     },
     {
-        "id": "3193c547.0aadba",
+        "id": "f55a04f.bbe0bf8",
         "type": "ui_text",
-        "z": "7120d12c.ff073",
-        "group": "265d16e3.e8c0ea",
+        "z": "764f6e45.e7adc",
+        "group": "60d271c9.e1b48",
         "order": 2,
         "width": 0,
         "height": 0,
@@ -2792,9 +2800,9 @@
         "wires": []
     },
     {
-        "id": "10999ca0.13ff03",
+        "id": "39eeaf1a.a73a2",
         "type": "switch",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "Speed Control Activated",
         "property": "speedControl",
         "propertyType": "flow",
@@ -2810,14 +2818,14 @@
         "y": 1160,
         "wires": [
             [
-                "75b07f95.f4ebb"
+                "16983e3b.88b4f2"
             ]
         ]
     },
     {
-        "id": "e1eac711.f88db8",
+        "id": "f177cf8f.a83f4",
         "type": "change",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "rules": [
             {
@@ -2840,13 +2848,13 @@
         ]
     },
     {
-        "id": "260e08dc.d64978",
+        "id": "64018b59.cd1de4",
         "type": "ui_switch",
-        "z": "eea6ab89.ab12f8",
+        "z": "e0bb42c0.ed456",
         "name": "",
         "label": "Speed Control",
         "tooltip": "",
-        "group": "265d16e3.e8c0ea",
+        "group": "60d271c9.e1b48",
         "order": 5,
         "width": 0,
         "height": 0,
@@ -2866,59 +2874,59 @@
         "y": 1220,
         "wires": [
             [
-                "e1eac711.f88db8"
+                "f177cf8f.a83f4"
             ]
         ]
     },
     {
-        "id": "498d6638.0086f8",
+        "id": "9526f601.0cc9e8",
         "type": "mqtt out",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/actuators/sound1",
+        "topic": "train/actuators/sound1",
         "qos": "",
         "retain": "",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 460,
         "y": 1060,
         "wires": []
     },
     {
-        "id": "306e33c8.a27afc",
+        "id": "68385732.d66d58",
         "type": "mqtt out",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/actuators/sound2",
+        "topic": "train/actuators/sound2",
         "qos": "",
         "retain": "",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 460,
         "y": 1100,
         "wires": []
     },
     {
-        "id": "58d472a2.7547ac",
+        "id": "f6a59617.7fedc8",
         "type": "mqtt in",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/infos/sound1",
+        "topic": "train/infos/sound1",
         "qos": "2",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 170,
         "y": 1160,
         "wires": [
             [
-                "ea18dc55.9bebb",
-                "87b22bea.9d6a28"
+                "a6c07271.1537d",
+                "780186.f7937e7c"
             ]
         ]
     },
     {
-        "id": "ea18dc55.9bebb",
+        "id": "a6c07271.1537d",
         "type": "ui_text",
-        "z": "7120d12c.ff073",
-        "group": "265d16e3.e8c0ea",
+        "z": "764f6e45.e7adc",
+        "group": "60d271c9.e1b48",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -2931,28 +2939,28 @@
         "wires": []
     },
     {
-        "id": "98700a55.e18be8",
+        "id": "11402883.3a89c7",
         "type": "mqtt in",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
-        "topic": "/train/infos/sound2",
+        "topic": "train/infos/sound2",
         "qos": "2",
         "datatype": "auto",
-        "broker": "2ec8f30e.4410fc",
+        "broker": "35fc1b37.d7e0b4",
         "x": 190,
         "y": 1340,
         "wires": [
             [
-                "d6d8d549.899bd8",
-                "90c5a354.b2ad4"
+                "1cc65157.6fda6f",
+                "4c718a73.66ee34"
             ]
         ]
     },
     {
-        "id": "d6d8d549.899bd8",
+        "id": "1cc65157.6fda6f",
         "type": "ui_text",
-        "z": "7120d12c.ff073",
-        "group": "265d16e3.e8c0ea",
+        "z": "764f6e45.e7adc",
+        "group": "60d271c9.e1b48",
         "order": 4,
         "width": 0,
         "height": 0,
@@ -2965,13 +2973,13 @@
         "wires": []
     },
     {
-        "id": "a6cb8fc3.dbbb7",
+        "id": "c6dac596.f29a38",
         "type": "ui_switch",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
         "label": "Play sound 1",
         "tooltip": "",
-        "group": "265d16e3.e8c0ea",
+        "group": "60d271c9.e1b48",
         "order": 6,
         "width": 0,
         "height": 0,
@@ -2991,18 +2999,18 @@
         "y": 1060,
         "wires": [
             [
-                "498d6638.0086f8"
+                "9526f601.0cc9e8"
             ]
         ]
     },
     {
-        "id": "1bbe140d.20206c",
+        "id": "f055f454.a1c558",
         "type": "ui_switch",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
         "label": "Play sound 2",
         "tooltip": "",
-        "group": "265d16e3.e8c0ea",
+        "group": "60d271c9.e1b48",
         "order": 7,
         "width": 0,
         "height": 0,
@@ -3022,14 +3030,14 @@
         "y": 1100,
         "wires": [
             [
-                "306e33c8.a27afc"
+                "68385732.d66d58"
             ]
         ]
     },
     {
-        "id": "a842e945.38a6f8",
+        "id": "8cf48d75.6a5b",
         "type": "rbe",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
         "func": "rbei",
         "gap": "",
@@ -3040,14 +3048,14 @@
         "y": 1240,
         "wires": [
             [
-                "7155d533.e90cfc"
+                "57ea431c.f3fc7c"
             ]
         ]
     },
     {
-        "id": "5574f39f.43feac",
+        "id": "4e70e866.54ed78",
         "type": "change",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
         "rules": [
             {
@@ -3067,14 +3075,14 @@
         "y": 1240,
         "wires": [
             [
-                "a842e945.38a6f8"
+                "8cf48d75.6a5b"
             ]
         ]
     },
     {
-        "id": "87b22bea.9d6a28",
+        "id": "780186.f7937e7c",
         "type": "switch",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -3097,17 +3105,17 @@
         "y": 1240,
         "wires": [
             [
-                "5574f39f.43feac"
+                "4e70e866.54ed78"
             ],
             [
-                "20a1da49.8c73b6"
+                "d9b7dd2f.a46fb"
             ]
         ]
     },
     {
-        "id": "20a1da49.8c73b6",
+        "id": "d9b7dd2f.a46fb",
         "type": "change",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
         "rules": [
             {
@@ -3127,42 +3135,42 @@
         "y": 1280,
         "wires": [
             [
-                "a842e945.38a6f8"
+                "8cf48d75.6a5b"
             ]
         ]
     },
     {
-        "id": "7155d533.e90cfc",
+        "id": "57ea431c.f3fc7c",
         "type": "link out",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
         "links": [
-            "20fcdb60.35d984"
+            "69e033d0.11f54c"
         ],
         "x": 855,
         "y": 1240,
         "wires": []
     },
     {
-        "id": "20fcdb60.35d984",
+        "id": "69e033d0.11f54c",
         "type": "link in",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
         "links": [
-            "7155d533.e90cfc"
+            "57ea431c.f3fc7c"
         ],
         "x": 35,
         "y": 1060,
         "wires": [
             [
-                "a6cb8fc3.dbbb7"
+                "c6dac596.f29a38"
             ]
         ]
     },
     {
-        "id": "64461b76.0cd504",
+        "id": "bb29030a.8bb08",
         "type": "rbe",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
         "func": "rbei",
         "gap": "",
@@ -3173,14 +3181,14 @@
         "y": 1400,
         "wires": [
             [
-                "67ddd8af.974cd8"
+                "52be1b52.eeb334"
             ]
         ]
     },
     {
-        "id": "5ea21c34.d35a94",
+        "id": "ce011c39.c28a4",
         "type": "change",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
         "rules": [
             {
@@ -3200,14 +3208,14 @@
         "y": 1400,
         "wires": [
             [
-                "64461b76.0cd504"
+                "bb29030a.8bb08"
             ]
         ]
     },
     {
-        "id": "90c5a354.b2ad4",
+        "id": "4c718a73.66ee34",
         "type": "switch",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -3230,17 +3238,17 @@
         "y": 1400,
         "wires": [
             [
-                "5ea21c34.d35a94"
+                "ce011c39.c28a4"
             ],
             [
-                "a067f6dc.5ff558"
+                "b7ef546b.8716b8"
             ]
         ]
     },
     {
-        "id": "a067f6dc.5ff558",
+        "id": "b7ef546b.8716b8",
         "type": "change",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
         "rules": [
             {
@@ -3260,36 +3268,1343 @@
         "y": 1440,
         "wires": [
             [
-                "64461b76.0cd504"
+                "bb29030a.8bb08"
             ]
         ]
     },
     {
-        "id": "67ddd8af.974cd8",
+        "id": "52be1b52.eeb334",
         "type": "link out",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
         "links": [
-            "5a9d872a.451328"
+            "ea32e41e.dd8048"
         ],
         "x": 915,
         "y": 1400,
         "wires": []
     },
     {
-        "id": "5a9d872a.451328",
+        "id": "ea32e41e.dd8048",
         "type": "link in",
-        "z": "7120d12c.ff073",
+        "z": "764f6e45.e7adc",
         "name": "",
         "links": [
-            "67ddd8af.974cd8"
+            "52be1b52.eeb334"
         ],
         "x": 35,
         "y": 1100,
         "wires": [
             [
-                "1bbe140d.20206c"
+                "f055f454.a1c558"
             ]
+        ]
+    },
+    {
+        "id": "28c07d56.9b5332",
+        "type": "mqtt in",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "topic": "train/infos/temp",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "35fc1b37.d7e0b4",
+        "x": 160,
+        "y": 100,
+        "wires": [
+            [
+                "bca41fc6.d5407"
+            ]
+        ]
+    },
+    {
+        "id": "9a435585.42c1f8",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "set max",
+        "rules": [
+            {
+                "t": "set",
+                "p": "maxTemp",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 840,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8b785b62.a08a78",
+        "type": "switch",
+        "z": "5dea54b.a72c0ac",
+        "name": "If max",
+        "property": "maxTemp",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "payload",
+                "vt": "msg"
+            },
+            {
+                "t": "istype",
+                "v": "undefined",
+                "vt": "undefined"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 690,
+        "y": 40,
+        "wires": [
+            [
+                "9a435585.42c1f8"
+            ],
+            [
+                "9a435585.42c1f8"
+            ]
+        ]
+    },
+    {
+        "id": "f7ee2849.a112a8",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "set min",
+        "rules": [
+            {
+                "t": "set",
+                "p": "minTemp",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 840,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dc6e75e2.b781c8",
+        "type": "function",
+        "z": "5dea54b.a72c0ac",
+        "name": "parse Float",
+        "func": "msg.payload = parseFloat (msg.payload.replace(\",\",\".\"))\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 550,
+        "y": 100,
+        "wires": [
+            [
+                "8b785b62.a08a78",
+                "c0d064ed.b0dbb8",
+                "51cbfed9.37b52"
+            ]
+        ]
+    },
+    {
+        "id": "67e22116.9d288",
+        "type": "comment",
+        "z": "5dea54b.a72c0ac",
+        "name": "Temperature °C",
+        "info": "",
+        "x": 100,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "8a93ca92.969a78",
+        "type": "comment",
+        "z": "5dea54b.a72c0ac",
+        "name": "Load (mass) kg",
+        "info": "",
+        "x": 100,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "336dff48.7c0cd",
+        "type": "mqtt in",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "topic": "train/sensors/load",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "35fc1b37.d7e0b4",
+        "x": 150,
+        "y": 300,
+        "wires": [
+            [
+                "e928a229.0795a"
+            ]
+        ]
+    },
+    {
+        "id": "28bc03ab.7ad80c",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "set max",
+        "rules": [
+            {
+                "t": "set",
+                "p": "maxLoad",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ee18c5eb.a450f8",
+        "type": "switch",
+        "z": "5dea54b.a72c0ac",
+        "name": "If max",
+        "property": "maxLoad",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "payload",
+                "vt": "msg"
+            },
+            {
+                "t": "istype",
+                "v": "undefined",
+                "vt": "undefined"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 650,
+        "y": 240,
+        "wires": [
+            [
+                "28bc03ab.7ad80c"
+            ],
+            [
+                "28bc03ab.7ad80c"
+            ]
+        ]
+    },
+    {
+        "id": "64bec944.d01a08",
+        "type": "switch",
+        "z": "5dea54b.a72c0ac",
+        "name": "if min",
+        "property": "minLoad",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "payload",
+                "vt": "msg"
+            },
+            {
+                "t": "istype",
+                "v": "undefined",
+                "vt": "undefined"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 650,
+        "y": 360,
+        "wires": [
+            [
+                "1dc1b12f.b22fdf"
+            ],
+            [
+                "1dc1b12f.b22fdf"
+            ]
+        ]
+    },
+    {
+        "id": "1dc1b12f.b22fdf",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "set min",
+        "rules": [
+            {
+                "t": "set",
+                "p": "minLoad",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "147b52da.f3b0bd",
+        "type": "function",
+        "z": "5dea54b.a72c0ac",
+        "name": "parse Float",
+        "func": "msg.payload = parseFloat(msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 510,
+        "y": 300,
+        "wires": [
+            [
+                "ee18c5eb.a450f8",
+                "64bec944.d01a08",
+                "3ee602e4.89057e"
+            ]
+        ]
+    },
+    {
+        "id": "89f9a977.4b7618",
+        "type": "comment",
+        "z": "5dea54b.a72c0ac",
+        "name": "Pressure kPa",
+        "info": "",
+        "x": 90,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "2961cf19.27bac",
+        "type": "mqtt in",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "topic": "train/sensors/airPressure",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "35fc1b37.d7e0b4",
+        "x": 150,
+        "y": 480,
+        "wires": [
+            [
+                "ec3f31bd.2a4ad"
+            ]
+        ]
+    },
+    {
+        "id": "cce13f69.bceea",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "set max",
+        "rules": [
+            {
+                "t": "set",
+                "p": "maxLoad",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d9676c79.f6768",
+        "type": "switch",
+        "z": "5dea54b.a72c0ac",
+        "name": "If max",
+        "property": "maxPressure",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "payload",
+                "vt": "msg"
+            },
+            {
+                "t": "istype",
+                "v": "undefined",
+                "vt": "undefined"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 650,
+        "y": 420,
+        "wires": [
+            [
+                "cce13f69.bceea"
+            ],
+            [
+                "cce13f69.bceea"
+            ]
+        ]
+    },
+    {
+        "id": "b5842b.67060bd8",
+        "type": "switch",
+        "z": "5dea54b.a72c0ac",
+        "name": "if min",
+        "property": "minPressure",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "payload",
+                "vt": "msg"
+            },
+            {
+                "t": "istype",
+                "v": "undefined",
+                "vt": "undefined"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 650,
+        "y": 540,
+        "wires": [
+            [
+                "4e169bb.62f8964"
+            ],
+            [
+                "4e169bb.62f8964"
+            ]
+        ]
+    },
+    {
+        "id": "4e169bb.62f8964",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "set min",
+        "rules": [
+            {
+                "t": "set",
+                "p": "minLoad",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4c539c90.c292b4",
+        "type": "function",
+        "z": "5dea54b.a72c0ac",
+        "name": "parse Float",
+        "func": "msg.payload = parseFloat(msg.payload.replace(\",\",\".\"))\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 510,
+        "y": 480,
+        "wires": [
+            [
+                "d9676c79.f6768",
+                "b5842b.67060bd8",
+                "c39315f6.ce1d98"
+            ]
+        ]
+    },
+    {
+        "id": "2527dca0.105d24",
+        "type": "mqtt in",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "topic": "train/sensors/positionX",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "35fc1b37.d7e0b4",
+        "x": 140,
+        "y": 660,
+        "wires": [
+            [
+                "37992b14.7a0d34"
+            ]
+        ]
+    },
+    {
+        "id": "81ef45aa.8f7e88",
+        "type": "mqtt in",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "topic": "train/sensors/positionY",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "35fc1b37.d7e0b4",
+        "x": 140,
+        "y": 780,
+        "wires": [
+            [
+                "d14c12f2.5d502"
+            ]
+        ]
+    },
+    {
+        "id": "b2ac8574.8f71c8",
+        "type": "mqtt in",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "topic": "train/sensors/positionZ",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "35fc1b37.d7e0b4",
+        "x": 140,
+        "y": 940,
+        "wires": [
+            [
+                "2ca14ba3.05f1a4"
+            ]
+        ]
+    },
+    {
+        "id": "626a1162.661a3",
+        "type": "function",
+        "z": "5dea54b.a72c0ac",
+        "name": "compute speed",
+        "func": "let z1 = flow.get(\"z1\") || 0.0\nlet z2 = parseFloat(msg.payload.replace(\",\",\".\"))\nconsole.log(z2)\nlet speed = z2-z1\nflow.set(\"z1\", z2)\nconsole.log(\"Speed=\" + speed)\nmsg.payload = speed;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 940,
+        "wires": [
+            [
+                "98aba1bc.75737"
+            ]
+        ]
+    },
+    {
+        "id": "2ca14ba3.05f1a4",
+        "type": "delay",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 370,
+        "y": 940,
+        "wires": [
+            [
+                "626a1162.661a3"
+            ]
+        ]
+    },
+    {
+        "id": "19d7f51e.05b96b",
+        "type": "function",
+        "z": "5dea54b.a72c0ac",
+        "name": "compute speed",
+        "func": "let x1 = flow.get(\"x1\") || 0\nlet x2 = parseFloat(msg.payload.replace(\",\",\".\"))\nlet speed = x2-x1\nflow.set(\"x1\", x2)\nconsole.log(\"Speed=\" + speed)\nmsg.payload = speed;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 660,
+        "wires": [
+            [
+                "d5a00e04.b17ea"
+            ]
+        ]
+    },
+    {
+        "id": "37992b14.7a0d34",
+        "type": "delay",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 370,
+        "y": 660,
+        "wires": [
+            [
+                "19d7f51e.05b96b"
+            ]
+        ]
+    },
+    {
+        "id": "762f95cc.cb1a2c",
+        "type": "function",
+        "z": "5dea54b.a72c0ac",
+        "name": "compute speed",
+        "func": "let y1 = flow.get(\"y1\") || 0\nlet y2 = parseFloat(msg.payload.replace(\",\",\".\"))\nlet speed = y2-y1\nflow.set(\"y1\", y2)\nconsole.log(\"Speed=\" + speed)\nmsg.payload = speed;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 780,
+        "wires": [
+            [
+                "47ef4a16.8196e4"
+            ]
+        ]
+    },
+    {
+        "id": "d14c12f2.5d502",
+        "type": "delay",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 370,
+        "y": 780,
+        "wires": [
+            [
+                "762f95cc.cb1a2c"
+            ]
+        ]
+    },
+    {
+        "id": "98aba1bc.75737",
+        "type": "function",
+        "z": "5dea54b.a72c0ac",
+        "name": "compute acceleration",
+        "func": "let vz1 = flow.get(\"vz1\") || 0\nlet vz2 = msg.payload\nlet acc = vz2-vz1\nflow.set(\"vz1\", vz2)\nconsole.log(\"Acc=\" + acc)\nmsg.payload = acc;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 780,
+        "y": 940,
+        "wires": [
+            [
+                "b37c064.1446df8",
+                "97f0db1a.8003e8",
+                "64424705.400518",
+                "71c68bf3.83df14"
+            ]
+        ]
+    },
+    {
+        "id": "d5a00e04.b17ea",
+        "type": "function",
+        "z": "5dea54b.a72c0ac",
+        "name": "compute acceleration",
+        "func": "let vx1 = flow.get(\"vx1\") || 0\nlet vx2 = msg.payload\nlet acc = vx2-vx1\nflow.set(\"vx1\", vx2)\nconsole.log(\"Acc=\" + acc)\nmsg.payload = acc;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 780,
+        "y": 660,
+        "wires": [
+            [
+                "8175c93.6b41e38",
+                "486bf52.0ab0d0c",
+                "81a7e486.3cd3b8"
+            ]
+        ]
+    },
+    {
+        "id": "47ef4a16.8196e4",
+        "type": "function",
+        "z": "5dea54b.a72c0ac",
+        "name": "compute acceleration",
+        "func": "let vy1 = flow.get(\"vy1\") || 0\nlet vy2 = msg.payload\nlet acc = vy2-vy1\nflow.set(\"vy1\", vy2)\nconsole.log(\"Acc=\" + acc)\nmsg.payload = acc;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 780,
+        "y": 780,
+        "wires": [
+            [
+                "7aca2d9c.5b8064",
+                "26d305fe.96c4ca",
+                "e1f27813.d47208"
+            ]
+        ]
+    },
+    {
+        "id": "c0d064ed.b0dbb8",
+        "type": "function",
+        "z": "5dea54b.a72c0ac",
+        "name": "create Json Node",
+        "func": "let node = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\":\"epoch\",\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [{\n\"SensorID\": 3303,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5700\": msg.payload,\n\"5701\": \"Cel\",\n\"5601\": flow.get(\"minTemp\"),\n\"5602\": flow.get(\"maxTemp\")\n}\n}],\n\"CRC\": \"Integer\" \n}\nmsg.payload = node\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 770,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ec3f31bd.2a4ad",
+        "type": "delay",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 350,
+        "y": 480,
+        "wires": [
+            [
+                "4c539c90.c292b4"
+            ]
+        ]
+    },
+    {
+        "id": "e928a229.0795a",
+        "type": "delay",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 350,
+        "y": 300,
+        "wires": [
+            [
+                "147b52da.f3b0bd"
+            ]
+        ]
+    },
+    {
+        "id": "bca41fc6.d5407",
+        "type": "delay",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 350,
+        "y": 100,
+        "wires": [
+            [
+                "dc6e75e2.b781c8"
+            ]
+        ]
+    },
+    {
+        "id": "51cbfed9.37b52",
+        "type": "switch",
+        "z": "5dea54b.a72c0ac",
+        "name": "If min",
+        "property": "minTemp",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "payload",
+                "vt": "msg"
+            },
+            {
+                "t": "istype",
+                "v": "undefined",
+                "vt": "undefined"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 690,
+        "y": 160,
+        "wires": [
+            [
+                "f7ee2849.a112a8"
+            ],
+            [
+                "f7ee2849.a112a8"
+            ]
+        ]
+    },
+    {
+        "id": "fcdf8b61.d87798",
+        "type": "comment",
+        "z": "5dea54b.a72c0ac",
+        "name": "Speeds & Accelerations with coordinates",
+        "info": "",
+        "x": 200,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "3ee602e4.89057e",
+        "type": "function",
+        "z": "5dea54b.a72c0ac",
+        "name": "create Json Node",
+        "func": "let node = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\":\"epoch\",\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [{\n\"SensorID\": 3322,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5700\": msg.payload,\n\"5701\": \"kg\",\n\"5601\": flow.get(\"minLoad\"),\n\"5602\": flow.get(\"maxLoad\")\n}\n}],\n\"CRC\": \"Integer\" \n}\nmsg.payload = node\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 730,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c39315f6.ce1d98",
+        "type": "function",
+        "z": "5dea54b.a72c0ac",
+        "name": "create Json Node",
+        "func": "let node = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\":\"epoch\",\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [{\n\"SensorID\": 3323,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5700\": msg.payload,\n\"5701\": \"kPa\",\n\"5601\": flow.get(\"minPressure\"),\n\"5602\": flow.get(\"maxPressure\")\n}\n}],\n\"CRC\": \"Integer\" \n}\nmsg.payload = node\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 730,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a4162e0a.395f3",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "set max",
+        "rules": [
+            {
+                "t": "set",
+                "p": "maxAccX",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1140,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8175c93.6b41e38",
+        "type": "switch",
+        "z": "5dea54b.a72c0ac",
+        "name": "If max",
+        "property": "maxAccX",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "payload",
+                "vt": "msg"
+            },
+            {
+                "t": "istype",
+                "v": "undefined",
+                "vt": "undefined"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 990,
+        "y": 600,
+        "wires": [
+            [
+                "a4162e0a.395f3"
+            ],
+            [
+                "a4162e0a.395f3"
+            ]
+        ]
+    },
+    {
+        "id": "486bf52.0ab0d0c",
+        "type": "switch",
+        "z": "5dea54b.a72c0ac",
+        "name": "if min",
+        "property": "minAccX",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "payload",
+                "vt": "msg"
+            },
+            {
+                "t": "istype",
+                "v": "undefined",
+                "vt": "undefined"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 990,
+        "y": 700,
+        "wires": [
+            [
+                "df3227a7.685228"
+            ],
+            [
+                "df3227a7.685228"
+            ]
+        ]
+    },
+    {
+        "id": "df3227a7.685228",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "set min",
+        "rules": [
+            {
+                "t": "set",
+                "p": "minAccX",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1140,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a2c78f96.78155",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "set max",
+        "rules": [
+            {
+                "t": "set",
+                "p": "maxAccY",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1140,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7aca2d9c.5b8064",
+        "type": "switch",
+        "z": "5dea54b.a72c0ac",
+        "name": "If max",
+        "property": "maxAccY",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "payload",
+                "vt": "msg"
+            },
+            {
+                "t": "istype",
+                "v": "undefined",
+                "vt": "undefined"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 990,
+        "y": 740,
+        "wires": [
+            [
+                "a2c78f96.78155"
+            ],
+            [
+                "a2c78f96.78155"
+            ]
+        ]
+    },
+    {
+        "id": "26d305fe.96c4ca",
+        "type": "switch",
+        "z": "5dea54b.a72c0ac",
+        "name": "if min",
+        "property": "minAccY",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "payload",
+                "vt": "msg"
+            },
+            {
+                "t": "istype",
+                "v": "undefined",
+                "vt": "undefined"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 990,
+        "y": 820,
+        "wires": [
+            [
+                "b6590af.edc7ff8"
+            ],
+            [
+                "b6590af.edc7ff8"
+            ]
+        ]
+    },
+    {
+        "id": "b6590af.edc7ff8",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "set min",
+        "rules": [
+            {
+                "t": "set",
+                "p": "minAccY",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1140,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "11ccec64.a9f894",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "set max",
+        "rules": [
+            {
+                "t": "set",
+                "p": "maxAccZ",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1140,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b37c064.1446df8",
+        "type": "switch",
+        "z": "5dea54b.a72c0ac",
+        "name": "If max",
+        "property": "maxAccZ",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "payload",
+                "vt": "msg"
+            },
+            {
+                "t": "istype",
+                "v": "undefined",
+                "vt": "undefined"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 970,
+        "y": 880,
+        "wires": [
+            [
+                "11ccec64.a9f894"
+            ],
+            [
+                "11ccec64.a9f894"
+            ]
+        ]
+    },
+    {
+        "id": "97f0db1a.8003e8",
+        "type": "switch",
+        "z": "5dea54b.a72c0ac",
+        "name": "if min",
+        "property": "minAccZ",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "payload",
+                "vt": "msg"
+            },
+            {
+                "t": "istype",
+                "v": "undefined",
+                "vt": "undefined"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 970,
+        "y": 1000,
+        "wires": [
+            [
+                "c14c44bb.54d6b8"
+            ],
+            [
+                "c14c44bb.54d6b8"
+            ]
+        ]
+    },
+    {
+        "id": "c14c44bb.54d6b8",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "set min",
+        "rules": [
+            {
+                "t": "set",
+                "p": "minAccZ",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1140,
+        "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "81a7e486.3cd3b8",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "aX",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1070,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "64424705.400518",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "aZ",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1010,
+        "y": 940,
+        "wires": [
+            [
+                "589f2659.379918"
+            ]
+        ]
+    },
+    {
+        "id": "e1f27813.d47208",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "aY",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1070,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "71c68bf3.83df14",
+        "type": "function",
+        "z": "5dea54b.a72c0ac",
+        "name": "compute acceleration",
+        "func": "let aX = flow.get(\"aX\")\nlet aY = flow.get(\"aY\")\nlet aZ = flow.get(\"aZ\")\nlet acc = Math.sqrt(Math.pow(aX,2)+Math.pow(aY,2)+Math.pow(aZ,2))\nmsg.payload = acc;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1020,
+        "y": 1040,
+        "wires": [
+            [
+                "44fe64e4.dc21fc"
+            ]
+        ]
+    },
+    {
+        "id": "44fe64e4.dc21fc",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "acc",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1230,
+        "y": 1040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "589f2659.379918",
+        "type": "function",
+        "z": "5dea54b.a72c0ac",
+        "name": "create Json Node",
+        "func": "let node = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\":\"epoch\",\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [{\n\"SensorID\": 3313,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5702\": flow.get(\"aZ\"),\n\"5703\": flow.get(\"aY\"),\n\"5704\": flow.get(\"aX\"),\n\"5701\": \"m/s²\"\n}\n}],\n\"CRC\": \"Integer\" \n}\nmsg.payload = node\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1210,
+        "y": 940,
+        "wires": [
+            []
         ]
     }
 ]

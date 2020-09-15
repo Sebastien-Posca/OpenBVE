@@ -3978,7 +3978,7 @@
         "type": "function",
         "z": "5dea54b.a72c0ac",
         "name": "create Json Node",
-        "func": "let temp = msg.payload\nlet minTemp = flow.get(\"minTemp\") \nlet maxTemp = flow.get(\"maxTemp\")\nmsg.payload = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\":\"epoch\",\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [{\n\"SensorID\": 3303,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5700\": msg.payload,\n\"5701\": \"Cel\",\n\"5601\": minTemp,\n\"5602\": maxTemp\n}\n}],\n\"CRC\": \"Integer\" \n}\nreturn msg;",
+        "func": "let temp = msg.payload\nlet minTemp = flow.get(\"minTemp\") \nlet maxTemp = flow.get(\"maxTemp\")\nmsg.payload = {\n\"SensorID\": 3303,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5700\": msg.payload,\n\"5701\": \"Cel\",\n\"5601\": minTemp,\n\"5602\": maxTemp\n}\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 770,
@@ -4106,7 +4106,7 @@
         "type": "function",
         "z": "5dea54b.a72c0ac",
         "name": "create Json Node",
-        "func": "msg.payload = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\":\"epoch\",\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [{\n\"SensorID\": 3322,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5700\": msg.payload,\n\"5701\": \"kg\",\n\"5601\": flow.get(\"minLoad\"),\n\"5602\": flow.get(\"maxLoad\")\n}\n}],\n\"CRC\": \"Integer\" \n}\nreturn msg;",
+        "func": "msg.payload = {\n\"SensorID\": 3322,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5700\": msg.payload,\n\"5701\": \"kg\",\n\"5601\": flow.get(\"minLoad\"),\n\"5602\": flow.get(\"maxLoad\")\n}\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 730,
@@ -4122,7 +4122,7 @@
         "type": "function",
         "z": "5dea54b.a72c0ac",
         "name": "create Json Node",
-        "func": "msg.payload = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\":\"epoch\",\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [{\n\"SensorID\": 3323,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5700\": msg.payload,\n\"5701\": \"kPa\",\n\"5601\": flow.get(\"minPressure\"),\n\"5602\": flow.get(\"maxPressure\")\n}\n}],\n\"CRC\": \"Integer\" \n}\nreturn msg;",
+        "func": "msg.payload = {\n\"SensorID\": 3323,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5700\": msg.payload,\n\"5701\": \"kPa\",\n\"5601\": flow.get(\"minPressure\"),\n\"5602\": flow.get(\"maxPressure\")\n}\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 730,
@@ -4604,7 +4604,7 @@
         "type": "function",
         "z": "5dea54b.a72c0ac",
         "name": "create Json Node",
-        "func": "msg.payload = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\":\"epoch\",\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [{\n\"SensorID\": 3313,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5702\": flow.get(\"aZ\"),\n\"5703\": flow.get(\"aY\"),\n\"5704\": flow.get(\"aX\"),\n\"5701\": \"m/s²\"\n}\n}],\n\"CRC\": \"Integer\" \n}\nreturn msg;",
+        "func": "msg.payload = {\n\"SensorID\": 3313,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5702\": flow.get(\"aZ\"),\n\"5703\": flow.get(\"aY\"),\n\"5704\": flow.get(\"aX\"),\n\"5701\": \"m/s²\"\n}\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 1210,
@@ -4727,11 +4727,11 @@
         "crontab": "",
         "once": true,
         "onceDelay": "1",
-        "x": 190,
+        "x": 130,
         "y": 1160,
         "wires": [
             [
-                "c2694e8c.87a24"
+                "5de5b211.35932c"
             ]
         ]
     },
@@ -4739,11 +4739,11 @@
         "id": "c2694e8c.87a24",
         "type": "function",
         "z": "5dea54b.a72c0ac",
-        "name": "",
-        "func": "\nlet json = {\n\"Service ID\": \"Integer\",\n\"Root\": [{\n\"Gateway\": \"Integer\",\n\"Source\": \"Integer\",\n\"TimseStamp\": msg.payload,\n}\n],\n\"Nodes\": [\nflow.get(\"tempNode\"),\nflow.get(\"pressureNode\"),\nflow.get(\"loadNode\"),\nflow.get(\"accNode\")\n],\n\"CRC\": \"Integer\" \n}\nmsg.payload = json;\nreturn msg;\n",
+        "name": "Final Json",
+        "func": "\nlet json = {\n\"Service ID\": \"Integer\",\n\"Root\": [{\n\"Gateway\": \"Integer\",\n\"Source\": \"Integer\",\n\"TimseStamp\": Date.now(),\n}\n],\n\"Nodes\": [\nflow.get(\"node1\"),\nflow.get(\"node2\")\n],\n\"CRC\": \"Integer\" \n}\nmsg.payload = json;\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 370,
+        "x": 890,
         "y": 1160,
         "wires": [
             [
@@ -4761,8 +4761,40 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 560,
+        "x": 1130,
         "y": 1160,
         "wires": []
+    },
+    {
+        "id": "5de5b211.35932c",
+        "type": "function",
+        "z": "5dea54b.a72c0ac",
+        "name": "Node 1 (acceleration related)",
+        "func": "let node1 = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\": Date.now(),\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [\nflow.get(\"accNode\")],\n\"CRC\": \"Integer\" \n}\nflow.set(\"node1\", node1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 360,
+        "y": 1160,
+        "wires": [
+            [
+                "795573cd.e82c4c"
+            ]
+        ]
+    },
+    {
+        "id": "795573cd.e82c4c",
+        "type": "function",
+        "z": "5dea54b.a72c0ac",
+        "name": "Node 2 (ambiant sensors)",
+        "func": "let node2 = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\": Date.now(),\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [\nflow.get(\"tempNode\"),\nflow.get(\"pressureNode\"),\nflow.get(\"loadNode\")\n],\n\"CRC\": \"Integer\" \n}\nflow.set(\"node2\", node2)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 630,
+        "y": 1160,
+        "wires": [
+            [
+                "c2694e8c.87a24"
+            ]
+        ]
     }
 ]

@@ -3978,13 +3978,15 @@
         "type": "function",
         "z": "5dea54b.a72c0ac",
         "name": "create Json Node",
-        "func": "let node = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\":\"epoch\",\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [{\n\"SensorID\": 3303,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5700\": msg.payload,\n\"5701\": \"Cel\",\n\"5601\": flow.get(\"minTemp\"),\n\"5602\": flow.get(\"maxTemp\")\n}\n}],\n\"CRC\": \"Integer\" \n}\nmsg.payload = node\nreturn msg;",
+        "func": "let temp = msg.payload\nlet minTemp = flow.get(\"minTemp\") \nlet maxTemp = flow.get(\"maxTemp\")\nmsg.payload = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\":\"epoch\",\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [{\n\"SensorID\": 3303,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5700\": msg.payload,\n\"5701\": \"Cel\",\n\"5601\": minTemp,\n\"5602\": maxTemp\n}\n}],\n\"CRC\": \"Integer\" \n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 770,
         "y": 100,
         "wires": [
-            []
+            [
+                "52f83989.f8c278"
+            ]
         ]
     },
     {
@@ -4104,13 +4106,15 @@
         "type": "function",
         "z": "5dea54b.a72c0ac",
         "name": "create Json Node",
-        "func": "let node = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\":\"epoch\",\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [{\n\"SensorID\": 3322,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5700\": msg.payload,\n\"5701\": \"kg\",\n\"5601\": flow.get(\"minLoad\"),\n\"5602\": flow.get(\"maxLoad\")\n}\n}],\n\"CRC\": \"Integer\" \n}\nmsg.payload = node\nreturn msg;",
+        "func": "msg.payload = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\":\"epoch\",\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [{\n\"SensorID\": 3322,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5700\": msg.payload,\n\"5701\": \"kg\",\n\"5601\": flow.get(\"minLoad\"),\n\"5602\": flow.get(\"maxLoad\")\n}\n}],\n\"CRC\": \"Integer\" \n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 730,
         "y": 300,
         "wires": [
-            []
+            [
+                "421c6deb.5a3294"
+            ]
         ]
     },
     {
@@ -4118,13 +4122,15 @@
         "type": "function",
         "z": "5dea54b.a72c0ac",
         "name": "create Json Node",
-        "func": "let node = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\":\"epoch\",\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [{\n\"SensorID\": 3323,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5700\": msg.payload,\n\"5701\": \"kPa\",\n\"5601\": flow.get(\"minPressure\"),\n\"5602\": flow.get(\"maxPressure\")\n}\n}],\n\"CRC\": \"Integer\" \n}\nmsg.payload = node\nreturn msg;",
+        "func": "msg.payload = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\":\"epoch\",\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [{\n\"SensorID\": 3323,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5700\": msg.payload,\n\"5701\": \"kPa\",\n\"5601\": flow.get(\"minPressure\"),\n\"5602\": flow.get(\"maxPressure\")\n}\n}],\n\"CRC\": \"Integer\" \n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 730,
         "y": 480,
         "wires": [
-            []
+            [
+                "3d289e0.91d9462"
+            ]
         ]
     },
     {
@@ -4598,13 +4604,165 @@
         "type": "function",
         "z": "5dea54b.a72c0ac",
         "name": "create Json Node",
-        "func": "let node = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\":\"epoch\",\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [{\n\"SensorID\": 3313,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5702\": flow.get(\"aZ\"),\n\"5703\": flow.get(\"aY\"),\n\"5704\": flow.get(\"aX\"),\n\"5701\": \"m/s²\"\n}\n}],\n\"CRC\": \"Integer\" \n}\nmsg.payload = node\nreturn msg;",
+        "func": "msg.payload = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\":\"epoch\",\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [{\n\"SensorID\": 3313,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5702\": flow.get(\"aZ\"),\n\"5703\": flow.get(\"aY\"),\n\"5704\": flow.get(\"aX\"),\n\"5701\": \"m/s²\"\n}\n}],\n\"CRC\": \"Integer\" \n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 1210,
         "y": 940,
         "wires": [
+            [
+                "cd46a484.0c8338"
+            ]
+        ]
+    },
+    {
+        "id": "52f83989.f8c278",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "tempNode",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 970,
+        "y": 100,
+        "wires": [
             []
         ]
+    },
+    {
+        "id": "421c6deb.5a3294",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "loadNode",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 950,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3d289e0.91d9462",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "pressureNode",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 980,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cd46a484.0c8338",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "accNode",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1430,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9bc72b10.aa1a48",
+        "type": "inject",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "x": 190,
+        "y": 1160,
+        "wires": [
+            [
+                "c2694e8c.87a24"
+            ]
+        ]
+    },
+    {
+        "id": "c2694e8c.87a24",
+        "type": "function",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "func": "\nlet json = {\n\"Service ID\": \"Integer\",\n\"Root\": [{\n\"Gateway\": \"Integer\",\n\"Source\": \"Integer\",\n\"TimseStamp\": msg.payload,\n}\n],\n\"Nodes\": [\nflow.get(\"tempNode\"),\nflow.get(\"pressureNode\"),\nflow.get(\"loadNode\"),\nflow.get(\"accNode\")\n],\n\"CRC\": \"Integer\" \n}\nmsg.payload = json;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 370,
+        "y": 1160,
+        "wires": [
+            [
+                "738dc7ca.f98308"
+            ]
+        ]
+    },
+    {
+        "id": "738dc7ca.f98308",
+        "type": "debug",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 560,
+        "y": 1160,
+        "wires": []
     }
 ]

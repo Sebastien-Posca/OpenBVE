@@ -28,6 +28,13 @@
         "info": ""
     },
     {
+        "id": "65e07ef4.3e9d5",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "4ec1e0b2.84c9d",
         "type": "ui_base",
         "theme": {
@@ -129,10 +136,11 @@
         "type": "mqtt-broker",
         "z": "",
         "name": "",
-        "broker": "localhost",
-        "port": "1883",
+        "broker": "cmw.ext.innovarail.indra.es",
+        "port": "8886",
+        "tls": "",
         "clientid": "",
-        "usetls": false,
+        "usetls": true,
         "compatmode": false,
         "keepalive": "60",
         "cleansession": true,
@@ -4604,7 +4612,7 @@
         "type": "function",
         "z": "5dea54b.a72c0ac",
         "name": "create Json Node",
-        "func": "msg.payload = {\n\"SensorID\": 3313,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5702\": flow.get(\"aZ\"),\n\"5703\": flow.get(\"aY\"),\n\"5704\": flow.get(\"aX\"),\n\"5701\": \"ms2\"\n}\n}\nreturn msg;",
+        "func": "msg.payload = {\n\"SensorID\": 3313,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5702\": flow.get(\"aZ\"),\n\"5703\": flow.get(\"aY\"),\n\"5704\": flow.get(\"aX\"),\n\"5701\": \"m/s2\"\n}\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 1210,
@@ -4723,7 +4731,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "repeat": "1",
+        "repeat": "10",
         "crontab": "",
         "once": true,
         "onceDelay": "1",
@@ -4740,14 +4748,15 @@
         "type": "function",
         "z": "5dea54b.a72c0ac",
         "name": "Final Json",
-        "func": "var makeCRCTable = function () {\n    var c;\n    var crcTable = [];\n    for (var n = 0; n < 256; n++) {\n        c = n;\n        for (var k = 0; k < 8; k++) {\n            c = ((c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1));\n        }\n        crcTable[n] = c;\n    }\n    return crcTable;\n}\n\nvar crc32 = function (str) {\n    var crcTable = makeCRCTable();\n    var crc = 0 ^ (-1);\n\n    for (var i = 0; i < str.length; i++) {\n        crc = (crc >>> 8) ^ crcTable[(crc ^ str.charCodeAt(i)) & 0xFF];\n    }\n\n    return (crc ^ (-1)) >>> 0;\n};\n\nfunction extractValues(obj){\n    if(typeof obj == 'object') return Object.values(obj).map(extractValues).flat();\n    return obj;\n}\n\nlet json = {\n\"Service ID\": \"Integer\",\n\"Root\": [{\n\"Gateway\": \"Integer\",\n\"Source\": \"Integer\",\n\"TimseStamp\": Date.now(),\n}\n],\n\"Nodes\": [\nflow.get(\"node1\"),\nflow.get(\"node2\")\n]\n}\n\n// console.log(\"=================================\")\nlet values = extractValues(json)\nvalues = values.join('')\n// console.log(values)\n// console.log(\"=================================\")\n\nlet crc = crc32(values)\njson[\"CRC\"] = crc\n// console.log(crc)\n\n\nmsg.payload = json;\nreturn msg;\n",
+        "func": "var makeCRCTable = function () {\n    var c;\n    var crcTable = [];\n    for (var n = 0; n < 256; n++) {\n        c = n;\n        for (var k = 0; k < 8; k++) {\n            c = ((c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1));\n        }\n        crcTable[n] = c;\n    }\n    return crcTable;\n}\n\nvar crc32 = function (str) {\n    var crcTable = makeCRCTable();\n    var crc = 0 ^ (-1);\n\n    for (var i = 0; i < str.length; i++) {\n        crc = (crc >>> 8) ^ crcTable[(crc ^ str.charCodeAt(i)) & 0xFF];\n    }\n\n    return (crc ^ (-1)) >>> 0;\n};\n\nfunction extractValues(obj){\n    if(typeof obj == 'object') return Object.values(obj).map(extractValues).flat();\n    return obj;\n}\n\nlet json = {\n\"Service ID\": 100101,\n\"Root\": [{\n\"Gateway\": 0,\n\"Source\": 0,\n\"TimseStamp\": Date.now(),\n}\n],\n\"Nodes\": [\nflow.get(\"node1\"),\nflow.get(\"node2\")\n]\n}\n\n// console.log(\"=================================\")\nlet values = extractValues(json)\nvalues = values.join('')\n// console.log(values)\n// console.log(\"=================================\")\n\nlet crc = crc32(values)\njson[\"CRC\"] = crc\n// console.log(crc)\n\n\nmsg.payload = json;\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "x": 890,
         "y": 1160,
         "wires": [
             [
-                "577f0988.4c66a8"
+                "577f0988.4c66a8",
+                "a6731d99.4d10a"
             ]
         ]
     },
@@ -4868,7 +4877,7 @@
         "type": "debug",
         "z": "5dea54b.a72c0ac",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4876,6 +4885,613 @@
         "targetType": "msg",
         "x": 1240,
         "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "a6731d99.4d10a",
+        "type": "debug",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 950,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "fae09d32.1676c",
+        "type": "mqtt in",
+        "z": "65e07ef4.3e9d5",
+        "name": "",
+        "topic": "#",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "35fc1b37.d7e0b4",
+        "x": 130,
+        "y": 40,
+        "wires": [
+            [
+                "b5bc634e.df729"
+            ]
+        ]
+    },
+    {
+        "id": "b5bc634e.df729",
+        "type": "function",
+        "z": "65e07ef4.3e9d5",
+        "name": "",
+        "func": "let json = JSON.parse(msg.payload)\nfor (let i of json[\"Nodes\"]){\n    for (let k of i[\"Sensors-Actuators\"]){\n        node.send({\n          payload: k,\n          sensor: k.SensorID\n        });\n    }\n}\nreturn;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 310,
+        "y": 40,
+        "wires": [
+            [
+                "96e3297c.e579f8",
+                "91165be6.b56c38"
+            ]
+        ]
+    },
+    {
+        "id": "96e3297c.e579f8",
+        "type": "debug",
+        "z": "65e07ef4.3e9d5",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "sensor",
+        "targetType": "msg",
+        "x": 610,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "91165be6.b56c38",
+        "type": "switch",
+        "z": "65e07ef4.3e9d5",
+        "name": "",
+        "property": "sensor",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "3313",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3330",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3300",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3304",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3322",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3336",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3323",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3303",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 8,
+        "x": 330,
+        "y": 260,
+        "wires": [
+            [
+                "6945ec11.07c814"
+            ],
+            [
+                "aecd23ca.2afc3"
+            ],
+            [
+                "a82c464b.622dd8"
+            ],
+            [
+                "dd3a51b7.d9348"
+            ],
+            [
+                "ec3a2d32.6bc6b"
+            ],
+            [
+                "a9a31931.9d56f8"
+            ],
+            [
+                "a54e31c2.09001"
+            ],
+            [
+                "b70f9978.0e6018"
+            ]
+        ]
+    },
+    {
+        "id": "6945ec11.07c814",
+        "type": "function",
+        "z": "65e07ef4.3e9d5",
+        "name": "Accelerometer",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 570,
+        "y": 120,
+        "wires": [
+            [
+                "4e5b68bd.490398"
+            ]
+        ]
+    },
+    {
+        "id": "aecd23ca.2afc3",
+        "type": "function",
+        "z": "65e07ef4.3e9d5",
+        "name": "Distance",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 550,
+        "y": 160,
+        "wires": [
+            [
+                "31e39556.6bd48a"
+            ]
+        ]
+    },
+    {
+        "id": "a82c464b.622dd8",
+        "type": "function",
+        "z": "65e07ef4.3e9d5",
+        "name": "Generic",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 550,
+        "y": 200,
+        "wires": [
+            [
+                "60f872cf.b5948c"
+            ]
+        ]
+    },
+    {
+        "id": "dd3a51b7.d9348",
+        "type": "function",
+        "z": "65e07ef4.3e9d5",
+        "name": "Humidity",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 550,
+        "y": 240,
+        "wires": [
+            [
+                "5a675817.9ec6d8"
+            ]
+        ]
+    },
+    {
+        "id": "ec3a2d32.6bc6b",
+        "type": "function",
+        "z": "65e07ef4.3e9d5",
+        "name": "Load",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 540,
+        "y": 280,
+        "wires": [
+            [
+                "aa476d22.066dd"
+            ]
+        ]
+    },
+    {
+        "id": "a9a31931.9d56f8",
+        "type": "function",
+        "z": "65e07ef4.3e9d5",
+        "name": "Positioning (GPS)",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 580,
+        "y": 320,
+        "wires": [
+            [
+                "c767ae6e.c85f1"
+            ]
+        ]
+    },
+    {
+        "id": "a54e31c2.09001",
+        "type": "function",
+        "z": "65e07ef4.3e9d5",
+        "name": "Pressure",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 550,
+        "y": 360,
+        "wires": [
+            [
+                "4e1dc247.2c518c"
+            ]
+        ]
+    },
+    {
+        "id": "b70f9978.0e6018",
+        "type": "function",
+        "z": "65e07ef4.3e9d5",
+        "name": "Temperature",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 400,
+        "wires": [
+            [
+                "7d4b4ae9.440814"
+            ]
+        ]
+    },
+    {
+        "id": "4e5b68bd.490398",
+        "type": "link out",
+        "z": "65e07ef4.3e9d5",
+        "name": "Accelerometer",
+        "links": [
+            "71a4c0c6.97e5f"
+        ],
+        "x": 825,
+        "y": 120,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "31e39556.6bd48a",
+        "type": "link out",
+        "z": "65e07ef4.3e9d5",
+        "name": "Distance",
+        "links": [
+            "4c4d0e76.fab21"
+        ],
+        "x": 800,
+        "y": 160,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "60f872cf.b5948c",
+        "type": "link out",
+        "z": "65e07ef4.3e9d5",
+        "name": "Generic",
+        "links": [],
+        "x": 800,
+        "y": 200,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "5a675817.9ec6d8",
+        "type": "link out",
+        "z": "65e07ef4.3e9d5",
+        "name": "Humidity",
+        "links": [
+            "dbb77a61.5d0c08"
+        ],
+        "x": 800,
+        "y": 240,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "aa476d22.066dd",
+        "type": "link out",
+        "z": "65e07ef4.3e9d5",
+        "name": "Load",
+        "links": [
+            "84b0f493.aada58"
+        ],
+        "x": 790,
+        "y": 280,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "c767ae6e.c85f1",
+        "type": "link out",
+        "z": "65e07ef4.3e9d5",
+        "name": "Positioning (GPS)",
+        "links": [
+            "7eaa1c8c.30a214"
+        ],
+        "x": 830,
+        "y": 320,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "4e1dc247.2c518c",
+        "type": "link out",
+        "z": "65e07ef4.3e9d5",
+        "name": "Pressure",
+        "links": [
+            "e7f617eb.609fc8"
+        ],
+        "x": 800,
+        "y": 360,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "7d4b4ae9.440814",
+        "type": "link out",
+        "z": "65e07ef4.3e9d5",
+        "name": "Temperature",
+        "links": [
+            "b3ebb136.8d6e6"
+        ],
+        "x": 810,
+        "y": 400,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "71a4c0c6.97e5f",
+        "type": "link in",
+        "z": "65e07ef4.3e9d5",
+        "name": "Accelerometer",
+        "links": [
+            "4e5b68bd.490398"
+        ],
+        "x": 170,
+        "y": 540,
+        "wires": [
+            [
+                "66fac16c.e6b94"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "4c4d0e76.fab21",
+        "type": "link in",
+        "z": "65e07ef4.3e9d5",
+        "name": "Distance",
+        "links": [
+            "31e39556.6bd48a"
+        ],
+        "x": 140,
+        "y": 720,
+        "wires": [
+            [
+                "e10fd8bb.877708"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "dbb77a61.5d0c08",
+        "type": "link in",
+        "z": "65e07ef4.3e9d5",
+        "name": "Humidity",
+        "links": [
+            "5a675817.9ec6d8"
+        ],
+        "x": 680,
+        "y": 700,
+        "wires": [
+            [
+                "cbb8a0db.6d269"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "84b0f493.aada58",
+        "type": "link in",
+        "z": "65e07ef4.3e9d5",
+        "name": "Load",
+        "links": [
+            "aa476d22.066dd"
+        ],
+        "x": 110,
+        "y": 860,
+        "wires": [
+            [
+                "766c1968.cf49b8"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "7eaa1c8c.30a214",
+        "type": "link in",
+        "z": "65e07ef4.3e9d5",
+        "name": "Positioning",
+        "links": [
+            "c767ae6e.c85f1"
+        ],
+        "x": 700,
+        "y": 860,
+        "wires": [
+            [
+                "23417a14.c8eca6"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "e7f617eb.609fc8",
+        "type": "link in",
+        "z": "65e07ef4.3e9d5",
+        "name": "Pressure",
+        "links": [
+            "4e1dc247.2c518c"
+        ],
+        "x": 120,
+        "y": 980,
+        "wires": [
+            [
+                "bfec183e.a467f8"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "b3ebb136.8d6e6",
+        "type": "link in",
+        "z": "65e07ef4.3e9d5",
+        "name": "Temperature",
+        "links": [
+            "7d4b4ae9.440814"
+        ],
+        "x": 670,
+        "y": 1000,
+        "wires": [
+            [
+                "79212221.85ca0c"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "77036580.0390ec",
+        "type": "debug",
+        "z": "65e07ef4.3e9d5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 610,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "766c1968.cf49b8",
+        "type": "debug",
+        "z": "65e07ef4.3e9d5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 270,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "bfec183e.a467f8",
+        "type": "debug",
+        "z": "65e07ef4.3e9d5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 250,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "66fac16c.e6b94",
+        "type": "function",
+        "z": "65e07ef4.3e9d5",
+        "name": "deserialize Acc",
+        "func": "msg.payload = {\"Sensor\": \"Accelerometer\",\n\"Units\": msg.payload.Resources[\"5701\"],\n\"X Value\": msg.payload.Resources[\"5702\"],\n\"Y Value\": msg.payload.Resources[\"5703\"],\n\"Z Value\": msg.payload.Resources[\"5704\"]\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 400,
+        "y": 540,
+        "wires": [
+            [
+                "77036580.0390ec"
+            ]
+        ]
+    },
+    {
+        "id": "79212221.85ca0c",
+        "type": "debug",
+        "z": "65e07ef4.3e9d5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 790,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "23417a14.c8eca6",
+        "type": "debug",
+        "z": "65e07ef4.3e9d5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 830,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "cbb8a0db.6d269",
+        "type": "debug",
+        "z": "65e07ef4.3e9d5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 850,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "e10fd8bb.877708",
+        "type": "debug",
+        "z": "65e07ef4.3e9d5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 270,
+        "y": 660,
         "wires": []
     }
 ]

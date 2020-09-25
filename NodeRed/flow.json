@@ -3806,7 +3806,7 @@
         "type": "function",
         "z": "5dea54b.a72c0ac",
         "name": "compute speed",
-        "func": "let z1 = flow.get(\"z1\") || 0.0\nlet z2 = parseFloat(msg.payload.replace(\",\",\".\"))\nconsole.log(z2)\nlet speed = z2-z1\nflow.set(\"z1\", z2)\nconsole.log(\"Speed=\" + speed)\nmsg.payload = speed;\nreturn msg;",
+        "func": "let z1 = flow.get(\"z1\") || 0.0\nlet z2 = parseFloat(msg.payload.replace(\",\",\".\"))\nlet speed = z2-z1\nflow.set(\"z1\", z2)\nmsg.payload = speed;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 560,
@@ -3845,7 +3845,7 @@
         "type": "function",
         "z": "5dea54b.a72c0ac",
         "name": "compute speed",
-        "func": "let x1 = flow.get(\"x1\") || 0\nlet x2 = parseFloat(msg.payload.replace(\",\",\".\"))\nlet speed = x2-x1\nflow.set(\"x1\", x2)\nconsole.log(\"Speed=\" + speed)\nmsg.payload = speed;\nreturn msg;",
+        "func": "let x1 = flow.get(\"x1\") || 0\nlet x2 = parseFloat(msg.payload.replace(\",\",\".\"))\nlet speed = x2-x1\nflow.set(\"x1\", x2)\nmsg.payload = speed;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 560,
@@ -3884,7 +3884,7 @@
         "type": "function",
         "z": "5dea54b.a72c0ac",
         "name": "compute speed",
-        "func": "let y1 = flow.get(\"y1\") || 0\nlet y2 = parseFloat(msg.payload.replace(\",\",\".\"))\nlet speed = y2-y1\nflow.set(\"y1\", y2)\nconsole.log(\"Speed=\" + speed)\nmsg.payload = speed;\nreturn msg;",
+        "func": "let y1 = flow.get(\"y1\") || 0\nlet y2 = parseFloat(msg.payload.replace(\",\",\".\"))\nlet speed = y2-y1\nflow.set(\"y1\", y2)\nmsg.payload = speed;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 560,
@@ -3923,7 +3923,7 @@
         "type": "function",
         "z": "5dea54b.a72c0ac",
         "name": "compute acceleration",
-        "func": "let vz1 = flow.get(\"vz1\") || 0\nlet vz2 = msg.payload\nlet acc = vz2-vz1\nflow.set(\"vz1\", vz2)\nconsole.log(\"Acc=\" + acc)\nmsg.payload = acc;\nreturn msg;",
+        "func": "let vz1 = flow.get(\"vz1\") || 0\nlet vz2 = msg.payload\nlet acc = vz2-vz1\nflow.set(\"vz1\", vz2)\nmsg.payload = acc;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 780,
@@ -3942,7 +3942,7 @@
         "type": "function",
         "z": "5dea54b.a72c0ac",
         "name": "compute acceleration",
-        "func": "let vx1 = flow.get(\"vx1\") || 0\nlet vx2 = msg.payload\nlet acc = vx2-vx1\nflow.set(\"vx1\", vx2)\nconsole.log(\"Acc=\" + acc)\nmsg.payload = acc;\nreturn msg;",
+        "func": "let vx1 = flow.get(\"vx1\") || 0\nlet vx2 = msg.payload\nlet acc = vx2-vx1\nflow.set(\"vx1\", vx2)\nmsg.payload = acc;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 780,
@@ -3960,7 +3960,7 @@
         "type": "function",
         "z": "5dea54b.a72c0ac",
         "name": "compute acceleration",
-        "func": "let vy1 = flow.get(\"vy1\") || 0\nlet vy2 = msg.payload\nlet acc = vy2-vy1\nflow.set(\"vy1\", vy2)\nconsole.log(\"Acc=\" + acc)\nmsg.payload = acc;\nreturn msg;",
+        "func": "let vy1 = flow.get(\"vy1\") || 0\nlet vy2 = msg.payload\nlet acc = vy2-vy1\nflow.set(\"vy1\", vy2)\nmsg.payload = acc;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 780,
@@ -3978,13 +3978,15 @@
         "type": "function",
         "z": "5dea54b.a72c0ac",
         "name": "create Json Node",
-        "func": "let node = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\":\"epoch\",\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [{\n\"SensorID\": 3303,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5700\": msg.payload,\n\"5701\": \"Cel\",\n\"5601\": flow.get(\"minTemp\"),\n\"5602\": flow.get(\"maxTemp\")\n}\n}],\n\"CRC\": \"Integer\" \n}\nmsg.payload = node\nreturn msg;",
+        "func": "let temp = msg.payload\nlet minTemp = flow.get(\"minTemp\") \nlet maxTemp = flow.get(\"maxTemp\")\nmsg.payload = {\n\"SensorID\": 3303,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5700\": msg.payload,\n\"5701\": \"Cel\",\n\"5601\": minTemp,\n\"5602\": maxTemp\n}\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 770,
         "y": 100,
         "wires": [
-            []
+            [
+                "52f83989.f8c278"
+            ]
         ]
     },
     {
@@ -4104,13 +4106,15 @@
         "type": "function",
         "z": "5dea54b.a72c0ac",
         "name": "create Json Node",
-        "func": "let node = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\":\"epoch\",\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [{\n\"SensorID\": 3322,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5700\": msg.payload,\n\"5701\": \"kg\",\n\"5601\": flow.get(\"minLoad\"),\n\"5602\": flow.get(\"maxLoad\")\n}\n}],\n\"CRC\": \"Integer\" \n}\nmsg.payload = node\nreturn msg;",
+        "func": "msg.payload = {\n\"SensorID\": 3322,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5700\": msg.payload,\n\"5701\": \"kg\",\n\"5601\": flow.get(\"minLoad\"),\n\"5602\": flow.get(\"maxLoad\")\n}\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 730,
         "y": 300,
         "wires": [
-            []
+            [
+                "421c6deb.5a3294"
+            ]
         ]
     },
     {
@@ -4118,13 +4122,15 @@
         "type": "function",
         "z": "5dea54b.a72c0ac",
         "name": "create Json Node",
-        "func": "let node = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\":\"epoch\",\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [{\n\"SensorID\": 3323,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5700\": msg.payload,\n\"5701\": \"kPa\",\n\"5601\": flow.get(\"minPressure\"),\n\"5602\": flow.get(\"maxPressure\")\n}\n}],\n\"CRC\": \"Integer\" \n}\nmsg.payload = node\nreturn msg;",
+        "func": "msg.payload = {\n\"SensorID\": 3323,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5700\": msg.payload,\n\"5701\": \"kPa\",\n\"5601\": flow.get(\"minPressure\"),\n\"5602\": flow.get(\"maxPressure\")\n}\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 730,
         "y": 480,
         "wires": [
-            []
+            [
+                "3d289e0.91d9462"
+            ]
         ]
     },
     {
@@ -4598,13 +4604,278 @@
         "type": "function",
         "z": "5dea54b.a72c0ac",
         "name": "create Json Node",
-        "func": "let node = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\":\"epoch\",\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [{\n\"SensorID\": 3313,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5702\": flow.get(\"aZ\"),\n\"5703\": flow.get(\"aY\"),\n\"5704\": flow.get(\"aX\"),\n\"5701\": \"m/s²\"\n}\n}],\n\"CRC\": \"Integer\" \n}\nmsg.payload = node\nreturn msg;",
+        "func": "msg.payload = {\n\"SensorID\": 3313,\n\"TimeStamp\":  Date.now(),\n\"TimeAccuracy\": \"Integer\",\n\"Resources\": {\n\"5702\": flow.get(\"aZ\"),\n\"5703\": flow.get(\"aY\"),\n\"5704\": flow.get(\"aX\"),\n\"5701\": \"ms2\"\n}\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 1210,
         "y": 940,
         "wires": [
+            [
+                "cd46a484.0c8338"
+            ]
+        ]
+    },
+    {
+        "id": "52f83989.f8c278",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "tempNode",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 970,
+        "y": 100,
+        "wires": [
             []
         ]
+    },
+    {
+        "id": "421c6deb.5a3294",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "loadNode",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 950,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3d289e0.91d9462",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "pressureNode",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 980,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cd46a484.0c8338",
+        "type": "change",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "accNode",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1430,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9bc72b10.aa1a48",
+        "type": "inject",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "x": 130,
+        "y": 1160,
+        "wires": [
+            [
+                "5de5b211.35932c"
+            ]
+        ]
+    },
+    {
+        "id": "c2694e8c.87a24",
+        "type": "function",
+        "z": "5dea54b.a72c0ac",
+        "name": "Final Json",
+        "func": "var makeCRCTable = function () {\n    var c;\n    var crcTable = [];\n    for (var n = 0; n < 256; n++) {\n        c = n;\n        for (var k = 0; k < 8; k++) {\n            c = ((c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1));\n        }\n        crcTable[n] = c;\n    }\n    return crcTable;\n}\n\nvar crc32 = function (str) {\n    var crcTable = makeCRCTable();\n    var crc = 0 ^ (-1);\n\n    for (var i = 0; i < str.length; i++) {\n        crc = (crc >>> 8) ^ crcTable[(crc ^ str.charCodeAt(i)) & 0xFF];\n    }\n\n    return (crc ^ (-1)) >>> 0;\n};\n\nfunction extractValues(obj){\n    if(typeof obj == 'object') return Object.values(obj).map(extractValues).flat();\n    return obj;\n}\n\nlet json = {\n\"Service ID\": \"Integer\",\n\"Root\": [{\n\"Gateway\": \"Integer\",\n\"Source\": \"Integer\",\n\"TimseStamp\": Date.now(),\n}\n],\n\"Nodes\": [\nflow.get(\"node1\"),\nflow.get(\"node2\")\n]\n}\n\n// console.log(\"=================================\")\nlet values = extractValues(json)\nvalues = values.join('')\n// console.log(values)\n// console.log(\"=================================\")\n\nlet crc = crc32(values)\njson[\"CRC\"] = crc\n// console.log(crc)\n\n\nmsg.payload = json;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 890,
+        "y": 1160,
+        "wires": [
+            [
+                "577f0988.4c66a8"
+            ]
+        ]
+    },
+    {
+        "id": "5de5b211.35932c",
+        "type": "function",
+        "z": "5dea54b.a72c0ac",
+        "name": "Node 1 (acceleration related)",
+        "func": "var makeCRCTable = function () {\n    var c;\n    var crcTable = [];\n    for (var n = 0; n < 256; n++) {\n        c = n;\n        for (var k = 0; k < 8; k++) {\n            c = ((c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1));\n        }\n        crcTable[n] = c;\n    }\n    return crcTable;\n}\n\nvar crc32 = function (str) {\n    var crcTable = makeCRCTable();\n    var crc = 0 ^ (-1);\n\n    for (var i = 0; i < str.length; i++) {\n        crc = (crc >>> 8) ^ crcTable[(crc ^ str.charCodeAt(i)) & 0xFF];\n    }\n\n    return (crc ^ (-1)) >>> 0;\n};\n\nfunction extractValues(obj){\n    if(typeof obj == 'object') return Object.values(obj).map(extractValues).flat();\n    return obj;\n}\n\nlet node1 = {\n    \"Safety\": true,\n    \"NodeID\": \"Integer\",\n    \"TimeStamp\": Date.now(),\n    \"TimeAccuracy\": \"Integer\",\n    \"Sensors-Actuators\": [\n        flow.get(\"accNode\")]\n}\n// console.log(\"=================================\")\nlet values = extractValues(node1)\nvalues = values.join('')\n// console.log(values)\n// console.log(\"=================================\")\n\nlet crc = crc32(values)\nnode1[\"CRC\"] = crc\n// console.log(crc)\n\nflow.set(\"node1\", node1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 360,
+        "y": 1160,
+        "wires": [
+            [
+                "795573cd.e82c4c"
+            ]
+        ]
+    },
+    {
+        "id": "795573cd.e82c4c",
+        "type": "function",
+        "z": "5dea54b.a72c0ac",
+        "name": "Node 2 (ambiant sensors)",
+        "func": "var makeCRCTable = function () {\n    var c;\n    var crcTable = [];\n    for (var n = 0; n < 256; n++) {\n        c = n;\n        for (var k = 0; k < 8; k++) {\n            c = ((c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1));\n        }\n        crcTable[n] = c;\n    }\n    return crcTable;\n}\n\nvar crc32 = function (str) {\n    var crcTable = makeCRCTable();\n    var crc = 0 ^ (-1);\n\n    for (var i = 0; i < str.length; i++) {\n        crc = (crc >>> 8) ^ crcTable[(crc ^ str.charCodeAt(i)) & 0xFF];\n    }\n\n    return (crc ^ (-1)) >>> 0;\n};\n\nfunction extractValues(obj){\n    if(typeof obj == 'object') return Object.values(obj).map(extractValues).flat();\n    return obj;\n}\n\n\nlet node2 = {\n\"Safety\": true,\n\"NodeID\": \"Integer\",\n\"TimeStamp\": Date.now(),\n\"TimeAccuracy\": \"Integer\", \n\"Sensors-Actuators\": [\nflow.get(\"tempNode\"),\nflow.get(\"pressureNode\"),\nflow.get(\"loadNode\")\n]\n}\n\n// console.log(\"=================================\")\nlet values = extractValues(node2)\nvalues = values.join('')\n// console.log(values)\n// console.log(\"=================================\")\n\nlet crc = crc32(values)\nnode2[\"CRC\"] = crc\n// console.log(crc)\n\nflow.set(\"node2\", node2)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 630,
+        "y": 1160,
+        "wires": [
+            [
+                "c2694e8c.87a24"
+            ]
+        ]
+    },
+    {
+        "id": "d46e066.f815bf8",
+        "type": "function",
+        "z": "5dea54b.a72c0ac",
+        "name": "get CRC",
+        "func": "var makeCRCTable = function(){\n    var c;\n    var crcTable = [];\n    for(var n =0; n < 256; n++){\n        c = n;\n        for(var k =0; k < 8; k++){\n            c = ((c&1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1));\n        }\n        crcTable[n] = c;\n    }\n    return crcTable;\n}\n\nvar crc32 = function(str) {\n    var crcTable = makeCRCTable();\n    var crc = 0 ^ (-1);\n\n    for (var i = 0; i < str.length; i++ ) {\n        crc = (crc >>> 8) ^ crcTable[(crc ^ str.charCodeAt(i)) & 0xFF];\n    }\n\n    return (crc ^ (-1)) >>> 0;\n};\n\nmsg.payload = crc32(msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 420,
+        "y": 1300,
+        "wires": [
+            [
+                "4edb43e3.1c518c"
+            ]
+        ]
+    },
+    {
+        "id": "ffcf15f4.4b0b18",
+        "type": "inject",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "topic": "",
+        "payload": "trueInteger1600960806125Integer33131600960804378Integerms000",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 170,
+        "y": 1300,
+        "wires": [
+            [
+                "d46e066.f815bf8"
+            ]
+        ]
+    },
+    {
+        "id": "4edb43e3.1c518c",
+        "type": "debug",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 630,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "259c8438.0329ac",
+        "type": "mqtt out",
+        "z": "5dea54b.a72c0ac",
+        "name": "dyjnamic mqtt",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "broker": "35fc1b37.d7e0b4",
+        "x": 1280,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "577f0988.4c66a8",
+        "type": "function",
+        "z": "5dea54b.a72c0ac",
+        "name": "Generate Topic",
+        "func": "var makeCRCTable = function(){\n    var c;\n    var crcTable = [];\n    for(var n =0; n < 256; n++){\n        c = n;\n        for(var k =0; k < 8; k++){\n            c = ((c&1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1));\n        }\n        crcTable[n] = c;\n    }\n    return crcTable;\n}\n\nvar crc32 = function(str) {\n    var crcTable = makeCRCTable();\n    var crc = 0 ^ (-1);\n\n    for (var i = 0; i < str.length; i++ ) {\n        crc = (crc >>> 8) ^ crcTable[(crc ^ str.charCodeAt(i)) & 0xFF];\n    }\n\n    return (crc ^ (-1)) >>> 0;\n};\n\nfunction extractValues(obj){\n    if(typeof obj == 'object') return Object.values(obj).map(extractValues).flat();\n    return obj;\n}\n\nlet topic = \"100/101/121/201/500/101/101/\"\nlet crcHead = crc32(topic)\nlet values = extractValues(msg.payload)\nvalues = values.join('')\nlet crcPay = crc32(values)\nmsg.topic = topic + crcHead + \"/\" + crcPay\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1080,
+        "y": 1160,
+        "wires": [
+            [
+                "259c8438.0329ac",
+                "abaaebb3.07f3a8"
+            ]
+        ]
+    },
+    {
+        "id": "abaaebb3.07f3a8",
+        "type": "debug",
+        "z": "5dea54b.a72c0ac",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "x": 1240,
+        "y": 1120,
+        "wires": []
     }
 ]

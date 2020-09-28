@@ -28,16 +28,9 @@
         "info": ""
     },
     {
-        "id": "65e07ef4.3e9d5",
-        "type": "tab",
-        "label": "Deserialize MQTT",
-        "disabled": false,
-        "info": ""
-    },
-    {
         "id": "226498da.550cc8",
         "type": "tab",
-        "label": "Deserialize File",
+        "label": "Deserialize Data",
         "disabled": false,
         "info": ""
     },
@@ -4974,615 +4967,6 @@
         "wires": []
     },
     {
-        "id": "fae09d32.1676c",
-        "type": "mqtt in",
-        "z": "65e07ef4.3e9d5",
-        "d": true,
-        "name": "",
-        "topic": "#",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "35fc1b37.d7e0b4",
-        "x": 130,
-        "y": 40,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b5bc634e.df729",
-        "type": "function",
-        "z": "65e07ef4.3e9d5",
-        "name": "",
-        "func": "let json = JSON.parse(msg.payload)\nfor (let i of json[\"Nodes\"]){\n    for (let k of i[\"Sensors-Actuators\"]){\n        node.send({\n          payload: k,\n          sensor: k.SensorID\n        });\n    }\n}\nreturn;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 310,
-        "y": 40,
-        "wires": [
-            [
-                "96e3297c.e579f8",
-                "91165be6.b56c38"
-            ]
-        ]
-    },
-    {
-        "id": "96e3297c.e579f8",
-        "type": "debug",
-        "z": "65e07ef4.3e9d5",
-        "name": "input",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "sensor",
-        "targetType": "msg",
-        "x": 590,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "91165be6.b56c38",
-        "type": "switch",
-        "z": "65e07ef4.3e9d5",
-        "name": "",
-        "property": "sensor",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "3313",
-                "vt": "num"
-            },
-            {
-                "t": "eq",
-                "v": "3330",
-                "vt": "num"
-            },
-            {
-                "t": "eq",
-                "v": "3300",
-                "vt": "num"
-            },
-            {
-                "t": "eq",
-                "v": "3304",
-                "vt": "num"
-            },
-            {
-                "t": "eq",
-                "v": "3322",
-                "vt": "num"
-            },
-            {
-                "t": "eq",
-                "v": "3336",
-                "vt": "num"
-            },
-            {
-                "t": "eq",
-                "v": "3323",
-                "vt": "num"
-            },
-            {
-                "t": "eq",
-                "v": "3303",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 8,
-        "x": 330,
-        "y": 260,
-        "wires": [
-            [
-                "6945ec11.07c814"
-            ],
-            [
-                "aecd23ca.2afc3"
-            ],
-            [
-                "a82c464b.622dd8"
-            ],
-            [
-                "dd3a51b7.d9348"
-            ],
-            [
-                "ec3a2d32.6bc6b"
-            ],
-            [
-                "a9a31931.9d56f8"
-            ],
-            [
-                "a54e31c2.09001"
-            ],
-            [
-                "b70f9978.0e6018"
-            ]
-        ]
-    },
-    {
-        "id": "6945ec11.07c814",
-        "type": "function",
-        "z": "65e07ef4.3e9d5",
-        "name": "Accelerometer",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 570,
-        "y": 120,
-        "wires": [
-            [
-                "4e5b68bd.490398"
-            ]
-        ]
-    },
-    {
-        "id": "aecd23ca.2afc3",
-        "type": "function",
-        "z": "65e07ef4.3e9d5",
-        "name": "Distance",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 550,
-        "y": 160,
-        "wires": [
-            [
-                "31e39556.6bd48a"
-            ]
-        ]
-    },
-    {
-        "id": "a82c464b.622dd8",
-        "type": "function",
-        "z": "65e07ef4.3e9d5",
-        "name": "Generic",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 550,
-        "y": 200,
-        "wires": [
-            [
-                "60f872cf.b5948c"
-            ]
-        ]
-    },
-    {
-        "id": "dd3a51b7.d9348",
-        "type": "function",
-        "z": "65e07ef4.3e9d5",
-        "name": "Humidity",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 550,
-        "y": 240,
-        "wires": [
-            [
-                "5a675817.9ec6d8"
-            ]
-        ]
-    },
-    {
-        "id": "ec3a2d32.6bc6b",
-        "type": "function",
-        "z": "65e07ef4.3e9d5",
-        "name": "Load",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 540,
-        "y": 280,
-        "wires": [
-            [
-                "aa476d22.066dd"
-            ]
-        ]
-    },
-    {
-        "id": "a9a31931.9d56f8",
-        "type": "function",
-        "z": "65e07ef4.3e9d5",
-        "name": "Positioning (GPS)",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 580,
-        "y": 320,
-        "wires": [
-            [
-                "c767ae6e.c85f1"
-            ]
-        ]
-    },
-    {
-        "id": "a54e31c2.09001",
-        "type": "function",
-        "z": "65e07ef4.3e9d5",
-        "name": "Pressure",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 550,
-        "y": 360,
-        "wires": [
-            [
-                "4e1dc247.2c518c"
-            ]
-        ]
-    },
-    {
-        "id": "b70f9978.0e6018",
-        "type": "function",
-        "z": "65e07ef4.3e9d5",
-        "name": "Temperature",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 560,
-        "y": 400,
-        "wires": [
-            [
-                "7d4b4ae9.440814"
-            ]
-        ]
-    },
-    {
-        "id": "4e5b68bd.490398",
-        "type": "link out",
-        "z": "65e07ef4.3e9d5",
-        "name": "Accelerometer",
-        "links": [
-            "71a4c0c6.97e5f"
-        ],
-        "x": 825,
-        "y": 120,
-        "wires": [],
-        "l": true
-    },
-    {
-        "id": "31e39556.6bd48a",
-        "type": "link out",
-        "z": "65e07ef4.3e9d5",
-        "name": "Distance",
-        "links": [
-            "4c4d0e76.fab21"
-        ],
-        "x": 800,
-        "y": 160,
-        "wires": [],
-        "l": true
-    },
-    {
-        "id": "60f872cf.b5948c",
-        "type": "link out",
-        "z": "65e07ef4.3e9d5",
-        "name": "Generic",
-        "links": [],
-        "x": 800,
-        "y": 200,
-        "wires": [],
-        "l": true
-    },
-    {
-        "id": "5a675817.9ec6d8",
-        "type": "link out",
-        "z": "65e07ef4.3e9d5",
-        "name": "Humidity",
-        "links": [
-            "dbb77a61.5d0c08"
-        ],
-        "x": 800,
-        "y": 240,
-        "wires": [],
-        "l": true
-    },
-    {
-        "id": "aa476d22.066dd",
-        "type": "link out",
-        "z": "65e07ef4.3e9d5",
-        "name": "Load",
-        "links": [
-            "84b0f493.aada58"
-        ],
-        "x": 790,
-        "y": 280,
-        "wires": [],
-        "l": true
-    },
-    {
-        "id": "c767ae6e.c85f1",
-        "type": "link out",
-        "z": "65e07ef4.3e9d5",
-        "name": "Positioning (GPS)",
-        "links": [
-            "7eaa1c8c.30a214"
-        ],
-        "x": 830,
-        "y": 320,
-        "wires": [],
-        "l": true
-    },
-    {
-        "id": "4e1dc247.2c518c",
-        "type": "link out",
-        "z": "65e07ef4.3e9d5",
-        "name": "Pressure",
-        "links": [
-            "e7f617eb.609fc8"
-        ],
-        "x": 800,
-        "y": 360,
-        "wires": [],
-        "l": true
-    },
-    {
-        "id": "7d4b4ae9.440814",
-        "type": "link out",
-        "z": "65e07ef4.3e9d5",
-        "name": "Temperature",
-        "links": [
-            "b3ebb136.8d6e6"
-        ],
-        "x": 810,
-        "y": 400,
-        "wires": [],
-        "l": true
-    },
-    {
-        "id": "71a4c0c6.97e5f",
-        "type": "link in",
-        "z": "65e07ef4.3e9d5",
-        "name": "Accelerometer",
-        "links": [
-            "4e5b68bd.490398"
-        ],
-        "x": 170,
-        "y": 540,
-        "wires": [
-            [
-                "66fac16c.e6b94"
-            ]
-        ],
-        "l": true
-    },
-    {
-        "id": "4c4d0e76.fab21",
-        "type": "link in",
-        "z": "65e07ef4.3e9d5",
-        "name": "Distance",
-        "links": [
-            "31e39556.6bd48a"
-        ],
-        "x": 140,
-        "y": 720,
-        "wires": [
-            [
-                "e10fd8bb.877708"
-            ]
-        ],
-        "l": true
-    },
-    {
-        "id": "dbb77a61.5d0c08",
-        "type": "link in",
-        "z": "65e07ef4.3e9d5",
-        "name": "Humidity",
-        "links": [
-            "5a675817.9ec6d8"
-        ],
-        "x": 680,
-        "y": 700,
-        "wires": [
-            [
-                "cbb8a0db.6d269"
-            ]
-        ],
-        "l": true
-    },
-    {
-        "id": "84b0f493.aada58",
-        "type": "link in",
-        "z": "65e07ef4.3e9d5",
-        "name": "Load",
-        "links": [
-            "aa476d22.066dd"
-        ],
-        "x": 110,
-        "y": 860,
-        "wires": [
-            [
-                "766c1968.cf49b8"
-            ]
-        ],
-        "l": true
-    },
-    {
-        "id": "7eaa1c8c.30a214",
-        "type": "link in",
-        "z": "65e07ef4.3e9d5",
-        "name": "Positioning",
-        "links": [
-            "c767ae6e.c85f1"
-        ],
-        "x": 700,
-        "y": 860,
-        "wires": [
-            [
-                "23417a14.c8eca6"
-            ]
-        ],
-        "l": true
-    },
-    {
-        "id": "e7f617eb.609fc8",
-        "type": "link in",
-        "z": "65e07ef4.3e9d5",
-        "name": "Pressure",
-        "links": [
-            "4e1dc247.2c518c"
-        ],
-        "x": 120,
-        "y": 980,
-        "wires": [
-            [
-                "bfec183e.a467f8"
-            ]
-        ],
-        "l": true
-    },
-    {
-        "id": "b3ebb136.8d6e6",
-        "type": "link in",
-        "z": "65e07ef4.3e9d5",
-        "name": "Temperature",
-        "links": [
-            "7d4b4ae9.440814"
-        ],
-        "x": 670,
-        "y": 1000,
-        "wires": [
-            [
-                "79212221.85ca0c"
-            ]
-        ],
-        "l": true
-    },
-    {
-        "id": "77036580.0390ec",
-        "type": "debug",
-        "z": "65e07ef4.3e9d5",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 610,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "766c1968.cf49b8",
-        "type": "debug",
-        "z": "65e07ef4.3e9d5",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 270,
-        "y": 800,
-        "wires": []
-    },
-    {
-        "id": "bfec183e.a467f8",
-        "type": "debug",
-        "z": "65e07ef4.3e9d5",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 250,
-        "y": 940,
-        "wires": []
-    },
-    {
-        "id": "66fac16c.e6b94",
-        "type": "function",
-        "z": "65e07ef4.3e9d5",
-        "name": "deserialize Acc",
-        "func": "msg.payload = {\"Sensor\": \"Accelerometer\",\n\"Units\": msg.payload.Resources[\"5701\"],\n\"X Value\": msg.payload.Resources[\"5702\"],\n\"Y Value\": msg.payload.Resources[\"5703\"],\n\"Z Value\": msg.payload.Resources[\"5704\"]\n}\nreturn msg;\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 400,
-        "y": 540,
-        "wires": [
-            [
-                "77036580.0390ec",
-                "524ec525.1b092c"
-            ]
-        ]
-    },
-    {
-        "id": "79212221.85ca0c",
-        "type": "debug",
-        "z": "65e07ef4.3e9d5",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 790,
-        "y": 960,
-        "wires": []
-    },
-    {
-        "id": "23417a14.c8eca6",
-        "type": "debug",
-        "z": "65e07ef4.3e9d5",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 830,
-        "y": 800,
-        "wires": []
-    },
-    {
-        "id": "cbb8a0db.6d269",
-        "type": "debug",
-        "z": "65e07ef4.3e9d5",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 850,
-        "y": 660,
-        "wires": []
-    },
-    {
-        "id": "e10fd8bb.877708",
-        "type": "debug",
-        "z": "65e07ef4.3e9d5",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 270,
-        "y": 660,
-        "wires": []
-    },
-    {
-        "id": "524ec525.1b092c",
-        "type": "file",
-        "z": "65e07ef4.3e9d5",
-        "name": "",
-        "filename": "test.txt",
-        "appendNewline": true,
-        "createDir": false,
-        "overwriteFile": "false",
-        "encoding": "none",
-        "x": 600,
-        "y": 500,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "9d9d7e49.fd243",
         "type": "function",
         "z": "226498da.550cc8",
@@ -5590,29 +4974,13 @@
         "func": "let json = JSON.parse(msg.payload)\nfor (let i of json[\"Nodes\"]){\n    for (let k of i[\"Sensors-Actuators\"]){\n        node.send({\n          payload: k,\n          sensor: k.SensorID\n        });\n    }\n}\nreturn;",
         "outputs": 1,
         "noerr": 0,
-        "x": 430,
-        "y": 60,
+        "x": 670,
+        "y": 200,
         "wires": [
             [
-                "fc623ff6.27ff2",
-                "5ed86961.2511a8"
+                "2a92e871.6f0678"
             ]
         ]
-    },
-    {
-        "id": "fc623ff6.27ff2",
-        "type": "debug",
-        "z": "226498da.550cc8",
-        "name": "input",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "sensor",
-        "targetType": "msg",
-        "x": 710,
-        "y": 60,
-        "wires": []
     },
     {
         "id": "f5ca7928.744628",
@@ -5684,8 +5052,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 12,
-        "x": 470,
-        "y": 320,
+        "x": 950,
+        "y": 280,
         "wires": [
             [
                 "13003836.3df3c8"
@@ -5733,8 +5101,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 690,
-        "y": 140,
+        "x": 1220,
+        "y": 80,
         "wires": [
             [
                 "2f1b7109.df1aee"
@@ -5749,8 +5117,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 670,
-        "y": 180,
+        "x": 1200,
+        "y": 120,
         "wires": [
             [
                 "1a6c755e.5f7ceb"
@@ -5765,8 +5133,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 670,
-        "y": 220,
+        "x": 1200,
+        "y": 160,
         "wires": [
             [
                 "fb8ec59d.f82818"
@@ -5781,8 +5149,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 670,
-        "y": 260,
+        "x": 1200,
+        "y": 200,
         "wires": [
             [
                 "bd5f74b9.be09e8"
@@ -5797,8 +5165,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 660,
-        "y": 300,
+        "x": 1190,
+        "y": 240,
         "wires": [
             [
                 "bf7a0bf3.97b918"
@@ -5813,8 +5181,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 700,
-        "y": 340,
+        "x": 1230,
+        "y": 280,
         "wires": [
             [
                 "fc134ffc.704fc"
@@ -5829,8 +5197,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 670,
-        "y": 380,
+        "x": 1200,
+        "y": 320,
         "wires": [
             [
                 "e2f14543.4d5038"
@@ -5845,8 +5213,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 680,
-        "y": 420,
+        "x": 1210,
+        "y": 360,
         "wires": [
             [
                 "cbbf01aa.ee49b"
@@ -5861,8 +5229,8 @@
         "links": [
             "c9870bc1.c93068"
         ],
-        "x": 945,
-        "y": 140,
+        "x": 1475,
+        "y": 80,
         "wires": [],
         "l": true
     },
@@ -5875,8 +5243,8 @@
             "45df6490.89002c",
             "67488f6d.d069c"
         ],
-        "x": 920,
-        "y": 180,
+        "x": 1450,
+        "y": 120,
         "wires": [],
         "l": true
     },
@@ -5888,8 +5256,8 @@
         "links": [
             "b08e4f9e.fbeaa"
         ],
-        "x": 920,
-        "y": 220,
+        "x": 1450,
+        "y": 160,
         "wires": [],
         "l": true
     },
@@ -5902,8 +5270,8 @@
             "2174ed5b.381362",
             "be312a61.a9af88"
         ],
-        "x": 920,
-        "y": 260,
+        "x": 1450,
+        "y": 200,
         "wires": [],
         "l": true
     },
@@ -5916,8 +5284,8 @@
             "8602afc5.cc25e",
             "ec40e26a.8617"
         ],
-        "x": 910,
-        "y": 300,
+        "x": 1440,
+        "y": 240,
         "wires": [],
         "l": true
     },
@@ -5931,8 +5299,8 @@
             "3994a4d8.90f70c",
             "2c1f1e8a.5baf12"
         ],
-        "x": 950,
-        "y": 340,
+        "x": 1480,
+        "y": 280,
         "wires": [],
         "l": true
     },
@@ -5945,8 +5313,8 @@
             "ed897460.263798",
             "980cc09c.19ccc"
         ],
-        "x": 920,
-        "y": 380,
+        "x": 1450,
+        "y": 320,
         "wires": [],
         "l": true
     },
@@ -5959,8 +5327,8 @@
             "7c24d994.e32188",
             "b9f6ec31.23ba3"
         ],
-        "x": 930,
-        "y": 420,
+        "x": 1460,
+        "y": 360,
         "wires": [],
         "l": true
     },
@@ -5973,7 +5341,7 @@
             "2f1b7109.df1aee"
         ],
         "x": 130,
-        "y": 700,
+        "y": 620,
         "wires": [
             [
                 "e7f7fb99.7222e8"
@@ -5989,8 +5357,8 @@
         "func": "msg.payload = {\"Sensor\": \"Accelerometer\",\n\"Units\": msg.payload.Resources[\"5701\"],\n\"X Value\": msg.payload.Resources[\"5702\"],\n\"Y Value\": msg.payload.Resources[\"5703\"],\n\"Z Value\": msg.payload.Resources[\"5704\"]\n}\nreturn msg;\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 520,
-        "y": 700,
+        "x": 540,
+        "y": 620,
         "wires": [
             [
                 "7af0cc99.8b2a84",
@@ -6004,36 +5372,16 @@
         "type": "file in",
         "z": "226498da.550cc8",
         "name": "",
-        "filename": "102119.txt",
+        "filename": "",
         "format": "lines",
         "chunk": false,
         "sendError": false,
         "encoding": "none",
-        "x": 190,
-        "y": 60,
+        "x": 430,
+        "y": 220,
         "wires": [
             [
-                "9d9d7e49.fd243"
-            ]
-        ]
-    },
-    {
-        "id": "516daa3e.c81a84",
-        "type": "inject",
-        "z": "226498da.550cc8",
-        "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 200,
-        "y": 120,
-        "wires": [
-            [
-                "caec5360.37313"
+                "72089823.281838"
             ]
         ]
     },
@@ -6045,8 +5393,8 @@
         "links": [
             "fb8ec59d.f82818"
         ],
-        "x": 130,
-        "y": 840,
+        "x": 150,
+        "y": 760,
         "wires": [
             [
                 "8ec0ccac.72d77"
@@ -6062,8 +5410,8 @@
         "func": "msg.payload = {\"Sensor\": \"Generic\",\n\"Sensor Value\": msg.payload.Resources[\"5700\"],\n\"Sensor Units\": msg.payload.Resources[\"5701\"],\n\n}\nreturn msg;\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 560,
-        "y": 840,
+        "x": 580,
+        "y": 760,
         "wires": [
             [
                 "623d2e28.dde11"
@@ -6107,8 +5455,8 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 1130,
-        "y": 660,
+        "x": 1150,
+        "y": 580,
         "wires": [
             []
         ]
@@ -6132,8 +5480,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 760,
-        "y": 660,
+        "x": 780,
+        "y": 580,
         "wires": [
             [
                 "b993cdf1.9cdb7"
@@ -6159,8 +5507,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 760,
-        "y": 700,
+        "x": 780,
+        "y": 620,
         "wires": [
             [
                 "89902347.397c9"
@@ -6186,8 +5534,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 760,
-        "y": 740,
+        "x": 780,
+        "y": 660,
         "wires": [
             [
                 "e5b1bcda.52ee7"
@@ -6213,8 +5561,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 310,
-        "y": 700,
+        "x": 330,
+        "y": 620,
         "wires": [
             [
                 "faf22fb1.49e83"
@@ -6229,38 +5577,11 @@
         "func": "let axData = (flow.get(\"axData\") === undefined) ? [] : flow.get(\"axData\")\naxData.push({\"x\": msg.timestamp, \"y\": msg.payload})\naxData.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"X\"],\n  \"data\": [axData],\n  \"labels\": []\n}];\nflow.set(\"axData\", axData)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 930,
-        "y": 660,
+        "x": 950,
+        "y": 580,
         "wires": [
             [
                 "49739ba5.f73c94"
-            ]
-        ]
-    },
-    {
-        "id": "76a12a63.739894",
-        "type": "ui_button",
-        "z": "226498da.550cc8",
-        "name": "Stop",
-        "group": "ffd445ba.5e9498",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "button",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "",
-        "x": 90,
-        "y": 180,
-        "wires": [
-            [
-                "e7ecef5d.01744",
-                "b35d5aca.5c1b98"
             ]
         ]
     },
@@ -6279,8 +5600,8 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 420,
-        "y": 180,
+        "x": 800,
+        "y": 280,
         "wires": [
             [
                 "f5ca7928.744628"
@@ -6306,8 +5627,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 240,
-        "y": 200,
+        "x": 580,
+        "y": 280,
         "wires": [
             [
                 "5ed86961.2511a8"
@@ -6322,8 +5643,8 @@
         "func": "let ayData = (flow.get(\"ayData\") === undefined) ? [] : flow.get(\"ayData\")\nayData.push({\"x\": msg.timestamp, \"y\": msg.payload})\nayData.sort((a, b) => parseFloat(a.y) - parseFloat(b.y));\n\nmsg.payload = [{\n  \"series\": [\"y\"],\n  \"data\": [ayData],\n  \"labels\": []\n}];\nflow.set(\"ayData\", ayData)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 930,
-        "y": 700,
+        "x": 950,
+        "y": 620,
         "wires": [
             [
                 "c9e90e6f.b3dd5"
@@ -6338,8 +5659,8 @@
         "func": "let azData = (flow.get(\"azData\") === undefined) ? [] : flow.get(\"azData\")\nazData.push({\"x\": msg.timestamp, \"y\": msg.payload})\nazData.sort((a, b) => parseFloat(a.z) - parseFloat(b.z));\n\nmsg.payload = [{\n  \"series\": [\"z\"],\n  \"data\": [azData],\n  \"labels\": []\n}];\nflow.set(\"azData\", azData)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 930,
-        "y": 740,
+        "x": 950,
+        "y": 660,
         "wires": [
             [
                 "caeae0c1.28943"
@@ -6383,8 +5704,8 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 1120,
-        "y": 700,
+        "x": 1140,
+        "y": 620,
         "wires": [
             []
         ]
@@ -6426,22 +5747,8 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 1120,
-        "y": 740,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b35d5aca.5c1b98",
-        "type": "function",
-        "z": "226498da.550cc8",
-        "name": "Reset Data",
-        "func": "flow.set(\"axData\", [])\nflow.set(\"ayData\", [])\nflow.set(\"azData\", [])\nflow.set(\"genData\", [])\nflow.set(\"latitude\", [])\nflow.set(\"longitude\", [])\nflow.set(\"altitude\", [])\nflow.set(\"unknown1\", [])\nflow.set(\"u3305\", [])\nflow.set(\"u3341\", [])\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 230,
-        "y": 260,
+        "x": 1140,
+        "y": 660,
         "wires": [
             []
         ]
@@ -6454,8 +5761,8 @@
         "links": [
             "1a6c755e.5f7ceb"
         ],
-        "x": 180,
-        "y": 1560,
+        "x": 220,
+        "y": 1360,
         "wires": [
             [
                 "5e83e965.bc5548"
@@ -6471,8 +5778,8 @@
         "links": [
             "bd5f74b9.be09e8"
         ],
-        "x": 720,
-        "y": 1540,
+        "x": 760,
+        "y": 1340,
         "wires": [
             [
                 "abf3689.dd03998"
@@ -6488,8 +5795,8 @@
         "links": [
             "bf7a0bf3.97b918"
         ],
-        "x": 150,
-        "y": 1700,
+        "x": 190,
+        "y": 1500,
         "wires": [
             [
                 "f56f0ba9.350098"
@@ -6505,8 +5812,8 @@
         "links": [
             "e2f14543.4d5038"
         ],
-        "x": 160,
-        "y": 1820,
+        "x": 200,
+        "y": 1620,
         "wires": [
             [
                 "a87d35ca.216b08"
@@ -6522,8 +5829,8 @@
         "links": [
             "cbbf01aa.ee49b"
         ],
-        "x": 710,
-        "y": 1840,
+        "x": 750,
+        "y": 1640,
         "wires": [
             [
                 "e6b1c577.60f998"
@@ -6541,8 +5848,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 310,
-        "y": 1640,
+        "x": 350,
+        "y": 1440,
         "wires": []
     },
     {
@@ -6555,8 +5862,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 290,
-        "y": 1780,
+        "x": 330,
+        "y": 1580,
         "wires": []
     },
     {
@@ -6569,8 +5876,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 830,
-        "y": 1800,
+        "x": 870,
+        "y": 1600,
         "wires": []
     },
     {
@@ -6583,8 +5890,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 890,
-        "y": 1500,
+        "x": 930,
+        "y": 1300,
         "wires": []
     },
     {
@@ -6597,8 +5904,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 310,
-        "y": 1500,
+        "x": 350,
+        "y": 1300,
         "wires": []
     },
     {
@@ -6620,8 +5927,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 330,
-        "y": 840,
+        "x": 350,
+        "y": 760,
         "wires": [
             [
                 "ee41cf97.681a7"
@@ -6647,8 +5954,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 760,
-        "y": 840,
+        "x": 780,
+        "y": 760,
         "wires": [
             [
                 "f35e706b.1d85c"
@@ -6663,8 +5970,8 @@
         "func": "let genData = (flow.get(\"genData\") === undefined) ? [] : flow.get(\"genData\")\ngenData.push({\"x\": msg.timestamp, \"y\": msg.payload})\ngenData.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"x\"],\n  \"data\": [genData],\n  \"labels\": []\n}];\nflow.set(\"genData\", genData)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 930,
-        "y": 840,
+        "x": 950,
+        "y": 760,
         "wires": [
             [
                 "1ea49d29.581003"
@@ -6708,8 +6015,8 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 1060,
-        "y": 840,
+        "x": 1080,
+        "y": 760,
         "wires": [
             []
         ]
@@ -6722,8 +6029,8 @@
         "links": [
             "fc134ffc.704fc"
         ],
-        "x": 140,
-        "y": 960,
+        "x": 160,
+        "y": 880,
         "wires": [
             [
                 "4993deb0.c06b2"
@@ -6739,8 +6046,8 @@
         "func": "msg.payload = {\"Sensor\": \"Positioning\",\n\"Latitude\": msg.payload.Resources[\"5513\"],\n\"Longitude\": msg.payload.Resources[\"5514\"],\n\"Altitude\": msg.payload.Resources[\"5515\"],\n\"Timestamp\": msg.payload.Resources[\"5518\"]\n}\nreturn msg;\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 560,
-        "y": 960,
+        "x": 580,
+        "y": 880,
         "wires": [
             [
                 "35d4cae8.8207e6",
@@ -6768,8 +6075,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 350,
-        "y": 960,
+        "x": 370,
+        "y": 880,
         "wires": [
             [
                 "27187ae4.ad57b6"
@@ -6795,8 +6102,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 760,
-        "y": 960,
+        "x": 780,
+        "y": 880,
         "wires": [
             [
                 "6965b15a.4a83e"
@@ -6811,8 +6118,8 @@
         "func": "let longitude = (flow.get(\"longitude\") === undefined) ? [] : flow.get(\"longitude\")\nlongitude.push({\"x\": msg.timestamp, \"y\": msg.payload})\nlongitude.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"x\"],\n  \"data\": [longitude],\n  \"labels\": []\n}];\nflow.set(\"longitude\", longitude)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 930,
-        "y": 960,
+        "x": 950,
+        "y": 880,
         "wires": [
             [
                 "4cc9a5ac.3ca24c"
@@ -6856,8 +6163,8 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 1060,
-        "y": 960,
+        "x": 1080,
+        "y": 880,
         "wires": [
             []
         ]
@@ -6881,8 +6188,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 760,
-        "y": 920,
+        "x": 780,
+        "y": 840,
         "wires": [
             [
                 "7fa6e2fa.7c585c"
@@ -6897,8 +6204,8 @@
         "func": "let latitude = (flow.get(\"latitude\") === undefined) ? [] : flow.get(\"latitude\")\nlatitude.push({\"x\": msg.timestamp, \"y\": msg.payload})\nlatitude.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"x\"],\n  \"data\": [latitude],\n  \"labels\": []\n}];\nflow.set(\"latitude\", latitude)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 930,
-        "y": 920,
+        "x": 950,
+        "y": 840,
         "wires": [
             [
                 "2dceae29.879492"
@@ -6924,8 +6231,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 760,
-        "y": 1000,
+        "x": 780,
+        "y": 920,
         "wires": [
             [
                 "fc987dc2.7a49c"
@@ -6940,8 +6247,8 @@
         "func": "let altitude = (flow.get(\"altitude\") === undefined) ? [] : flow.get(\"altitude\")\naltitude.push({\"x\": msg.timestamp, \"y\": msg.payload})\naltitude.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"x\"],\n  \"data\": [altitude],\n  \"labels\": []\n}];\nflow.set(\"altitude\", altitude)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 930,
-        "y": 1000,
+        "x": 950,
+        "y": 920,
         "wires": [
             [
                 "7d0e912c.1b5d2"
@@ -6985,8 +6292,8 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 1060,
-        "y": 920,
+        "x": 1080,
+        "y": 840,
         "wires": [
             []
         ]
@@ -7028,8 +6335,8 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 1060,
-        "y": 1000,
+        "x": 1080,
+        "y": 920,
         "wires": [
             []
         ]
@@ -7042,8 +6349,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 670,
-        "y": 460,
+        "x": 1200,
+        "y": 400,
         "wires": [
             [
                 "14fd6c08.2b25a4"
@@ -7058,8 +6365,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 670,
-        "y": 500,
+        "x": 1200,
+        "y": 440,
         "wires": [
             [
                 "4e2e9c9b.f7a854"
@@ -7074,8 +6381,8 @@
         "links": [
             "3b5c20e1.f4dc6"
         ],
-        "x": 910,
-        "y": 460,
+        "x": 1440,
+        "y": 400,
         "wires": [],
         "l": true
     },
@@ -7087,8 +6394,8 @@
         "links": [
             "aef555fe.e22458"
         ],
-        "x": 910,
-        "y": 500,
+        "x": 1440,
+        "y": 440,
         "wires": [],
         "l": true
     },
@@ -7100,8 +6407,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 670,
-        "y": 540,
+        "x": 1200,
+        "y": 480,
         "wires": [
             [
                 "8ab4e96b.9ac4e8"
@@ -7116,8 +6423,8 @@
         "links": [
             "9662c0ec.3166d"
         ],
-        "x": 910,
-        "y": 540,
+        "x": 1440,
+        "y": 480,
         "wires": [],
         "l": true
     },
@@ -7129,8 +6436,8 @@
         "func": "console.log(\"Unknown Sensor\" + msg.payload)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 680,
-        "y": 580,
+        "x": 1210,
+        "y": 520,
         "wires": [
             []
         ]
@@ -7143,8 +6450,8 @@
         "links": [
             "4e2e9c9b.f7a854"
         ],
-        "x": 150,
-        "y": 1100,
+        "x": 170,
+        "y": 1020,
         "wires": [
             [
                 "50e04d6d.ae7ec4"
@@ -7160,8 +6467,8 @@
         "func": "msg.payload = {\"Sensor\": \"3316\",\n\"Sensor Value\": msg.payload.Resources[\"5700\"],\n\"Sensor Units\": msg.payload.Resources[\"5701\"],\n\n}\nreturn msg;\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 580,
-        "y": 1100,
+        "x": 600,
+        "y": 1020,
         "wires": [
             [
                 "8d805f1d.a67e5"
@@ -7187,8 +6494,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 350,
-        "y": 1100,
+        "x": 370,
+        "y": 1020,
         "wires": [
             [
                 "53f9ecb2.4e1634"
@@ -7214,8 +6521,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 780,
-        "y": 1100,
+        "x": 800,
+        "y": 1020,
         "wires": [
             [
                 "64b71f74.4a1"
@@ -7230,8 +6537,8 @@
         "func": "let unknown1 = (flow.get(\"unknown1\") === undefined) ? [] : flow.get(\"unknown1\")\nunknown1.push({\"x\": msg.timestamp, \"y\": msg.payload})\nunknown1.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"x\"],\n  \"data\": [unknown1],\n  \"labels\": []\n}];\nflow.set(\"unknown1\", unknown1)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 1100,
+        "x": 970,
+        "y": 1020,
         "wires": [
             [
                 "8994f0c1.bdf36"
@@ -7275,8 +6582,8 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 1070,
-        "y": 1100,
+        "x": 1090,
+        "y": 1020,
         "wires": [
             []
         ]
@@ -7289,8 +6596,8 @@
         "links": [
             "14fd6c08.2b25a4"
         ],
-        "x": 150,
-        "y": 1180,
+        "x": 170,
+        "y": 1100,
         "wires": [
             [
                 "2c628adb.803416"
@@ -7306,8 +6613,8 @@
         "func": "msg.payload = {\"Sensor\": \"3305\",\n\"Sensor Value\": msg.payload.Resources[\"5800\"],\n\"Sensor Units\": msg.payload.Resources[\"5801\"],\n\n}\nreturn msg;\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 580,
-        "y": 1180,
+        "x": 600,
+        "y": 1100,
         "wires": [
             [
                 "f31d194a.3bd5c8"
@@ -7333,8 +6640,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 350,
-        "y": 1180,
+        "x": 370,
+        "y": 1100,
         "wires": [
             [
                 "7a68c1e8.ec6fc"
@@ -7360,8 +6667,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 780,
-        "y": 1180,
+        "x": 800,
+        "y": 1100,
         "wires": [
             [
                 "2583a9f6.d32816"
@@ -7376,8 +6683,8 @@
         "func": "let u3305 = (flow.get(\"u3305\") === undefined) ? [] : flow.get(\"u3305\")\nu3305.push({\"x\": msg.timestamp, \"y\": msg.payload})\nu3305.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"x\"],\n  \"data\": [u3305],\n  \"labels\": []\n}];\nflow.set(\"u3305\", u3305)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 1180,
+        "x": 970,
+        "y": 1100,
         "wires": [
             [
                 "c602fc21.724cb"
@@ -7421,8 +6728,8 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 1070,
-        "y": 1180,
+        "x": 1090,
+        "y": 1100,
         "wires": [
             []
         ]
@@ -7435,8 +6742,8 @@
         "links": [
             "8ab4e96b.9ac4e8"
         ],
-        "x": 150,
-        "y": 1240,
+        "x": 170,
+        "y": 1160,
         "wires": [
             [
                 "f28b8066.b4a57"
@@ -7452,8 +6759,8 @@
         "func": "msg.payload = {\"Sensor\": \"3341\",\n\"?\": msg.payload.Resources[\"5527\"],\n}\nreturn msg;\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 580,
-        "y": 1240,
+        "x": 600,
+        "y": 1160,
         "wires": [
             [
                 "30939d2c.155c22"
@@ -7479,12 +6786,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 350,
-        "y": 1240,
+        "x": 370,
+        "y": 1160,
         "wires": [
             [
-                "57bab810.5d9ee8",
-                "29c2dc8d.c3dc24"
+                "57bab810.5d9ee8"
             ]
         ]
     },
@@ -7507,8 +6813,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 780,
-        "y": 1240,
+        "x": 800,
+        "y": 1160,
         "wires": [
             [
                 "47e8730c.98360c"
@@ -7523,8 +6829,8 @@
         "func": "let u3341 = (flow.get(\"u3341\") === undefined) ? [] : flow.get(\"u3341\")\nu3341.push({\"x\": msg.timestamp, \"y\": msg.payload})\nu3341.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"x\"],\n  \"data\": [u3341],\n  \"labels\": []\n}];\nflow.set(\"u3341\", u3341)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 1240,
+        "x": 970,
+        "y": 1160,
         "wires": [
             [
                 "47160061.9495d"
@@ -7568,24 +6874,476 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 1070,
-        "y": 1240,
+        "x": 1090,
+        "y": 1160,
         "wires": [
             []
         ]
     },
     {
-        "id": "29c2dc8d.c3dc24",
-        "type": "debug",
+        "id": "61553198.69a35",
+        "type": "mqtt in",
         "z": "226498da.550cc8",
         "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 490,
-        "y": 1300,
-        "wires": []
+        "topic": "#",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "35fc1b37.d7e0b4",
+        "x": 430,
+        "y": 160,
+        "wires": [
+            [
+                "84ea0a8c.4914d8"
+            ]
+        ]
+    },
+    {
+        "id": "72089823.281838",
+        "type": "switch",
+        "z": "226498da.550cc8",
+        "name": "",
+        "property": "mqtt",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 550,
+        "y": 220,
+        "wires": [
+            [
+                "9d9d7e49.fd243"
+            ]
+        ]
+    },
+    {
+        "id": "84ea0a8c.4914d8",
+        "type": "switch",
+        "z": "226498da.550cc8",
+        "name": "",
+        "property": "mqtt",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 550,
+        "y": 160,
+        "wires": [
+            [
+                "9d9d7e49.fd243"
+            ]
+        ]
+    },
+    {
+        "id": "6f7b35b1.ace48c",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "Reset Data",
+        "func": "flow.set(\"axData\", [])\nflow.set(\"ayData\", [])\nflow.set(\"azData\", [])\nflow.set(\"genData\", [])\nflow.set(\"latitude\", [])\nflow.set(\"longitude\", [])\nflow.set(\"altitude\", [])\nflow.set(\"unknown1\", [])\nflow.set(\"u3305\", [])\nflow.set(\"u3341\", [])\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 390,
+        "y": 280,
+        "wires": [
+            [
+                "e7ecef5d.01744"
+            ]
+        ]
+    },
+    {
+        "id": "a8c1b2ff.2f791",
+        "type": "ui_button",
+        "z": "226498da.550cc8",
+        "name": "Reset",
+        "group": "ffd445ba.5e9498",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reset",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "",
+        "x": 130,
+        "y": 40,
+        "wires": [
+            [
+                "2073ed5c.994f72"
+            ]
+        ]
+    },
+    {
+        "id": "241920c6.73aac",
+        "type": "ui_switch",
+        "z": "226498da.550cc8",
+        "name": "",
+        "label": "Pause",
+        "tooltip": "",
+        "group": "ffd445ba.5e9498",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 230,
+        "y": 300,
+        "wires": [
+            [
+                "6f7b35b1.ace48c",
+                "dfbf92d8.93e69"
+            ]
+        ]
+    },
+    {
+        "id": "dfbf92d8.93e69",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "isPaused",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2a92e871.6f0678",
+        "type": "switch",
+        "z": "226498da.550cc8",
+        "name": "",
+        "property": "isPaused",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 810,
+        "y": 200,
+        "wires": [
+            [
+                "5ed86961.2511a8"
+            ]
+        ]
+    },
+    {
+        "id": "2073ed5c.994f72",
+        "type": "link out",
+        "z": "226498da.550cc8",
+        "name": "Reset",
+        "links": [
+            "aa986a02.f6b828",
+            "75cb8f0a.5d02e",
+            "a99f4f1.fac8cb",
+            "c9c3093b.029c88",
+            "7d9a521.44657ac",
+            "f99bca6f.086728"
+        ],
+        "x": 270,
+        "y": 40,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "aa986a02.f6b828",
+        "type": "link in",
+        "z": "226498da.550cc8",
+        "name": "Reset",
+        "links": [
+            "2073ed5c.994f72"
+        ],
+        "x": 990,
+        "y": 540,
+        "wires": [
+            [
+                "49739ba5.f73c94",
+                "c9e90e6f.b3dd5",
+                "caeae0c1.28943"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "75cb8f0a.5d02e",
+        "type": "link in",
+        "z": "226498da.550cc8",
+        "name": "Reset",
+        "links": [
+            "2073ed5c.994f72"
+        ],
+        "x": 950,
+        "y": 720,
+        "wires": [
+            [
+                "1ea49d29.581003"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "a99f4f1.fac8cb",
+        "type": "link in",
+        "z": "226498da.550cc8",
+        "name": "Reset",
+        "links": [
+            "2073ed5c.994f72"
+        ],
+        "x": 950,
+        "y": 800,
+        "wires": [
+            [
+                "2dceae29.879492",
+                "4cc9a5ac.3ca24c",
+                "7d0e912c.1b5d2"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "c9c3093b.029c88",
+        "type": "link in",
+        "z": "226498da.550cc8",
+        "name": "Reset",
+        "links": [
+            "2073ed5c.994f72"
+        ],
+        "x": 970,
+        "y": 980,
+        "wires": [
+            [
+                "8994f0c1.bdf36"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "7d9a521.44657ac",
+        "type": "link in",
+        "z": "226498da.550cc8",
+        "name": "Reset",
+        "links": [
+            "2073ed5c.994f72"
+        ],
+        "x": 970,
+        "y": 1060,
+        "wires": [
+            [
+                "c602fc21.724cb"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "f99bca6f.086728",
+        "type": "link in",
+        "z": "226498da.550cc8",
+        "name": "Reset",
+        "links": [
+            "2073ed5c.994f72"
+        ],
+        "x": 970,
+        "y": 1200,
+        "wires": [
+            [
+                "47160061.9495d"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "e7d51df2.eb41c",
+        "type": "ui_switch",
+        "z": "226498da.550cc8",
+        "name": "",
+        "label": "file / mqtt",
+        "tooltip": "",
+        "group": "ffd445ba.5e9498",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "9d5d1519.798608"
+            ]
+        ]
+    },
+    {
+        "id": "9d5d1519.798608",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "mqtt",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cfd94b11.2c8238",
+        "type": "ui_text_input",
+        "z": "226498da.550cc8",
+        "name": "",
+        "label": "",
+        "tooltip": "filename",
+        "group": "ffd445ba.5e9498",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "",
+        "x": 520,
+        "y": 100,
+        "wires": [
+            [
+                "bbe6d8fc.5e87d8"
+            ]
+        ]
+    },
+    {
+        "id": "3c709d6f.169b72",
+        "type": "ui_button",
+        "z": "226498da.550cc8",
+        "name": "",
+        "group": "ffd445ba.5e9498",
+        "order": 3,
+        "width": "1",
+        "height": "1",
+        "passthru": false,
+        "label": "ok",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "filename",
+        "payloadType": "flow",
+        "topic": "",
+        "x": 110,
+        "y": 220,
+        "wires": [
+            [
+                "e25febb1.32f0b8"
+            ]
+        ]
+    },
+    {
+        "id": "bbe6d8fc.5e87d8",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e25febb1.32f0b8",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "filename",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 270,
+        "y": 220,
+        "wires": [
+            [
+                "caec5360.37313"
+            ]
+        ]
     }
 ]

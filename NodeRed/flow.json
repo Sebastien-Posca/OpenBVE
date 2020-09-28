@@ -30,7 +30,14 @@
     {
         "id": "65e07ef4.3e9d5",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Deserialize MQTT",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "226498da.550cc8",
+        "type": "tab",
+        "label": "Deserialize File",
         "disabled": false,
         "info": ""
     },
@@ -74,7 +81,7 @@
                     "edited": false
                 },
                 "page-sidebar-backgroundColor": {
-                    "value": "#000000",
+                    "value": "#333333",
                     "edited": false
                 },
                 "group-textColor": {
@@ -158,7 +165,7 @@
         "id": "b18f6b95.b3cb98",
         "type": "ui_tab",
         "z": "",
-        "name": "Train Dashboard",
+        "name": "Train Infos",
         "icon": "dashboard",
         "order": 1,
         "disabled": false,
@@ -247,6 +254,70 @@
         "name": "Stations",
         "tab": "b18f6b95.b3cb98",
         "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "8353f5b9.1e6d48",
+        "type": "ui_group",
+        "z": "",
+        "name": "Accelerometer",
+        "tab": "aaa1469a.b72008",
+        "order": 7,
+        "disp": true,
+        "width": "6",
+        "collapse": true
+    },
+    {
+        "id": "aaa1469a.b72008",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Indra",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ffd445ba.5e9498",
+        "type": "ui_group",
+        "z": "",
+        "name": "Control",
+        "tab": "aaa1469a.b72008",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "97e87320.fb096",
+        "type": "ui_group",
+        "z": "",
+        "name": "Generic",
+        "tab": "aaa1469a.b72008",
+        "order": 7,
+        "disp": true,
+        "width": "6",
+        "collapse": true
+    },
+    {
+        "id": "ab38f54a.53ffd8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Positionning",
+        "tab": "aaa1469a.b72008",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": true
+    },
+    {
+        "id": "922cfd03.b3777",
+        "type": "ui_group",
+        "z": "",
+        "name": "Others",
+        "tab": "aaa1469a.b72008",
+        "order": 7,
         "disp": true,
         "width": "6",
         "collapse": false
@@ -1725,6 +1796,7 @@
         "removeOlderUnit": "3600",
         "cutout": 0,
         "useOneColor": false,
+        "useUTC": false,
         "colors": [
             "#1f77b4",
             "#aec7e8",
@@ -4905,6 +4977,7 @@
         "id": "fae09d32.1676c",
         "type": "mqtt in",
         "z": "65e07ef4.3e9d5",
+        "d": true,
         "name": "",
         "topic": "#",
         "qos": "2",
@@ -4913,9 +4986,7 @@
         "x": 130,
         "y": 40,
         "wires": [
-            [
-                "b5bc634e.df729"
-            ]
+            []
         ]
     },
     {
@@ -4939,14 +5010,14 @@
         "id": "96e3297c.e579f8",
         "type": "debug",
         "z": "65e07ef4.3e9d5",
-        "name": "",
+        "name": "input",
         "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "sensor",
         "targetType": "msg",
-        "x": 610,
+        "x": 590,
         "y": 40,
         "wires": []
     },
@@ -5434,7 +5505,8 @@
         "y": 540,
         "wires": [
             [
-                "77036580.0390ec"
+                "77036580.0390ec",
+                "524ec525.1b092c"
             ]
         ]
     },
@@ -5492,6 +5564,2028 @@
         "complete": "false",
         "x": 270,
         "y": 660,
+        "wires": []
+    },
+    {
+        "id": "524ec525.1b092c",
+        "type": "file",
+        "z": "65e07ef4.3e9d5",
+        "name": "",
+        "filename": "test.txt",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 600,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9d9d7e49.fd243",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "",
+        "func": "let json = JSON.parse(msg.payload)\nfor (let i of json[\"Nodes\"]){\n    for (let k of i[\"Sensors-Actuators\"]){\n        node.send({\n          payload: k,\n          sensor: k.SensorID\n        });\n    }\n}\nreturn;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 430,
+        "y": 60,
+        "wires": [
+            [
+                "fc623ff6.27ff2",
+                "5ed86961.2511a8"
+            ]
+        ]
+    },
+    {
+        "id": "fc623ff6.27ff2",
+        "type": "debug",
+        "z": "226498da.550cc8",
+        "name": "input",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "sensor",
+        "targetType": "msg",
+        "x": 710,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "f5ca7928.744628",
+        "type": "switch",
+        "z": "226498da.550cc8",
+        "name": "",
+        "property": "sensor",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "3313",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3330",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3300",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3304",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3322",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3336",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3323",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3303",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3305",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "3316",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "3341",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 12,
+        "x": 470,
+        "y": 320,
+        "wires": [
+            [
+                "13003836.3df3c8"
+            ],
+            [
+                "ed089817.984c38"
+            ],
+            [
+                "7a185b08.a6efc4"
+            ],
+            [
+                "70bf8fcf.ed4ef"
+            ],
+            [
+                "8cfa810d.2da68"
+            ],
+            [
+                "20ef47ba.337fa8"
+            ],
+            [
+                "30579552.ba5eba"
+            ],
+            [
+                "9bcbaa85.3ba8b8"
+            ],
+            [
+                "2c6c08.c0d293f8"
+            ],
+            [
+                "17711a23.376cc6"
+            ],
+            [
+                "d6324d19.ecefa"
+            ],
+            [
+                "a7ce63e.7a07ba"
+            ]
+        ]
+    },
+    {
+        "id": "13003836.3df3c8",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "Accelerometer",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 690,
+        "y": 140,
+        "wires": [
+            [
+                "2f1b7109.df1aee"
+            ]
+        ]
+    },
+    {
+        "id": "ed089817.984c38",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "Distance",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 670,
+        "y": 180,
+        "wires": [
+            [
+                "1a6c755e.5f7ceb"
+            ]
+        ]
+    },
+    {
+        "id": "7a185b08.a6efc4",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "Generic",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 670,
+        "y": 220,
+        "wires": [
+            [
+                "fb8ec59d.f82818"
+            ]
+        ]
+    },
+    {
+        "id": "70bf8fcf.ed4ef",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "Humidity",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 670,
+        "y": 260,
+        "wires": [
+            [
+                "bd5f74b9.be09e8"
+            ]
+        ]
+    },
+    {
+        "id": "8cfa810d.2da68",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "Load",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 660,
+        "y": 300,
+        "wires": [
+            [
+                "bf7a0bf3.97b918"
+            ]
+        ]
+    },
+    {
+        "id": "20ef47ba.337fa8",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "Positioning (GPS)",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 700,
+        "y": 340,
+        "wires": [
+            [
+                "fc134ffc.704fc"
+            ]
+        ]
+    },
+    {
+        "id": "30579552.ba5eba",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "Pressure",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 670,
+        "y": 380,
+        "wires": [
+            [
+                "e2f14543.4d5038"
+            ]
+        ]
+    },
+    {
+        "id": "9bcbaa85.3ba8b8",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "Temperature",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 680,
+        "y": 420,
+        "wires": [
+            [
+                "cbbf01aa.ee49b"
+            ]
+        ]
+    },
+    {
+        "id": "2f1b7109.df1aee",
+        "type": "link out",
+        "z": "226498da.550cc8",
+        "name": "Accelerometer",
+        "links": [
+            "c9870bc1.c93068"
+        ],
+        "x": 945,
+        "y": 140,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "1a6c755e.5f7ceb",
+        "type": "link out",
+        "z": "226498da.550cc8",
+        "name": "Distance",
+        "links": [
+            "45df6490.89002c",
+            "67488f6d.d069c"
+        ],
+        "x": 920,
+        "y": 180,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "fb8ec59d.f82818",
+        "type": "link out",
+        "z": "226498da.550cc8",
+        "name": "Generic",
+        "links": [
+            "b08e4f9e.fbeaa"
+        ],
+        "x": 920,
+        "y": 220,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "bd5f74b9.be09e8",
+        "type": "link out",
+        "z": "226498da.550cc8",
+        "name": "Humidity",
+        "links": [
+            "2174ed5b.381362",
+            "be312a61.a9af88"
+        ],
+        "x": 920,
+        "y": 260,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "bf7a0bf3.97b918",
+        "type": "link out",
+        "z": "226498da.550cc8",
+        "name": "Load",
+        "links": [
+            "8602afc5.cc25e",
+            "ec40e26a.8617"
+        ],
+        "x": 910,
+        "y": 300,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "fc134ffc.704fc",
+        "type": "link out",
+        "z": "226498da.550cc8",
+        "name": "Positioning (GPS)",
+        "links": [
+            "5b8255fa.8d079c",
+            "3994a4d8.90f70c",
+            "2c1f1e8a.5baf12"
+        ],
+        "x": 950,
+        "y": 340,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "e2f14543.4d5038",
+        "type": "link out",
+        "z": "226498da.550cc8",
+        "name": "Pressure",
+        "links": [
+            "ed897460.263798",
+            "980cc09c.19ccc"
+        ],
+        "x": 920,
+        "y": 380,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "cbbf01aa.ee49b",
+        "type": "link out",
+        "z": "226498da.550cc8",
+        "name": "Temperature",
+        "links": [
+            "7c24d994.e32188",
+            "b9f6ec31.23ba3"
+        ],
+        "x": 930,
+        "y": 420,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "c9870bc1.c93068",
+        "type": "link in",
+        "z": "226498da.550cc8",
+        "name": "Accelerometer",
+        "links": [
+            "2f1b7109.df1aee"
+        ],
+        "x": 130,
+        "y": 700,
+        "wires": [
+            [
+                "e7f7fb99.7222e8"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "faf22fb1.49e83",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "deserialize Acc",
+        "func": "msg.payload = {\"Sensor\": \"Accelerometer\",\n\"Units\": msg.payload.Resources[\"5701\"],\n\"X Value\": msg.payload.Resources[\"5702\"],\n\"Y Value\": msg.payload.Resources[\"5703\"],\n\"Z Value\": msg.payload.Resources[\"5704\"]\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 520,
+        "y": 700,
+        "wires": [
+            [
+                "7af0cc99.8b2a84",
+                "bc85fceb.5853d",
+                "e895945d.d8f8d8"
+            ]
+        ]
+    },
+    {
+        "id": "caec5360.37313",
+        "type": "file in",
+        "z": "226498da.550cc8",
+        "name": "",
+        "filename": "102119.txt",
+        "format": "lines",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 190,
+        "y": 60,
+        "wires": [
+            [
+                "9d9d7e49.fd243"
+            ]
+        ]
+    },
+    {
+        "id": "516daa3e.c81a84",
+        "type": "inject",
+        "z": "226498da.550cc8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 200,
+        "y": 120,
+        "wires": [
+            [
+                "caec5360.37313"
+            ]
+        ]
+    },
+    {
+        "id": "b08e4f9e.fbeaa",
+        "type": "link in",
+        "z": "226498da.550cc8",
+        "name": "Generic",
+        "links": [
+            "fb8ec59d.f82818"
+        ],
+        "x": 130,
+        "y": 840,
+        "wires": [
+            [
+                "8ec0ccac.72d77"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "ee41cf97.681a7",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "deserialize Gen",
+        "func": "msg.payload = {\"Sensor\": \"Generic\",\n\"Sensor Value\": msg.payload.Resources[\"5700\"],\n\"Sensor Units\": msg.payload.Resources[\"5701\"],\n\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 840,
+        "wires": [
+            [
+                "623d2e28.dde11"
+            ]
+        ]
+    },
+    {
+        "id": "49739ba5.f73c94",
+        "type": "ui_chart",
+        "z": "226498da.550cc8",
+        "name": "",
+        "group": "8353f5b9.1e6d48",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Accelerometer X",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "x",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "100000",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#1f77b4",
+            "#d62728",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 1130,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7af0cc99.8b2a84",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[\"X Value\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 660,
+        "wires": [
+            [
+                "b993cdf1.9cdb7"
+            ]
+        ]
+    },
+    {
+        "id": "bc85fceb.5853d",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[\"Y Value\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 700,
+        "wires": [
+            [
+                "89902347.397c9"
+            ]
+        ]
+    },
+    {
+        "id": "e895945d.d8f8d8",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[\"Z Value\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 740,
+        "wires": [
+            [
+                "e5b1bcda.52ee7"
+            ]
+        ]
+    },
+    {
+        "id": "e7f7fb99.7222e8",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timestamp",
+                "pt": "msg",
+                "to": "payload[\"TimeStamp\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 700,
+        "wires": [
+            [
+                "faf22fb1.49e83"
+            ]
+        ]
+    },
+    {
+        "id": "b993cdf1.9cdb7",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "",
+        "func": "let axData = (flow.get(\"axData\") === undefined) ? [] : flow.get(\"axData\")\naxData.push({\"x\": msg.timestamp, \"y\": msg.payload})\naxData.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"X\"],\n  \"data\": [axData],\n  \"labels\": []\n}];\nflow.set(\"axData\", axData)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 930,
+        "y": 660,
+        "wires": [
+            [
+                "49739ba5.f73c94"
+            ]
+        ]
+    },
+    {
+        "id": "76a12a63.739894",
+        "type": "ui_button",
+        "z": "226498da.550cc8",
+        "name": "Stop",
+        "group": "ffd445ba.5e9498",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "button",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 90,
+        "y": 180,
+        "wires": [
+            [
+                "e7ecef5d.01744",
+                "b35d5aca.5c1b98"
+            ]
+        ]
+    },
+    {
+        "id": "5ed86961.2511a8",
+        "type": "delay",
+        "z": "226498da.550cc8",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "10",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 420,
+        "y": 180,
+        "wires": [
+            [
+                "f5ca7928.744628"
+            ]
+        ]
+    },
+    {
+        "id": "e7ecef5d.01744",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "reset",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 240,
+        "y": 200,
+        "wires": [
+            [
+                "5ed86961.2511a8"
+            ]
+        ]
+    },
+    {
+        "id": "89902347.397c9",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "",
+        "func": "let ayData = (flow.get(\"ayData\") === undefined) ? [] : flow.get(\"ayData\")\nayData.push({\"x\": msg.timestamp, \"y\": msg.payload})\nayData.sort((a, b) => parseFloat(a.y) - parseFloat(b.y));\n\nmsg.payload = [{\n  \"series\": [\"y\"],\n  \"data\": [ayData],\n  \"labels\": []\n}];\nflow.set(\"ayData\", ayData)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 930,
+        "y": 700,
+        "wires": [
+            [
+                "c9e90e6f.b3dd5"
+            ]
+        ]
+    },
+    {
+        "id": "e5b1bcda.52ee7",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "",
+        "func": "let azData = (flow.get(\"azData\") === undefined) ? [] : flow.get(\"azData\")\nazData.push({\"x\": msg.timestamp, \"y\": msg.payload})\nazData.sort((a, b) => parseFloat(a.z) - parseFloat(b.z));\n\nmsg.payload = [{\n  \"series\": [\"z\"],\n  \"data\": [azData],\n  \"labels\": []\n}];\nflow.set(\"azData\", azData)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 930,
+        "y": 740,
+        "wires": [
+            [
+                "caeae0c1.28943"
+            ]
+        ]
+    },
+    {
+        "id": "c9e90e6f.b3dd5",
+        "type": "ui_chart",
+        "z": "226498da.550cc8",
+        "name": "",
+        "group": "8353f5b9.1e6d48",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Accelerometer Y",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "x",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "100000",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#1f77b4",
+            "#d62728",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 1120,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "caeae0c1.28943",
+        "type": "ui_chart",
+        "z": "226498da.550cc8",
+        "name": "",
+        "group": "8353f5b9.1e6d48",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Accelerometer Z",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "x",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "100000",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#1f77b4",
+            "#d62728",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 1120,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b35d5aca.5c1b98",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "Reset Data",
+        "func": "flow.set(\"axData\", [])\nflow.set(\"ayData\", [])\nflow.set(\"azData\", [])\nflow.set(\"genData\", [])\nflow.set(\"latitude\", [])\nflow.set(\"longitude\", [])\nflow.set(\"altitude\", [])\nflow.set(\"unknown1\", [])\nflow.set(\"u3305\", [])\nflow.set(\"u3341\", [])\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 230,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "67488f6d.d069c",
+        "type": "link in",
+        "z": "226498da.550cc8",
+        "name": "Distance",
+        "links": [
+            "1a6c755e.5f7ceb"
+        ],
+        "x": 180,
+        "y": 1560,
+        "wires": [
+            [
+                "5e83e965.bc5548"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "be312a61.a9af88",
+        "type": "link in",
+        "z": "226498da.550cc8",
+        "name": "Humidity",
+        "links": [
+            "bd5f74b9.be09e8"
+        ],
+        "x": 720,
+        "y": 1540,
+        "wires": [
+            [
+                "abf3689.dd03998"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "ec40e26a.8617",
+        "type": "link in",
+        "z": "226498da.550cc8",
+        "name": "Load",
+        "links": [
+            "bf7a0bf3.97b918"
+        ],
+        "x": 150,
+        "y": 1700,
+        "wires": [
+            [
+                "f56f0ba9.350098"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "980cc09c.19ccc",
+        "type": "link in",
+        "z": "226498da.550cc8",
+        "name": "Pressure",
+        "links": [
+            "e2f14543.4d5038"
+        ],
+        "x": 160,
+        "y": 1820,
+        "wires": [
+            [
+                "a87d35ca.216b08"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "b9f6ec31.23ba3",
+        "type": "link in",
+        "z": "226498da.550cc8",
+        "name": "Temperature",
+        "links": [
+            "cbbf01aa.ee49b"
+        ],
+        "x": 710,
+        "y": 1840,
+        "wires": [
+            [
+                "e6b1c577.60f998"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "f56f0ba9.350098",
+        "type": "debug",
+        "z": "226498da.550cc8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 310,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "a87d35ca.216b08",
+        "type": "debug",
+        "z": "226498da.550cc8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 290,
+        "y": 1780,
+        "wires": []
+    },
+    {
+        "id": "e6b1c577.60f998",
+        "type": "debug",
+        "z": "226498da.550cc8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 830,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "abf3689.dd03998",
+        "type": "debug",
+        "z": "226498da.550cc8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 890,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "5e83e965.bc5548",
+        "type": "debug",
+        "z": "226498da.550cc8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 310,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "8ec0ccac.72d77",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timestamp",
+                "pt": "msg",
+                "to": "payload[\"TimeStamp\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 840,
+        "wires": [
+            [
+                "ee41cf97.681a7"
+            ]
+        ]
+    },
+    {
+        "id": "623d2e28.dde11",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[\"Sensor Value\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 840,
+        "wires": [
+            [
+                "f35e706b.1d85c"
+            ]
+        ]
+    },
+    {
+        "id": "f35e706b.1d85c",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "",
+        "func": "let genData = (flow.get(\"genData\") === undefined) ? [] : flow.get(\"genData\")\ngenData.push({\"x\": msg.timestamp, \"y\": msg.payload})\ngenData.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"x\"],\n  \"data\": [genData],\n  \"labels\": []\n}];\nflow.set(\"genData\", genData)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 930,
+        "y": 840,
+        "wires": [
+            [
+                "1ea49d29.581003"
+            ]
+        ]
+    },
+    {
+        "id": "1ea49d29.581003",
+        "type": "ui_chart",
+        "z": "226498da.550cc8",
+        "name": "",
+        "group": "97e87320.fb096",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Generic",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "x",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "100000",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#1f77b4",
+            "#d62728",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 1060,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2c1f1e8a.5baf12",
+        "type": "link in",
+        "z": "226498da.550cc8",
+        "name": "Positioning",
+        "links": [
+            "fc134ffc.704fc"
+        ],
+        "x": 140,
+        "y": 960,
+        "wires": [
+            [
+                "4993deb0.c06b2"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "27187ae4.ad57b6",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "deserialize Pos",
+        "func": "msg.payload = {\"Sensor\": \"Positioning\",\n\"Latitude\": msg.payload.Resources[\"5513\"],\n\"Longitude\": msg.payload.Resources[\"5514\"],\n\"Altitude\": msg.payload.Resources[\"5515\"],\n\"Timestamp\": msg.payload.Resources[\"5518\"]\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 960,
+        "wires": [
+            [
+                "35d4cae8.8207e6",
+                "c77572a3.ee18",
+                "6205e0d5.93115"
+            ]
+        ]
+    },
+    {
+        "id": "4993deb0.c06b2",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timestamp",
+                "pt": "msg",
+                "to": "payload[\"TimeStamp\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 960,
+        "wires": [
+            [
+                "27187ae4.ad57b6"
+            ]
+        ]
+    },
+    {
+        "id": "35d4cae8.8207e6",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[\"Longitude\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 960,
+        "wires": [
+            [
+                "6965b15a.4a83e"
+            ]
+        ]
+    },
+    {
+        "id": "6965b15a.4a83e",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "",
+        "func": "let longitude = (flow.get(\"longitude\") === undefined) ? [] : flow.get(\"longitude\")\nlongitude.push({\"x\": msg.timestamp, \"y\": msg.payload})\nlongitude.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"x\"],\n  \"data\": [longitude],\n  \"labels\": []\n}];\nflow.set(\"longitude\", longitude)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 930,
+        "y": 960,
+        "wires": [
+            [
+                "4cc9a5ac.3ca24c"
+            ]
+        ]
+    },
+    {
+        "id": "4cc9a5ac.3ca24c",
+        "type": "ui_chart",
+        "z": "226498da.550cc8",
+        "name": "",
+        "group": "ab38f54a.53ffd8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Longitude",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "x",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "100000",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#1f77b4",
+            "#d62728",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 1060,
+        "y": 960,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c77572a3.ee18",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[\"Latitude\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 920,
+        "wires": [
+            [
+                "7fa6e2fa.7c585c"
+            ]
+        ]
+    },
+    {
+        "id": "7fa6e2fa.7c585c",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "",
+        "func": "let latitude = (flow.get(\"latitude\") === undefined) ? [] : flow.get(\"latitude\")\nlatitude.push({\"x\": msg.timestamp, \"y\": msg.payload})\nlatitude.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"x\"],\n  \"data\": [latitude],\n  \"labels\": []\n}];\nflow.set(\"latitude\", latitude)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 930,
+        "y": 920,
+        "wires": [
+            [
+                "2dceae29.879492"
+            ]
+        ]
+    },
+    {
+        "id": "6205e0d5.93115",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[\"Altitude\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 1000,
+        "wires": [
+            [
+                "fc987dc2.7a49c"
+            ]
+        ]
+    },
+    {
+        "id": "fc987dc2.7a49c",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "",
+        "func": "let altitude = (flow.get(\"altitude\") === undefined) ? [] : flow.get(\"altitude\")\naltitude.push({\"x\": msg.timestamp, \"y\": msg.payload})\naltitude.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"x\"],\n  \"data\": [altitude],\n  \"labels\": []\n}];\nflow.set(\"altitude\", altitude)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 930,
+        "y": 1000,
+        "wires": [
+            [
+                "7d0e912c.1b5d2"
+            ]
+        ]
+    },
+    {
+        "id": "2dceae29.879492",
+        "type": "ui_chart",
+        "z": "226498da.550cc8",
+        "name": "",
+        "group": "ab38f54a.53ffd8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Latitude",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "x",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "100000",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#1f77b4",
+            "#d62728",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 1060,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7d0e912c.1b5d2",
+        "type": "ui_chart",
+        "z": "226498da.550cc8",
+        "name": "",
+        "group": "ab38f54a.53ffd8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Altitude",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "x",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "100000",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#1f77b4",
+            "#d62728",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 1060,
+        "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2c6c08.c0d293f8",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "3305",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 670,
+        "y": 460,
+        "wires": [
+            [
+                "14fd6c08.2b25a4"
+            ]
+        ]
+    },
+    {
+        "id": "17711a23.376cc6",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "3316",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 670,
+        "y": 500,
+        "wires": [
+            [
+                "4e2e9c9b.f7a854"
+            ]
+        ]
+    },
+    {
+        "id": "14fd6c08.2b25a4",
+        "type": "link out",
+        "z": "226498da.550cc8",
+        "name": "3305",
+        "links": [
+            "3b5c20e1.f4dc6"
+        ],
+        "x": 910,
+        "y": 460,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "4e2e9c9b.f7a854",
+        "type": "link out",
+        "z": "226498da.550cc8",
+        "name": "3316",
+        "links": [
+            "aef555fe.e22458"
+        ],
+        "x": 910,
+        "y": 500,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "d6324d19.ecefa",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "3341",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 670,
+        "y": 540,
+        "wires": [
+            [
+                "8ab4e96b.9ac4e8"
+            ]
+        ]
+    },
+    {
+        "id": "8ab4e96b.9ac4e8",
+        "type": "link out",
+        "z": "226498da.550cc8",
+        "name": "3341",
+        "links": [
+            "9662c0ec.3166d"
+        ],
+        "x": 910,
+        "y": 540,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "a7ce63e.7a07ba",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "Unknown",
+        "func": "console.log(\"Unknown Sensor\" + msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 680,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aef555fe.e22458",
+        "type": "link in",
+        "z": "226498da.550cc8",
+        "name": "3316",
+        "links": [
+            "4e2e9c9b.f7a854"
+        ],
+        "x": 150,
+        "y": 1100,
+        "wires": [
+            [
+                "50e04d6d.ae7ec4"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "53f9ecb2.4e1634",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "deserialize 3316",
+        "func": "msg.payload = {\"Sensor\": \"3316\",\n\"Sensor Value\": msg.payload.Resources[\"5700\"],\n\"Sensor Units\": msg.payload.Resources[\"5701\"],\n\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 580,
+        "y": 1100,
+        "wires": [
+            [
+                "8d805f1d.a67e5"
+            ]
+        ]
+    },
+    {
+        "id": "50e04d6d.ae7ec4",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timestamp",
+                "pt": "msg",
+                "to": "payload[\"TimeStamp\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 1100,
+        "wires": [
+            [
+                "53f9ecb2.4e1634"
+            ]
+        ]
+    },
+    {
+        "id": "8d805f1d.a67e5",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[\"Sensor Value\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 1100,
+        "wires": [
+            [
+                "64b71f74.4a1"
+            ]
+        ]
+    },
+    {
+        "id": "64b71f74.4a1",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "",
+        "func": "let unknown1 = (flow.get(\"unknown1\") === undefined) ? [] : flow.get(\"unknown1\")\nunknown1.push({\"x\": msg.timestamp, \"y\": msg.payload})\nunknown1.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"x\"],\n  \"data\": [unknown1],\n  \"labels\": []\n}];\nflow.set(\"unknown1\", unknown1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 1100,
+        "wires": [
+            [
+                "8994f0c1.bdf36"
+            ]
+        ]
+    },
+    {
+        "id": "8994f0c1.bdf36",
+        "type": "ui_chart",
+        "z": "226498da.550cc8",
+        "name": "",
+        "group": "922cfd03.b3777",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "3316",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "x",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "100000",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#1f77b4",
+            "#d62728",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 1070,
+        "y": 1100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3b5c20e1.f4dc6",
+        "type": "link in",
+        "z": "226498da.550cc8",
+        "name": "3305",
+        "links": [
+            "14fd6c08.2b25a4"
+        ],
+        "x": 150,
+        "y": 1180,
+        "wires": [
+            [
+                "2c628adb.803416"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "7a68c1e8.ec6fc",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "deserialize 3305",
+        "func": "msg.payload = {\"Sensor\": \"3305\",\n\"Sensor Value\": msg.payload.Resources[\"5800\"],\n\"Sensor Units\": msg.payload.Resources[\"5801\"],\n\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 580,
+        "y": 1180,
+        "wires": [
+            [
+                "f31d194a.3bd5c8"
+            ]
+        ]
+    },
+    {
+        "id": "2c628adb.803416",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timestamp",
+                "pt": "msg",
+                "to": "payload[\"TimeStamp\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 1180,
+        "wires": [
+            [
+                "7a68c1e8.ec6fc"
+            ]
+        ]
+    },
+    {
+        "id": "f31d194a.3bd5c8",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[\"Sensor Value\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 1180,
+        "wires": [
+            [
+                "2583a9f6.d32816"
+            ]
+        ]
+    },
+    {
+        "id": "2583a9f6.d32816",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "",
+        "func": "let u3305 = (flow.get(\"u3305\") === undefined) ? [] : flow.get(\"u3305\")\nu3305.push({\"x\": msg.timestamp, \"y\": msg.payload})\nu3305.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"x\"],\n  \"data\": [u3305],\n  \"labels\": []\n}];\nflow.set(\"u3305\", u3305)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 1180,
+        "wires": [
+            [
+                "c602fc21.724cb"
+            ]
+        ]
+    },
+    {
+        "id": "c602fc21.724cb",
+        "type": "ui_chart",
+        "z": "226498da.550cc8",
+        "name": "",
+        "group": "922cfd03.b3777",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "3305",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "x",
+        "interpolate": "step",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "100000",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#1f77b4",
+            "#d62728",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 1070,
+        "y": 1180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9662c0ec.3166d",
+        "type": "link in",
+        "z": "226498da.550cc8",
+        "name": "3341",
+        "links": [
+            "8ab4e96b.9ac4e8"
+        ],
+        "x": 150,
+        "y": 1240,
+        "wires": [
+            [
+                "f28b8066.b4a57"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "57bab810.5d9ee8",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "deserialize 3341",
+        "func": "msg.payload = {\"Sensor\": \"3341\",\n\"?\": msg.payload.Resources[\"5527\"],\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 580,
+        "y": 1240,
+        "wires": [
+            [
+                "30939d2c.155c22"
+            ]
+        ]
+    },
+    {
+        "id": "f28b8066.b4a57",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timestamp",
+                "pt": "msg",
+                "to": "payload[\"TimeStamp\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 1240,
+        "wires": [
+            [
+                "57bab810.5d9ee8",
+                "29c2dc8d.c3dc24"
+            ]
+        ]
+    },
+    {
+        "id": "30939d2c.155c22",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[\"?\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 1240,
+        "wires": [
+            [
+                "47e8730c.98360c"
+            ]
+        ]
+    },
+    {
+        "id": "47e8730c.98360c",
+        "type": "function",
+        "z": "226498da.550cc8",
+        "name": "",
+        "func": "let u3341 = (flow.get(\"u3341\") === undefined) ? [] : flow.get(\"u3341\")\nu3341.push({\"x\": msg.timestamp, \"y\": msg.payload})\nu3341.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"x\"],\n  \"data\": [u3341],\n  \"labels\": []\n}];\nflow.set(\"u3341\", u3341)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 1240,
+        "wires": [
+            [
+                "47160061.9495d"
+            ]
+        ]
+    },
+    {
+        "id": "47160061.9495d",
+        "type": "ui_chart",
+        "z": "226498da.550cc8",
+        "name": "",
+        "group": "922cfd03.b3777",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "3341",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "x",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "100000",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#1f77b4",
+            "#d62728",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 1070,
+        "y": 1240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "29c2dc8d.c3dc24",
+        "type": "debug",
+        "z": "226498da.550cc8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 490,
+        "y": 1300,
         "wires": []
     }
 ]

@@ -113,7 +113,7 @@
             }
         },
         "site": {
-            "name": "Node-RED Dashboard",
+            "name": "Train Simulation",
             "hideToolbar": "false",
             "allowSwipe": "false",
             "lockMenu": "false",
@@ -257,7 +257,7 @@
         "z": "",
         "name": "Accelerometer",
         "tab": "aaa1469a.b72008",
-        "order": 7,
+        "order": 6,
         "disp": true,
         "width": "6",
         "collapse": true
@@ -277,7 +277,7 @@
         "z": "",
         "name": "Control",
         "tab": "aaa1469a.b72008",
-        "order": 2,
+        "order": 4,
         "disp": true,
         "width": "6",
         "collapse": false
@@ -299,7 +299,7 @@
         "z": "",
         "name": "Positionning",
         "tab": "aaa1469a.b72008",
-        "order": 4,
+        "order": 5,
         "disp": true,
         "width": "6",
         "collapse": true
@@ -310,10 +310,84 @@
         "z": "",
         "name": "Others",
         "tab": "aaa1469a.b72008",
-        "order": 7,
+        "order": 8,
         "disp": true,
         "width": "6",
         "collapse": true
+    },
+    {
+        "id": "c3a8a25.dceaf6",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard"
+    },
+    {
+        "id": "a103ac6e.e3412",
+        "type": "ui_group",
+        "z": "",
+        "name": "Choose Topic",
+        "tab": "aaa1469a.b72008",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "2f16ab7b.d34964",
+        "type": "ui_group",
+        "z": "",
+        "name": "Choose File",
+        "tab": "aaa1469a.b72008",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d3bb4473.97bb08",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "30b1ef4d.8ffc7",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "29213d95.2eacf2",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "30b1ef4d.8ffc7",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "67dbd73b.1bcb58",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "30b1ef4d.8ffc7",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "d0bab13c.b03f3",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "30b1ef4d.8ffc7",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "858e2466.58a598",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "30b1ef4d.8ffc7",
+        "order": 8,
+        "width": 1,
+        "height": 1
     },
     {
         "id": "1e74c995.9a7696",
@@ -4974,8 +5048,8 @@
         "func": "let json = JSON.parse(msg.payload)\nfor (let i of json[\"Nodes\"]){\n    for (let k of i[\"Sensors-Actuators\"]){\n        node.send({\n          payload: k,\n          sensor: k.SensorID,\n          topic : i.NodeID\n        });\n    }\n}\nreturn;",
         "outputs": 1,
         "noerr": 0,
-        "x": 670,
-        "y": 200,
+        "x": 650,
+        "y": 320,
         "wires": [
             [
                 "2a92e871.6f0678"
@@ -5052,8 +5126,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 12,
-        "x": 950,
-        "y": 280,
+        "x": 930,
+        "y": 400,
         "wires": [
             [
                 "13003836.3df3c8"
@@ -5101,8 +5175,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1220,
-        "y": 80,
+        "x": 1160,
+        "y": 160,
         "wires": [
             [
                 "2f1b7109.df1aee"
@@ -5117,8 +5191,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1200,
-        "y": 120,
+        "x": 1140,
+        "y": 200,
         "wires": [
             [
                 "1a6c755e.5f7ceb"
@@ -5133,8 +5207,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1200,
-        "y": 160,
+        "x": 1140,
+        "y": 240,
         "wires": [
             [
                 "fb8ec59d.f82818"
@@ -5149,8 +5223,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1200,
-        "y": 200,
+        "x": 1140,
+        "y": 280,
         "wires": [
             [
                 "bd5f74b9.be09e8"
@@ -5165,8 +5239,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1190,
-        "y": 240,
+        "x": 1130,
+        "y": 320,
         "wires": [
             [
                 "bf7a0bf3.97b918"
@@ -5181,8 +5255,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1230,
-        "y": 280,
+        "x": 1170,
+        "y": 360,
         "wires": [
             [
                 "fc134ffc.704fc"
@@ -5197,8 +5271,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1200,
-        "y": 320,
+        "x": 1140,
+        "y": 400,
         "wires": [
             [
                 "e2f14543.4d5038"
@@ -5213,8 +5287,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1210,
-        "y": 360,
+        "x": 1150,
+        "y": 440,
         "wires": [
             [
                 "cbbf01aa.ee49b"
@@ -5229,8 +5303,8 @@
         "links": [
             "c9870bc1.c93068"
         ],
-        "x": 1475,
-        "y": 80,
+        "x": 1415,
+        "y": 160,
         "wires": [],
         "l": true
     },
@@ -5243,8 +5317,8 @@
             "45df6490.89002c",
             "67488f6d.d069c"
         ],
-        "x": 1450,
-        "y": 120,
+        "x": 1390,
+        "y": 200,
         "wires": [],
         "l": true
     },
@@ -5256,8 +5330,8 @@
         "links": [
             "b08e4f9e.fbeaa"
         ],
-        "x": 1450,
-        "y": 160,
+        "x": 1390,
+        "y": 240,
         "wires": [],
         "l": true
     },
@@ -5270,8 +5344,8 @@
             "2174ed5b.381362",
             "be312a61.a9af88"
         ],
-        "x": 1450,
-        "y": 200,
+        "x": 1390,
+        "y": 280,
         "wires": [],
         "l": true
     },
@@ -5284,8 +5358,8 @@
             "8602afc5.cc25e",
             "ec40e26a.8617"
         ],
-        "x": 1440,
-        "y": 240,
+        "x": 1380,
+        "y": 320,
         "wires": [],
         "l": true
     },
@@ -5299,8 +5373,8 @@
             "3994a4d8.90f70c",
             "2c1f1e8a.5baf12"
         ],
-        "x": 1480,
-        "y": 280,
+        "x": 1420,
+        "y": 360,
         "wires": [],
         "l": true
     },
@@ -5313,8 +5387,8 @@
             "ed897460.263798",
             "980cc09c.19ccc"
         ],
-        "x": 1450,
-        "y": 320,
+        "x": 1390,
+        "y": 400,
         "wires": [],
         "l": true
     },
@@ -5327,8 +5401,8 @@
             "7c24d994.e32188",
             "b9f6ec31.23ba3"
         ],
-        "x": 1460,
-        "y": 360,
+        "x": 1400,
+        "y": 440,
         "wires": [],
         "l": true
     },
@@ -5340,8 +5414,8 @@
         "links": [
             "2f1b7109.df1aee"
         ],
-        "x": 130,
-        "y": 620,
+        "x": 150,
+        "y": 720,
         "wires": [
             [
                 "e7f7fb99.7222e8"
@@ -5357,8 +5431,8 @@
         "func": "msg.payload = {\"Sensor\": \"Accelerometer\",\n\"Units\": msg.payload.Resources[\"5701\"],\n\"X Value\": msg.payload.Resources[\"5702\"],\n\"Y Value\": msg.payload.Resources[\"5703\"],\n\"Z Value\": msg.payload.Resources[\"5704\"]\n}\nreturn msg;\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 560,
-        "y": 620,
+        "x": 580,
+        "y": 720,
         "wires": [
             [
                 "7af0cc99.8b2a84",
@@ -5377,8 +5451,8 @@
         "chunk": false,
         "sendError": false,
         "encoding": "none",
-        "x": 430,
-        "y": 220,
+        "x": 410,
+        "y": 340,
         "wires": [
             [
                 "72089823.281838"
@@ -5393,8 +5467,8 @@
         "links": [
             "fb8ec59d.f82818"
         ],
-        "x": 150,
-        "y": 760,
+        "x": 170,
+        "y": 860,
         "wires": [
             [
                 "8ec0ccac.72d77"
@@ -5410,8 +5484,8 @@
         "func": "msg.payload = {\"Sensor\": \"Generic\",\n\"Sensor Value\": msg.payload.Resources[\"5700\"],\n\"Sensor Units\": msg.payload.Resources[\"5701\"],\n\n}\nreturn msg;\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 580,
-        "y": 760,
+        "x": 600,
+        "y": 860,
         "wires": [
             [
                 "623d2e28.dde11"
@@ -5455,8 +5529,8 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 1140,
-        "y": 580,
+        "x": 1160,
+        "y": 680,
         "wires": [
             []
         ]
@@ -5480,8 +5554,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 780,
-        "y": 580,
+        "x": 800,
+        "y": 680,
         "wires": [
             [
                 "b993cdf1.9cdb7"
@@ -5507,8 +5581,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 780,
-        "y": 620,
+        "x": 800,
+        "y": 720,
         "wires": [
             [
                 "89902347.397c9"
@@ -5534,8 +5608,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 780,
-        "y": 660,
+        "x": 800,
+        "y": 760,
         "wires": [
             [
                 "e5b1bcda.52ee7"
@@ -5550,8 +5624,8 @@
         "func": "let axData = (flow.get(\"axData\") === undefined) ? [] : flow.get(\"axData\")\naxData.push({\"x\": msg.timestamp, \"y\": msg.payload})\naxData.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"X\"],\n  \"data\": [axData],\n  \"labels\": []\n}];\nflow.set(\"axData\", axData)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 580,
+        "x": 970,
+        "y": 680,
         "wires": [
             [
                 "49739ba5.f73c94"
@@ -5573,8 +5647,8 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 800,
-        "y": 280,
+        "x": 780,
+        "y": 400,
         "wires": [
             [
                 "f5ca7928.744628"
@@ -5600,8 +5674,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 580,
-        "y": 280,
+        "x": 560,
+        "y": 400,
         "wires": [
             [
                 "5ed86961.2511a8"
@@ -5616,8 +5690,8 @@
         "func": "let ayData = (flow.get(\"ayData\") === undefined) ? [] : flow.get(\"ayData\")\nayData.push({\"x\": msg.timestamp, \"y\": msg.payload})\nayData.sort((a, b) => parseFloat(a.y) - parseFloat(b.y));\n\nmsg.payload = [{\n  \"series\": [\"y\"],\n  \"data\": [ayData],\n  \"labels\": []\n}];\nflow.set(\"ayData\", ayData)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 620,
+        "x": 970,
+        "y": 720,
         "wires": [
             [
                 "c9e90e6f.b3dd5"
@@ -5632,8 +5706,8 @@
         "func": "let azData = (flow.get(\"azData\") === undefined) ? [] : flow.get(\"azData\")\nazData.push({\"x\": msg.timestamp, \"y\": msg.payload})\nazData.sort((a, b) => parseFloat(a.z) - parseFloat(b.z));\n\nmsg.payload = [{\n  \"series\": [\"z\"],\n  \"data\": [azData],\n  \"labels\": []\n}];\nflow.set(\"azData\", azData)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 660,
+        "x": 970,
+        "y": 760,
         "wires": [
             [
                 "caeae0c1.28943"
@@ -5677,8 +5751,8 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 1140,
-        "y": 620,
+        "x": 1160,
+        "y": 720,
         "wires": [
             []
         ]
@@ -5720,8 +5794,8 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 1140,
-        "y": 660,
+        "x": 1160,
+        "y": 760,
         "wires": [
             []
         ]
@@ -5734,8 +5808,8 @@
         "links": [
             "1a6c755e.5f7ceb"
         ],
-        "x": 160,
-        "y": 1240,
+        "x": 180,
+        "y": 1340,
         "wires": [
             [
                 "ee8e99dd.3249b8"
@@ -5751,8 +5825,8 @@
         "links": [
             "bd5f74b9.be09e8"
         ],
-        "x": 780,
-        "y": 1420,
+        "x": 800,
+        "y": 1520,
         "wires": [
             [
                 "abf3689.dd03998"
@@ -5768,8 +5842,8 @@
         "links": [
             "bf7a0bf3.97b918"
         ],
-        "x": 210,
-        "y": 1420,
+        "x": 230,
+        "y": 1520,
         "wires": [
             [
                 "f56f0ba9.350098"
@@ -5785,8 +5859,8 @@
         "links": [
             "e2f14543.4d5038"
         ],
-        "x": 220,
-        "y": 1540,
+        "x": 240,
+        "y": 1640,
         "wires": [
             [
                 "a87d35ca.216b08"
@@ -5802,8 +5876,8 @@
         "links": [
             "cbbf01aa.ee49b"
         ],
-        "x": 770,
-        "y": 1560,
+        "x": 790,
+        "y": 1660,
         "wires": [
             [
                 "e6b1c577.60f998"
@@ -5821,8 +5895,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 370,
-        "y": 1360,
+        "x": 390,
+        "y": 1460,
         "wires": []
     },
     {
@@ -5835,8 +5909,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 350,
-        "y": 1500,
+        "x": 370,
+        "y": 1600,
         "wires": []
     },
     {
@@ -5849,8 +5923,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 890,
-        "y": 1520,
+        "x": 910,
+        "y": 1620,
         "wires": []
     },
     {
@@ -5863,8 +5937,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 950,
-        "y": 1380,
+        "x": 970,
+        "y": 1480,
         "wires": []
     },
     {
@@ -5886,8 +5960,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 350,
-        "y": 760,
+        "x": 370,
+        "y": 860,
         "wires": [
             [
                 "ee41cf97.681a7"
@@ -5913,8 +5987,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 780,
-        "y": 760,
+        "x": 800,
+        "y": 860,
         "wires": [
             [
                 "f35e706b.1d85c"
@@ -5929,8 +6003,8 @@
         "func": "let genData = (flow.get(\"genData\") === undefined) ? [] : flow.get(\"genData\")\ngenData.push({\"x\": msg.timestamp, \"y\": msg.payload})\ngenData.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"x\"],\n  \"data\": [genData],\n  \"labels\": []\n}];\nflow.set(\"genData\", genData)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 760,
+        "x": 970,
+        "y": 860,
         "wires": [
             [
                 "1ea49d29.581003"
@@ -5974,8 +6048,8 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 1120,
-        "y": 760,
+        "x": 1140,
+        "y": 860,
         "wires": [
             []
         ]
@@ -5988,8 +6062,8 @@
         "links": [
             "fc134ffc.704fc"
         ],
-        "x": 160,
-        "y": 880,
+        "x": 180,
+        "y": 980,
         "wires": [
             [
                 "4993deb0.c06b2"
@@ -6005,8 +6079,8 @@
         "func": "msg.payload = {\"Sensor\": \"Positioning\",\n\"Latitude\": msg.payload.Resources[\"5513\"],\n\"Longitude\": msg.payload.Resources[\"5514\"],\n\"Altitude\": msg.payload.Resources[\"5515\"],\n\"Timestamp\": msg.payload.Resources[\"5518\"]\n}\nreturn msg;\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 580,
-        "y": 880,
+        "x": 600,
+        "y": 980,
         "wires": [
             [
                 "35d4cae8.8207e6",
@@ -6034,8 +6108,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 880,
+        "x": 390,
+        "y": 980,
         "wires": [
             [
                 "27187ae4.ad57b6"
@@ -6061,8 +6135,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 780,
-        "y": 880,
+        "x": 800,
+        "y": 980,
         "wires": [
             [
                 "6965b15a.4a83e"
@@ -6077,8 +6151,8 @@
         "func": "let longitude = (flow.get(\"longitude\") === undefined) ? [] : flow.get(\"longitude\")\nlongitude.push({\"x\": msg.timestamp, \"y\": msg.payload})\nlongitude.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"x\"],\n  \"data\": [longitude],\n  \"labels\": []\n}];\nflow.set(\"longitude\", longitude)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 880,
+        "x": 970,
+        "y": 980,
         "wires": [
             [
                 "4cc9a5ac.3ca24c"
@@ -6122,8 +6196,8 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 1120,
-        "y": 880,
+        "x": 1140,
+        "y": 980,
         "wires": [
             []
         ]
@@ -6147,8 +6221,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 780,
-        "y": 840,
+        "x": 800,
+        "y": 940,
         "wires": [
             [
                 "7fa6e2fa.7c585c"
@@ -6163,8 +6237,8 @@
         "func": "let latitude = (flow.get(\"latitude\") === undefined) ? [] : flow.get(\"latitude\")\nlatitude.push({\"x\": msg.timestamp, \"y\": msg.payload})\nlatitude.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"x\"],\n  \"data\": [latitude],\n  \"labels\": []\n}];\nflow.set(\"latitude\", latitude)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 840,
+        "x": 970,
+        "y": 940,
         "wires": [
             [
                 "2dceae29.879492"
@@ -6190,8 +6264,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 780,
-        "y": 920,
+        "x": 800,
+        "y": 1020,
         "wires": [
             [
                 "fc987dc2.7a49c"
@@ -6206,8 +6280,8 @@
         "func": "let altitude = (flow.get(\"altitude\") === undefined) ? [] : flow.get(\"altitude\")\naltitude.push({\"x\": msg.timestamp, \"y\": msg.payload})\naltitude.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"x\"],\n  \"data\": [altitude],\n  \"labels\": []\n}];\nflow.set(\"altitude\", altitude)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 920,
+        "x": 970,
+        "y": 1020,
         "wires": [
             [
                 "7d0e912c.1b5d2"
@@ -6251,8 +6325,8 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 1120,
-        "y": 840,
+        "x": 1140,
+        "y": 940,
         "wires": [
             []
         ]
@@ -6294,8 +6368,8 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 1120,
-        "y": 920,
+        "x": 1140,
+        "y": 1020,
         "wires": [
             []
         ]
@@ -6308,8 +6382,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1200,
-        "y": 400,
+        "x": 1140,
+        "y": 480,
         "wires": [
             [
                 "14fd6c08.2b25a4"
@@ -6324,8 +6398,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1210,
-        "y": 440,
+        "x": 1150,
+        "y": 520,
         "wires": [
             [
                 "4e2e9c9b.f7a854"
@@ -6340,8 +6414,8 @@
         "links": [
             "3b5c20e1.f4dc6"
         ],
-        "x": 1440,
-        "y": 400,
+        "x": 1380,
+        "y": 480,
         "wires": [],
         "l": true
     },
@@ -6353,8 +6427,8 @@
         "links": [
             "aef555fe.e22458"
         ],
-        "x": 1450,
-        "y": 440,
+        "x": 1390,
+        "y": 520,
         "wires": [],
         "l": true
     },
@@ -6366,8 +6440,8 @@
         "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1210,
-        "y": 480,
+        "x": 1150,
+        "y": 560,
         "wires": [
             [
                 "8ab4e96b.9ac4e8"
@@ -6382,8 +6456,8 @@
         "links": [
             "9662c0ec.3166d"
         ],
-        "x": 1450,
-        "y": 480,
+        "x": 1390,
+        "y": 560,
         "wires": [],
         "l": true
     },
@@ -6395,8 +6469,8 @@
         "func": "console.log(\"Unknown Sensor\" + msg.payload)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1210,
-        "y": 520,
+        "x": 1160,
+        "y": 600,
         "wires": [
             []
         ]
@@ -6409,8 +6483,8 @@
         "links": [
             "4e2e9c9b.f7a854"
         ],
-        "x": 170,
-        "y": 1020,
+        "x": 190,
+        "y": 1120,
         "wires": [
             [
                 "50e04d6d.ae7ec4"
@@ -6426,8 +6500,8 @@
         "func": "msg.payload = {\"Sensor\": \"watts\",\n\"Sensor Value\": msg.payload.Resources[\"5700\"],\n\"Sensor Units\": msg.payload.Resources[\"5701\"],\n\n}\nreturn msg;\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 590,
-        "y": 1020,
+        "x": 610,
+        "y": 1120,
         "wires": [
             [
                 "8d805f1d.a67e5"
@@ -6453,8 +6527,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 1020,
+        "x": 390,
+        "y": 1120,
         "wires": [
             [
                 "53f9ecb2.4e1634"
@@ -6480,8 +6554,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 800,
-        "y": 1020,
+        "x": 820,
+        "y": 1120,
         "wires": [
             [
                 "64b71f74.4a1"
@@ -6496,8 +6570,8 @@
         "func": "let watts = (flow.get(\"watts\") === undefined) ? [] : flow.get(\"watts\")\nwatts.push({\"x\": msg.timestamp, \"y\": msg.payload})\nwatts.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"x\"],\n  \"data\": [watts],\n  \"labels\": []\n}];\nflow.set(\"watts\", watts)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 970,
-        "y": 1020,
+        "x": 990,
+        "y": 1120,
         "wires": [
             [
                 "8994f0c1.bdf36"
@@ -6541,8 +6615,8 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 1130,
-        "y": 1020,
+        "x": 1150,
+        "y": 1120,
         "wires": [
             []
         ]
@@ -6555,8 +6629,8 @@
         "links": [
             "14fd6c08.2b25a4"
         ],
-        "x": 170,
-        "y": 1100,
+        "x": 190,
+        "y": 1200,
         "wires": [
             [
                 "2c628adb.803416"
@@ -6572,8 +6646,8 @@
         "func": "msg.payload = {\"Sensor\": \"voltage\",\n\"Sensor Value\": msg.payload.Resources[\"5800\"],\n\"Sensor Units\": msg.payload.Resources[\"5801\"],\n\n}\nreturn msg;\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 590,
-        "y": 1100,
+        "x": 610,
+        "y": 1200,
         "wires": [
             [
                 "f31d194a.3bd5c8"
@@ -6599,8 +6673,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 1100,
+        "x": 390,
+        "y": 1200,
         "wires": [
             [
                 "7a68c1e8.ec6fc"
@@ -6626,8 +6700,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 800,
-        "y": 1100,
+        "x": 820,
+        "y": 1200,
         "wires": [
             [
                 "2583a9f6.d32816"
@@ -6642,8 +6716,8 @@
         "func": "let voltage = (flow.get(\"voltage\") === undefined) ? [] : flow.get(\"voltage\")\nvoltage.push({\"x\": msg.timestamp, \"y\": msg.payload})\nvoltage.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"x\"],\n  \"data\": [voltage],\n  \"labels\": []\n}];\nflow.set(\"voltage\", voltage)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 970,
-        "y": 1100,
+        "x": 990,
+        "y": 1200,
         "wires": [
             [
                 "c602fc21.724cb"
@@ -6687,8 +6761,8 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 1140,
-        "y": 1100,
+        "x": 1160,
+        "y": 1200,
         "wires": [
             []
         ]
@@ -6701,8 +6775,8 @@
         "links": [
             "8ab4e96b.9ac4e8"
         ],
-        "x": 170,
-        "y": 1160,
+        "x": 190,
+        "y": 1260,
         "wires": [
             [
                 "f28b8066.b4a57"
@@ -6718,8 +6792,8 @@
         "func": "msg.payload = {\"Sensor\": \"trainID\",\n\"?\": msg.payload.Resources[\"5527\"],\n}\nreturn msg;\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 590,
-        "y": 1160,
+        "x": 610,
+        "y": 1260,
         "wires": [
             [
                 "30939d2c.155c22"
@@ -6745,8 +6819,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 1160,
+        "x": 390,
+        "y": 1260,
         "wires": [
             [
                 "57bab810.5d9ee8"
@@ -6772,8 +6846,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 800,
-        "y": 1160,
+        "x": 820,
+        "y": 1260,
         "wires": [
             [
                 "47e8730c.98360c"
@@ -6788,8 +6862,8 @@
         "func": "let trainID = (flow.get(\"trainID\") === undefined) ? [] : flow.get(\"trainID\")\ntrainID.push({\"x\": msg.timestamp, \"y\": msg.payload})\ntrainID.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"x\"],\n  \"data\": [trainID],\n  \"labels\": []\n}];\nflow.set(\"trainID\", trainID)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 970,
-        "y": 1160,
+        "x": 990,
+        "y": 1260,
         "wires": [
             [
                 "47160061.9495d"
@@ -6833,8 +6907,8 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 1140,
-        "y": 1160,
+        "x": 1160,
+        "y": 1260,
         "wires": [
             []
         ]
@@ -6848,8 +6922,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "35fc1b37.d7e0b4",
-        "x": 210,
-        "y": 160,
+        "x": 190,
+        "y": 280,
         "wires": [
             [
                 "74096710.c86b28"
@@ -6871,8 +6945,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 550,
-        "y": 220,
+        "x": 530,
+        "y": 340,
         "wires": [
             [
                 "9d9d7e49.fd243"
@@ -6894,8 +6968,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 550,
-        "y": 160,
+        "x": 530,
+        "y": 280,
         "wires": [
             [
                 "9d9d7e49.fd243"
@@ -6910,8 +6984,8 @@
         "func": "flow.set(\"axData\", [])\nflow.set(\"ayData\", [])\nflow.set(\"azData\", [])\nflow.set(\"genData\", [])\nflow.set(\"latitude\", [])\nflow.set(\"longitude\", [])\nflow.set(\"altitude\", [])\nflow.set(\"watts\", [])\nflow.set(\"voltage\", [])\nflow.set(\"trainID\", [])\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 390,
-        "y": 280,
+        "x": 370,
+        "y": 400,
         "wires": [
             [
                 "e7ecef5d.01744"
@@ -6925,8 +6999,8 @@
         "name": "Reset",
         "group": "ffd445ba.5e9498",
         "order": 4,
-        "width": 0,
-        "height": 0,
+        "width": "0",
+        "height": "0",
         "passthru": false,
         "label": "Reset",
         "tooltip": "",
@@ -6967,8 +7041,8 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 230,
-        "y": 300,
+        "x": 210,
+        "y": 420,
         "wires": [
             [
                 "6f7b35b1.ace48c",
@@ -6995,8 +7069,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 410,
-        "y": 320,
+        "x": 390,
+        "y": 440,
         "wires": [
             []
         ]
@@ -7016,8 +7090,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 810,
-        "y": 200,
+        "x": 790,
+        "y": 320,
         "wires": [
             [
                 "5ed86961.2511a8"
@@ -7051,8 +7125,8 @@
         "links": [
             "2073ed5c.994f72"
         ],
-        "x": 990,
-        "y": 540,
+        "x": 1010,
+        "y": 640,
         "wires": [
             [
                 "49739ba5.f73c94",
@@ -7070,8 +7144,8 @@
         "links": [
             "2073ed5c.994f72"
         ],
-        "x": 950,
-        "y": 720,
+        "x": 970,
+        "y": 820,
         "wires": [
             [
                 "1ea49d29.581003"
@@ -7087,8 +7161,8 @@
         "links": [
             "2073ed5c.994f72"
         ],
-        "x": 950,
-        "y": 800,
+        "x": 970,
+        "y": 900,
         "wires": [
             [
                 "2dceae29.879492",
@@ -7106,8 +7180,8 @@
         "links": [
             "2073ed5c.994f72"
         ],
-        "x": 970,
-        "y": 980,
+        "x": 990,
+        "y": 1080,
         "wires": [
             [
                 "8994f0c1.bdf36"
@@ -7123,8 +7197,8 @@
         "links": [
             "2073ed5c.994f72"
         ],
-        "x": 970,
-        "y": 1060,
+        "x": 990,
+        "y": 1160,
         "wires": [
             [
                 "c602fc21.724cb"
@@ -7140,8 +7214,8 @@
         "links": [
             "2073ed5c.994f72"
         ],
-        "x": 970,
-        "y": 1200,
+        "x": 990,
+        "y": 1300,
         "wires": [
             [
                 "47160061.9495d"
@@ -7176,7 +7250,8 @@
         "y": 100,
         "wires": [
             [
-                "9d5d1519.798608"
+                "9d5d1519.798608",
+                "7302f344.1367fc"
             ]
         ]
     },
@@ -7199,8 +7274,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 330,
-        "y": 100,
+        "x": 150,
+        "y": 160,
         "wires": [
             []
         ]
@@ -7209,10 +7284,10 @@
         "id": "cfd94b11.2c8238",
         "type": "ui_text_input",
         "z": "226498da.550cc8",
-        "name": "",
+        "name": "file",
         "label": "Choose File",
         "tooltip": "filename",
-        "group": "ffd445ba.5e9498",
+        "group": "2f16ab7b.d34964",
         "order": 1,
         "width": "3",
         "height": "1",
@@ -7220,8 +7295,8 @@
         "mode": "text",
         "delay": 300,
         "topic": "",
-        "x": 530,
-        "y": 100,
+        "x": 850,
+        "y": 40,
         "wires": [
             [
                 "bbe6d8fc.5e87d8"
@@ -7232,8 +7307,8 @@
         "id": "3c709d6f.169b72",
         "type": "ui_button",
         "z": "226498da.550cc8",
-        "name": "",
-        "group": "ffd445ba.5e9498",
+        "name": "ok",
+        "group": "2f16ab7b.d34964",
         "order": 2,
         "width": "1",
         "height": "1",
@@ -7246,8 +7321,8 @@
         "payload": "filename",
         "payloadType": "flow",
         "topic": "",
-        "x": 110,
-        "y": 220,
+        "x": 90,
+        "y": 340,
         "wires": [
             [
                 "e25febb1.32f0b8"
@@ -7273,8 +7348,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 710,
-        "y": 100,
+        "x": 1050,
+        "y": 40,
         "wires": [
             []
         ]
@@ -7298,8 +7373,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 270,
-        "y": 220,
+        "x": 250,
+        "y": 340,
         "wires": [
             [
                 "caec5360.37313"
@@ -7325,8 +7400,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 330,
-        "y": 620,
+        "x": 350,
+        "y": 720,
         "wires": [
             [
                 "faf22fb1.49e83"
@@ -7337,10 +7412,10 @@
         "id": "886a9ea5.f118c",
         "type": "ui_text_input",
         "z": "226498da.550cc8",
-        "name": "",
+        "name": "topic",
         "label": "Choose Topic",
         "tooltip": "Chosen Topic",
-        "group": "ffd445ba.5e9498",
+        "group": "a103ac6e.e3412",
         "order": 3,
         "width": "3",
         "height": "1",
@@ -7348,7 +7423,7 @@
         "mode": "text",
         "delay": 300,
         "topic": "",
-        "x": 500,
+        "x": 470,
         "y": 40,
         "wires": [
             [
@@ -7389,8 +7464,8 @@
         "func": "let wantedTopic = flow.get(\"topic\")\nif (msg.topic.startsWith(wantedTopic)){\n    return msg;\n}\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 390,
-        "y": 160,
+        "x": 370,
+        "y": 280,
         "wires": [
             [
                 "84ea0a8c.4914d8"
@@ -7405,8 +7480,8 @@
         "func": "msg.payload = {\"Sensor\": \"distance\",\n\"Sensor Value\": msg.payload.Resources[\"5700\"],\n}\nreturn msg;\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 600,
-        "y": 1240,
+        "x": 620,
+        "y": 1340,
         "wires": [
             [
                 "98421a80.ef0548"
@@ -7432,8 +7507,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 1240,
+        "x": 390,
+        "y": 1340,
         "wires": [
             [
                 "368f4cd5.061124"
@@ -7459,8 +7534,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 800,
-        "y": 1240,
+        "x": 820,
+        "y": 1340,
         "wires": [
             [
                 "a2f7b3a8.d31fb"
@@ -7475,8 +7550,8 @@
         "func": "let distance = (flow.get(\"distance\") === undefined) ? [] : flow.get(\"distance\")\ndistance.push({\"x\": msg.timestamp, \"y\": msg.payload})\ndistance.sort((a, b) => parseFloat(a.x) - parseFloat(b.x));\n\nmsg.payload = [{\n  \"series\": [\"x\"],\n  \"data\": [distance],\n  \"labels\": []\n}];\nflow.set(\"distance\", distance)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 970,
-        "y": 1240,
+        "x": 990,
+        "y": 1340,
         "wires": [
             [
                 "7c173c8d.c8fa64"
@@ -7520,8 +7595,8 @@
         ],
         "useOldStyle": false,
         "outputs": 1,
-        "x": 1140,
-        "y": 1240,
+        "x": 1160,
+        "y": 1340,
         "wires": [
             []
         ]
@@ -7534,13 +7609,108 @@
         "links": [
             "2073ed5c.994f72"
         ],
-        "x": 970,
-        "y": 1280,
+        "x": 990,
+        "y": 1380,
         "wires": [
             [
                 "7c173c8d.c8fa64"
             ]
         ],
         "l": true
+    },
+    {
+        "id": "6bbb771d.752498",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"group\":{\"show\":[\"Indra_Choose_File\"],\"hide\":[\"Indra_Choose_Topic\"]}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 140,
+        "wires": [
+            [
+                "6254e4db.f1e6bc"
+            ]
+        ]
+    },
+    {
+        "id": "6254e4db.f1e6bc",
+        "type": "ui_ui_control",
+        "z": "226498da.550cc8",
+        "name": "",
+        "events": "all",
+        "x": 660,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9162f82f.b06148",
+        "type": "change",
+        "z": "226498da.550cc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"group\":{\"hide\":[\"Indra_Choose_File\"],\"show\":[\"Indra_Choose_Topic\"]}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 100,
+        "wires": [
+            [
+                "6254e4db.f1e6bc"
+            ]
+        ]
+    },
+    {
+        "id": "7302f344.1367fc",
+        "type": "switch",
+        "z": "226498da.550cc8",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 310,
+        "y": 120,
+        "wires": [
+            [
+                "9162f82f.b06148"
+            ],
+            [
+                "6bbb771d.752498"
+            ]
+        ]
     }
 ]

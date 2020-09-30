@@ -9,7 +9,7 @@ namespace OpenBve.Mqtt
 {
 	public static class Mqtt
 	{
-		private static MqttClient client = new MqttClient("192.168.0.1");
+		private static MqttClient client = new MqttClient("localhost");
 		private static Boolean isSound1Playing = false;
 		private static Boolean isSound2Playing = false;
 
